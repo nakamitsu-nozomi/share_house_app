@@ -1,6 +1,8 @@
 <h1>投稿詳細</h1>
 <p>物件名 <%= @house.name %></p>
-<p>物件画像 <%= @post.house_image %></p>
+<% if @house.house_image? %>
+  <p><%= image_tag @house.house_image.url %></p>
+<% end %>
 <p>家賃 <%= @house.house_rent %></p>
 <p>共益費 <%= @house.service_fee %></p>
 <p>最寄駅 <%= @house.station %></p>

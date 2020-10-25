@@ -5,7 +5,7 @@
   </div>
   <div>
     <%= form.label :house_image, "物件画像" %>
-    <%= form.file_field :house_image %>
+    <%= form.file_field :house_image,accept: "image/png,image/jpeg,image/gif" %>
   </div>
   <div>
     <%= form.label :house_rent, "家賃" %>
