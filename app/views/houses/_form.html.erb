@@ -1,0 +1,42 @@
+<%= form_with model: @house, local: true do |form| %>
+  <div>
+    <%= form.label :name, "物件名" %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :house_image, "物件画像" %>
+    <%= form.file_field :house_image %>
+  </div>
+  <div>
+    <%= form.label :house_rent, "家賃" %>
+    <%= form.text_field :house_rent %>
+  </div>
+  <div>
+    <%= form.label :service_fee, "共益費" %>
+    <%= form.text_field :service_fee %>
+  </div>
+  <div>
+    <%= form.label :station, "最寄駅" %>
+    <%= form.text_field :station %>
+  </div>
+  <div>
+    <%= form.label :access, "最寄駅までの徒歩距離" %>
+    <%= form.text_field :access %>
+  </div>
+  <div>
+    <%= form.label :house_size, "世帯数" %>
+    <%= form.text_field :house_size %>
+  </div>
+  <div>
+    <%= form.label :convenience, "物件周辺情報" %>
+    <%= form.text_area :convenience %>
+  </div>
+  <div>
+    <%= form.label :content, "その他物件情報" %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div>
+    <%= form.submit button_value,class: "btn btn-block" %>
+  </div>
+<% end %>
