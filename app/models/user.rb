@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   mount_uploader :user_icon, ImageUploader
   validates :experience, inclusion: { in: [true, false] }
-  
+  has_many :houses, dependent: :destroy
 end
