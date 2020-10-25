@@ -1,18 +1,11 @@
 <h1>投稿一覧</h1>
-
-
-
-
-
-
 <% @houses.each do |house| %>
 
-
-  <div class="card border-light mb-3 card-columns card-dec" style="max-width: 80%; border-width:5px 0 0 0;">
+  <%= link_to house, class:"card border-light mb-3 card-columns card-dec Editlink", style:"max-width: 80%; border-width:5px 0 0 0;" do %>
     <div class="card-header"><%= house.name %>/エリア</div>
     <div class="card-body">
       <div class="row">
-     <%= image_tag house.house_image.url,class:"col-3" %>
+        <%= image_tag house.house_image.url,class:"col-3" %>
         <div class="col-9 ">
           <p class="card-text">賃料 <%= house.house_rent %>円</p>
           <p class="card-text">アクセス <%= house.station %>駅 / 徒歩<%= house.access %>分</p>
@@ -21,7 +14,7 @@
         </div>
       </div>
     </div>
-  </div>
+  <% end %>
 <% end %>
 
 
