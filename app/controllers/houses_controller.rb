@@ -1,6 +1,6 @@
 class HousesController < ApplicationController
   def index
-
+    @houses= House.order(id: :asc)
   end
 
   def show
