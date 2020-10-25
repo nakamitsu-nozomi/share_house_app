@@ -20,3 +20,32 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 @import "@fortawesome/fontawesome-free/scss/regular";
 @import "@fortawesome/fontawesome-free/scss/solid";
 @import "@fortawesome/fontawesome-free/scss/brands";
+
+
+// リンク色消す
+.Editlink {
+  text-decoration: none;
+
+  color: #272343;
+
+  &:link {
+    text-decoration: none;
+    color: #272343;
+  }
+
+  &:visited {
+    text-decoration: none;
+    color: #272343;
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: #272343;
+  }
+
+  &:active {
+    text-decoration: none;
+    color: #272343;
+  }
+
+}

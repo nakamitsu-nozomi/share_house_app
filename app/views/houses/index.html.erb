@@ -1,28 +1,19 @@
 <h1>投稿一覧</h1>
-<table>
-  <thead>
-    <tr>
-      <th scope="col">物件名</th>
-      <th scope="col">画像</th>
-      <th scope="col">家賃</th>
-      <th scope="col">最寄駅</th>
-      <th scope="col">最寄駅からの徒歩距離</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @houses.each do |house| %>
-      <tr>
-        <th scope="row"><%= house.name %></th>
-         <% if house.house_image? %>
-          <td><%= image_tag house.house_image.url %></td>
-         <% end %>
-        <td><%= house.house_rent %></td>
-        <td><%= house.station %></td>
-        <td><%= house.access %></td>
-        <td><%= link_to "詳細", house %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @houses.each do |house| %>
+  <%= link_to house, class:"card border-light mb-3 card-columns card-dec Editlink", style:"max-width: 80%; border-width:5px 0 0 0;" do %>
+    <div class="card-header"><%= house.name %>/エリア</div>
+    <div class="card-body">
+      <div class="row">
+        <%= image_tag house.house_image.url,class:"col-3" %>
+        <div class="col-9 ">
+          <p class="card-text">賃料 <%= house.house_rent %>円</p>
+          <p class="card-text">アクセス <%= house.station %>駅 / 徒歩<%= house.access %>分</p>
+          <p class="card-text">☆☆☆☆☆☆</p>
+          <p>最新の口コミ１件</p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
 
 
