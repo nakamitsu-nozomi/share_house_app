@@ -1,6 +1,5 @@
 <h1>投稿一覧</h1>
 <% @houses.each do |house| %>
-
   <%= link_to house, class:"card border-light mb-3 card-columns card-dec Editlink", style:"max-width: 80%; border-width:5px 0 0 0;" do %>
     <div class="card-header"><%= house.name %>/エリア</div>
     <div class="card-body">
