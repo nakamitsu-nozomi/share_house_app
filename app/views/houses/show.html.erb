@@ -13,3 +13,5 @@
 
 
 
+<%= link_to "編集", edit_house_path(@house) %>
+<%= link_to "削除", @house, method: :delete, data: { confirm: "削除しますか?" } %>
