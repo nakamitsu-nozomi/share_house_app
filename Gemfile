@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'carrierwave', '~> 2.0'
 gem 'fog-aws'
+gem 'devise'
 
 
 group :development, :test do
