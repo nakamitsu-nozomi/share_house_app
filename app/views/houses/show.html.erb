@@ -1,2 +1,17 @@
-<h1>Houses#show</h1>
-<p>Find me in app/views/houses/show.html.erb</p>
+<h1>投稿詳細</h1>
+<p>物件名 <%= @house.name %></p>
+<% if @house.house_image? %>
+  <p><%= image_tag @house.house_image.url %></p>
+<% end %>
+<p>家賃 <%= @house.house_rent %></p>
+<p>共益費 <%= @house.service_fee %></p>
+<p>最寄駅 <%= @house.station %></p>
+<p>最寄駅までの徒歩距離 <%= @house.access%>分</p>
+<p>世帯数<%= @house.house_size %></p>
+<p>物件周辺情報 <%= @house.convenience %></p>
+<p>その他情報 <%= @house.content %></p>
+
+
+
+<%= link_to "編集", edit_house_path(@house) %>
+<%= link_to "削除", @house, method: :delete, data: { confirm: "削除しますか?" } %>
