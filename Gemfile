@@ -13,6 +13,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'carrierwave', '~> 2.0'
 gem 'fog-aws'
 gem 'devise'
+gem 'rails-i18n', '~> 6.0'
+gem 'devise-i18n'
+
 
 
 group :development, :test do
