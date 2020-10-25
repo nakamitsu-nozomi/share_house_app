@@ -23,6 +23,9 @@ class HousesController < ApplicationController
   end
 
   def destroy
+   house= House.find(params[:id])
+   house.destroy!
+   redirect_to root_path
   end
 
   private
