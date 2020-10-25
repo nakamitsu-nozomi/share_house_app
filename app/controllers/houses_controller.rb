@@ -13,7 +13,7 @@ class HousesController < ApplicationController
   end
 
   def create
-    house =House.create!(house_params)
+    house =House.create!(name: house_params[:name],house_image: house_params[:house_image],house_rent: house_params[:house_rent],service_fee: house_params[:service_fee],station: house_params[:station],access: house_params[:access],house_size: house_params[:house_size],convenience: house_params[:convenience],content: house_params[:content],user_id: current_user.id)
     redirect_to house
   end
 
@@ -35,6 +35,6 @@ class HousesController < ApplicationController
 
   private
   def house_params
-    params.require(:house).permit(:name,:house_image,:house_rent,:service_fee,:station,:access,:house_size,:convenience,:content)
+    params.require(:house).permit(:name,:house_image,:house_rent,:service_fee,:station,:access,:house_size,:convenience,:content,:user_id)
   end
 end
