@@ -1,3 +1,22 @@
 <h1>マイページ</h1>
 <h3><%= @user.name%>さん</h3>
 <p><%= @user.adress%>在住</p> 
+<%= link_to "アカウント編集", edit_user_registration_path %>
+<p><%= @user.name%>さんの登録物件一覧</p>
+<% @houses.each do |house| %>
+  <%= link_to house, class:"card border-light mb-3 card-columns card-dec Editlink", style:"max-width: 80%; border-width:5px 0 0 0;" do %>
+    <div class="card-header"><%= house.name %>/エリア</div>
+    <div class="card-body">
+      <div class="row">
+        <%= image_tag house.house_image.url,class:"col-3" %>
+        <div class="col-9 ">
+          <p class="card-text">賃料 <%= house.house_rent %>円</p>
+          <p class="card-text">アクセス <%= house.station %>駅 / 徒歩<%= house.access %>分</p>
+          <p class="card-text">☆☆☆☆☆☆</p>
+          <p>最新の口コミ１件</p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+

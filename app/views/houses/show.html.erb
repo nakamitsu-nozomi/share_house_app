@@ -10,7 +10,7 @@
 <p>世帯数<%= @house.house_size %></p>
 <p>物件周辺情報 <%= @house.convenience %></p>
 <p>その他情報 <%= @house.content %></p>
-
+<p>物件管理者 <%= @house.user.name%></p>
 
 
 <%= link_to "編集", edit_house_path(@house) %>
