@@ -1,22 +1,68 @@
-<h1>マイページ</h1>
-<h3><%= @user.name%>さん</h3>
-<p><%= @user.adress%>在住</p> 
-<%= link_to "アカウント編集", edit_user_registration_path %>
-<p><%= @user.name%>さんの登録物件一覧</p>
-<% @houses.each do |house| %>
-  <%= link_to house, class:"card border-light mb-3 card-columns card-dec Editlink", style:"max-width: 80%; border-width:5px 0 0 0;" do %>
-    <div class="card-header"><%= house.name %>/エリア</div>
-    <div class="card-body">
-      <div class="row">
-        <%= image_tag house.house_image.url,class:"col-3" %>
-        <div class="col-9 ">
-          <p class="card-text">賃料 <%= house.house_rent %>円</p>
-          <p class="card-text">アクセス <%= house.station %>駅 / 徒歩<%= house.access %>分</p>
-          <p class="card-text">☆☆☆☆☆☆</p>
-          <p>最新の口コミ１件</p>
+<%# ユーザー情報パート%>
+<div class="card m-5 " style="width: 90%;">
+  <div class="card-body">
+    <div class="top_content">
+      <div class="left_content">
+        <div class="row">
+          <%= image_tag @user.user_icon.url,class:" icon",size: "100x100"%>
+          <div class="col-9 ">
+            <h3 class="card-title"><%= @user.name%>さんのマイページ</h3>
+            <h6 class="card-subtitle mb-2 text-muted">管理者権限 有/無</h6>
+            <p class="card-text"><%= @user.adress%>在住</p>
+            <% if @user.experience.present? %>
+              <p class="card-text">シェアハウス経験あり</p>
+            <% else %>
+            <p class="card-text"> シェアハウス経験無し</p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="right_content">
+        <div class="row">
+          <div class="col-9 btn ">
+            <%= link_to '登録物件', "#",class:"btn btn-outline-dark" %>
+            <%= link_to 'レビューした物件', "#",class:"btn btn-outline-dark" %>
+            <%= link_to '保存済み', "#",class:"btn btn-outline-dark" %>
+            <%= link_to 'アカウント編集', edit_user_registration_path ,class:"btn btn-outline-dark" %>
+            
+          </div>
         </div>
       </div>
     </div>
-  <% end %>
-<% end %>
+  </div>
+</div>
+
+
+<%# 投稿物件一覧パート %>
+<p class="m-5"><%= @user.name%>さんの登録物件一覧</p>
+<div class="bottom_content">
+
+    <% @houses.each do |house| %>
+      <%= link_to house, class:"card border-light mt-3 card-columns card-dec Editlink left", style:"max-width: 90%; border-width:5px 0 0 0;" do %>
+        <div class="card-header"><%= house.name %>/エリア</div>
+        <div class="card-body">
+          <div class="row">
+            <%= image_tag house.house_image.url,class:"col-3" %>
+            <div class="col-9 ">
+              <p class="card-text">賃料 <%= house.house_rent %>円</p>
+              <p class="card-text">アクセス <%= house.station %>駅 / 徒歩<%= house.access %>分</p>
+              <p class="card-text">☆☆☆☆☆☆</p>
+              <p>最新の口コミ１件</p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+    <div class="right mt-3 ml-3 pl-3" >
+     <p>口コミ件数 </p>
+     <p>物件投稿件数</p>
+     <p>レビュー件数</p>
+    </div>
+
+</div>
+
+
+
+
 

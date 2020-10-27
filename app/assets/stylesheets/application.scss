@@ -49,3 +49,65 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
   }
 
 }
+
+// マイページ
+.top_content {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.left_content {
+  flex: 1;
+  // background-color: #eee;
+  
+  
+}
+
+.right_content {
+  text-align: center;
+  // background-color: #888;
+  width: 60%;
+  margin-right: 0;
+
+
+
+
+  .btn {
+    list-style: none;
+    display: inline-block;
+    margin-top: 0;
+    text-decoration: none;
+    margin-right: 5px;
+
+  }
+
+}
+
+// マイページ下
+.bottom_content {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+.left {
+  flex: 1;
+  // background-color: #eee;
+
+}
+
+.right {
+  background-color: #888;
+  width: 25%;
+}
+
+
+
+// ユーザーアイコン
+.icon {
+  object-fit: cover;
+  border-radius: 80%;
+}
+
