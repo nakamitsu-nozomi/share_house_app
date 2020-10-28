@@ -16,7 +16,7 @@ class HousesController < ApplicationController
 
   def create
     house =House.create!(name: house_params[:name],house_image: house_params[:house_image],house_rent: house_params[:house_rent],service_fee: house_params[:service_fee],station: house_params[:station],access: house_params[:access],house_size: house_params[:house_size],convenience: house_params[:convenience],content: house_params[:content],user_id: current_user.id)
-    redirect_to house
+    redirect_to house,notice: "物件を登録しました"
   end
 
   def edit
@@ -25,12 +25,12 @@ class HousesController < ApplicationController
 
   def update
     @house.update!(house_params)
-    redirect_to @house
+    redirect_to @house,notice: "更新しました"
   end
 
   def destroy
    @house.destroy!
-   redirect_to root_path
+   redirect_to root_path,alert: "削除しました"
   end
 
   private
