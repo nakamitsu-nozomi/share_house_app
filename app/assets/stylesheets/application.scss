@@ -129,3 +129,14 @@ footer {
   margin-top: 10px;
 
 }
+
+// フラッシュ
+
+.alert-notice {
+  @extend .alert-info;
+  margin-bottom: 0;
+}
+
+.alert-alert {
+  @extend .alert-danger;
+}
