@@ -22,6 +22,10 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 @import "@fortawesome/fontawesome-free/scss/brands";
 
 
+
+body{
+  height: 100%;
+}
 // リンク色消す
 .Editlink {
   text-decoration: none;
@@ -113,3 +117,10 @@ table {
   margin: 2px auto;
 }
 
+// フッター
+ .footer {
+   width: 100%;
+   height: 100px;
+   bottom: 0;
+ 
+ }
