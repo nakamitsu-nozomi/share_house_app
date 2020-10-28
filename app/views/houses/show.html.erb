@@ -1,17 +1,54 @@
-<h1>投稿詳細</h1>
-<p>物件名 <%= @house.name %></p>
+<%# レイアウト修正%>
+<div class="m-3">
+
+<hr>
+<h3><%= @house.name %></h3>
+<h5>☆☆☆☆☆☆ 3.5 <i class="fas fa-comment-dots"></i> 3件 <i class="fas fa-bookmark"></i> 3件</h5>
+<hr>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6 ">
+      <h5> <%= @house.house_rent %>円<small>/管理費・共益費：<%= @house.service_fee %>円</small></h5>
+      <h6> <%= @house.station %>駅,徒歩<%= @house.access%>分</h6>
+    </div>
+    <div class="col-6 text-right">
+      <p>
+        <%= link_to "#",class:"btn btn-outline-warning" do  %>
+          <i class="fas fa-bookmark"></i> 保存 
+        <% end %>
+        <% if @house.user_id == current_user.id %>
+          <%= link_to  edit_house_path(@house),class:"btn btn-outline-success" do %>
+            <i class="fas fa-edit"></i>編集
+          <% end %>
+          <%= link_to  @house, method: :delete, data: { confirm: "削除しますか?" },class:"btn btn-outline-success"  do%>
+            <i class="fas fa-trash-alt"></i>削除
+          <% end %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+   <%= link_to '物件情報', "#",class:"btn btn-outline-secondary col-3" %>
+    <%= link_to '部屋情報', "#",class:"btn btn-outline-secondary col-3"  %>
+    <%= link_to '口コミ', "#",class:"btn btn-outline-secondary col-3"  %>
+    <%= link_to '周辺情報', "#",class:"btn btn-outline-secondary col-3"  %>
+  </div>
+</div>
+
 <% if @house.house_image? %>
-  <p><%= image_tag @house.house_image.url %></p>
+  <p class="text-center mt-3"><%= image_tag @house.house_image.url %></p>
 <% end %>
-<p>家賃 <%= @house.house_rent %></p>
-<p>共益費 <%= @house.service_fee %></p>
-<p>最寄駅 <%= @house.station %></p>
-<p>最寄駅までの徒歩距離 <%= @house.access%>分</p>
-<p>世帯数<%= @house.house_size %></p>
-<p>物件周辺情報 <%= @house.convenience %></p>
-<p>その他情報 <%= @house.content %></p>
-<p>物件管理者 <%= @house.user.name%></p>
 
-
-<%= link_to "編集", edit_house_path(@house) %>
-<%= link_to "削除", @house, method: :delete, data: { confirm: "削除しますか?" } %>
+<table class="table w-75 ">
+  <tr><th class="bg-light text-center " >エリア</th><td>area</td></tr>
+  <tr><th class="bg-light text-center">入居条件</th><td>、、、、</td></tr>
+  <tr><th class="bg-light text-center">世帯数</th><td><%= @house.house_size %>世帯</td></tr>
+  <tr><th class="bg-light text-center">共有設備</th><td>といれ、、、、、、、</td></tr>
+  <tr><th class="bg-light text-center">入居者条件</th><td>、、、、、、</td></tr>
+  <tr><th class="bg-light text-center">物件投稿者</th><td><%= @house.user.name%></td></tr>
+  <tr><th class="bg-light text-center">その他情報</th><td><%= @house.content%></td></tr>
+</table>
+</div>
