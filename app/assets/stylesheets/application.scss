@@ -70,9 +70,6 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
   width: 60%;
   margin-right: 0;
 
-
-
-
   .btn {
     list-style: none;
     display: inline-block;
@@ -109,5 +106,10 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 .icon {
   object-fit: cover;
   border-radius: 80%;
+}
+
+// 物件詳細ページ
+table {
+  margin: 2px auto;
 }
 
