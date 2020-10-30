@@ -15,8 +15,13 @@ class HousesController < ApplicationController
   end
 
   def create
-    house =House.create!(name: house_params[:name],house_image: house_params[:house_image],house_rent: house_params[:house_rent],service_fee: house_params[:service_fee],station: house_params[:station],access: house_params[:access],house_size: house_params[:house_size],convenience: house_params[:convenience],content: house_params[:content],user_id: current_user.id)
-    redirect_to house,notice: "物件を登録しました"
+    @house =House.create(name: house_params[:name],house_image: house_params[:house_image],house_rent: house_params[:house_rent],service_fee: house_params[:service_fee],station: house_params[:station],access: house_params[:access],house_size: house_params[:house_size],convenience: house_params[:convenience],content: house_params[:content],user_id: current_user.id)
+    if @house.save
+      redirect_to house,notice: "物件を登録しました"
+    else
+      flash.now[:alert] ="投稿に失敗しました"
+      render :new
+    end
   end
 
   def edit
@@ -24,8 +29,13 @@ class HousesController < ApplicationController
   end
 
   def update
-    @house.update!(house_params)
-    redirect_to @house,notice: "更新しました"
+    @house.update(house_params)
+    if @house.update(house_params)
+      redirect_to @house,notice: "更新しました"
+    else
+      flash.now[:alert] ="更新に失敗しました"
+      render :edit    
+    end
   end
 
   def destroy
