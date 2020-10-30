@@ -140,3 +140,10 @@ footer {
 .alert-alert {
   @extend .alert-danger;
 }
+// バリテーションエラーの際にフォームを改行しない
+div.field_with_errors{
+  display: contents;
+  input {
+    border: 2px solid red;
+  }
+}
