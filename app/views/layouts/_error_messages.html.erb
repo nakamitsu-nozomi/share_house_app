@@ -1,10 +1,11 @@
-<% if @house.errors.any? %>
-  <div class="errors col-6">
+<% if @house.errors.any? %>    
+  <div class="alert alert-danger" role="alert">
+    <a href="#" class="close" data-dismiss="alert">×</a>
+    <% @house.errors.full_messages. each do |msg|%>
     <ul>
-      <% @house.errors.full_messages. each do |msg|%>
-        <li><%= msg %></li>
-      <% end %>
+    <li class="errors"><%= msg %></li>
     </ul>
+    <% end %>
   </div>
 <% end %>
 
