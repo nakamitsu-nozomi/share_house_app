@@ -147,3 +147,18 @@ div.field_with_errors{
     border: 2px solid red;
   }
 }
+
+.errors{
+  margin-left: auto;
+  margin-right: auto;
+  color: #262626;
+  background: #FFEBE8;
+  text-align: center;
+  border: 1px solid #990000;
+  padding: 12px;
+  font-weight: normal;
+  li{
+    list-style: none;
+  }
+ 
+}

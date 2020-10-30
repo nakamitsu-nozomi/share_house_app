@@ -1,0 +1,10 @@
+<% if @house.errors.any? %>
+  <div class="errors col-6">
+    <ul>
+      <% @house.errors.full_messages. each do |msg|%>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
