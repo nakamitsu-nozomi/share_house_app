@@ -16,6 +16,10 @@
     <%= form.text_field :service_fee %>
   </div>
   <div>
+    <%= form.label :area_id %>
+    <%= form.collection_select :area_id, Area.all, :id, :name,include_blank: "エリアを選択して下さい" %>
+  </div>
+  <div>
     <%= form.label :station, "最寄駅" %>
     <%= form.text_field :station %>
   </div>
@@ -39,6 +43,5 @@
     <%= form.submit button_value,class: "btn btn-block" %>
   </div>
 
-  <%= form.label :area_id %>
-<%= form.collection_select :area_id, Area.all, :id, :name,include_blank: "選択して下さい" %>
+
 <% end %>
