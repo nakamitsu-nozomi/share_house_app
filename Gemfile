@@ -15,7 +15,7 @@ gem 'fog-aws'
 gem 'devise'
 gem 'rails-i18n', '~> 6.0'
 gem 'devise-i18n'
-
+gem 'ransack'
 
 
 group :development, :test do
