@@ -129,3 +129,25 @@ footer {
   margin-top: 10px;
 
 }
+
+// フラッシュ
+
+.alert-notice {
+  @extend .alert-info;
+  margin-bottom: 0;
+}
+
+.alert-alert {
+  @extend .alert-danger;
+}
+// バリテーションエラーの際にフォームを改行しない
+div.field_with_errors{
+  display: contents;
+  input {
+    border: 2px solid red;
+  }
+}
+
+.errors{
+  list-style: none;
+}
