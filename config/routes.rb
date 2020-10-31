@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root "houses#index"
   resources :houses
   resource :users, only: :show
+  resource :areas
 end

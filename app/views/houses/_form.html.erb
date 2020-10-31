@@ -35,8 +35,10 @@
     <%= form.label :content, "その他物件情報" %>
     <%= form.text_area :content %>
   </div>
-
   <div>
     <%= form.submit button_value,class: "btn btn-block" %>
   </div>
+
+  <%= form.label :area_id %>
+<%= form.collection_select :area_id, Area.all, :id, :name,include_blank: "選択して下さい" %>
 <% end %>
