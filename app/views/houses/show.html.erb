@@ -2,7 +2,11 @@
 <div class="m-3">
 
 <hr>
-<h3><%= @house.name %></h3>
+<h3><%= @house.name %>
+  <% if @house.area_id %>
+    /<%= @house.area.name%>
+  <% end %>
+</h3>
 <h5>☆☆☆☆☆☆ 3.5 <i class="fas fa-comment-dots"></i> 3件 <i class="fas fa-bookmark"></i> 3件</h5>
 <hr>
 <div class="container-fluid">
