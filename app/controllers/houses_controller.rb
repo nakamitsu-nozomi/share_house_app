@@ -3,7 +3,8 @@ class HousesController < ApplicationController
   before_action :set_house, only: %i[edit update destroy]
 
   def index
-    @houses= House.order(id: :asc)
+    @q = House.ransack(params[:q])
+    @houses= @q.result(distinct: true)
   end
 
   def show
