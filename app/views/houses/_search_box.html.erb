@@ -3,7 +3,7 @@
   <div class="card-body">
     <h3 class="card-title">東京 <span class="h5"><%=@houses.count %>件</span> </h3>
     <p class="card-text">
-      <% @areas.zip(@houses) do|area,house,|%>
+      <% @areas.zip(@houses) do|area,house|%>
       <%= link_to "#{area.name}", houses_path(q: { area_id_eq: area.id}), class: 'btn  btn-outline-secondary m-1'%>
       <% end %>
     </p>
