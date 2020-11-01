@@ -152,3 +152,52 @@ div.field_with_errors{
   list-style: none;
 }
 
+// topページ
+.jumbotron-extend {
+  height: 80vh;
+  min-height: 350px;
+  margin-bottom: 60px;
+  background-image: image-url("top_image.jpg") ;
+  background-repeat: no-repeat;
+  background-position: center;
+ background-size: cover;
+}
+
+.jumbotron-container {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.site-name{
+    margin: 0;
+    padding: 0;
+    padding: 40px;
+    
+}
+.app_title {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  color: #2c2c2f;
+  background: #ffffff;
+  opacity: 0.7;
+}
+
+
+.text {
+  display: inline-block;
+}
+
+
+.form{
+  height: 100px;
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  color: #2c2c2f;
+  background: #ffffff;
+
+}
