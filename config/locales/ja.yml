@@ -3,6 +3,7 @@ ja:
   activerecord:
     models:
       house: 物件
+      area: エリア
     attributes:
       house:
         name: 物件名
