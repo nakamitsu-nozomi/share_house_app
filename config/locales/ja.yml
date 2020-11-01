@@ -14,6 +14,7 @@ ja:
         convenience: 物件周辺情報
         content: その他物件情報
         house_image: 物件画像
+        area_id: エリア
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"

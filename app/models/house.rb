@@ -8,7 +8,7 @@ class House < ApplicationRecord
   validates :convenience, presence: true
 
 
-
+  belongs_to :area
   belongs_to :user
   mount_uploader :house_image, ImageUploader
 end
