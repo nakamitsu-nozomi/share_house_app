@@ -1,0 +1,11 @@
+
+<%= search_form_for(@q,url: houses_path) do |f|%>
+<div class="input-group my-4 form d-flex align-items-center"  >
+  <%= f.label "エリアで検索",class:"d-flex align-items-center mr-2" %> 
+  <%= f.search_field :area_name_cont, class:"form-control col-12 ",placeholder:"エリア[例：渋谷]" %>
+  <%= f.submit "検索" ,class:"btn btn-primary" %>
+</div>
+<% end %>
+
+
+
