@@ -1,5 +1,5 @@
 <% @areas.zip(@houses) do|area,house,|%>
-<%= link_to "#{area.name}", houses_path(q: { area_id_eq: area.id}), class: 'btn btn-primary'%>
+<%= link_to "#{area.name}", houses_path(q: { area_id_eq: area.id}), class: 'btn btn-primary search_btn'%>
 <% end %>
 
 
