@@ -6,7 +6,7 @@ class House < ApplicationRecord
   validates :access, presence: true,numericality: { less_than: 60 }
   validates :house_size, presence: true
   validates :convenience, presence: true
-
+  validates :area_id,presence: true
 
   belongs_to :area
   belongs_to :user
