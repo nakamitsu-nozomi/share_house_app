@@ -12,7 +12,12 @@
 
 
   <body>
-    <%= render "layouts/header" %>
+  <% if controller.controller_name == "tops" %>
+    <%= render 'layouts/top_header' %>
+  <% else %>
+    <%= render 'layouts/header' %>
+  <% end %>
+
     <%= render "layouts/flash" %>
     <%= yield %>
     <%= render "layouts/footer" %>

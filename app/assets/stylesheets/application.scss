@@ -152,6 +152,9 @@ div.field_with_errors{
   list-style: none;
 }
 
+
+
+
 // topページ
 .jumbotron-extend {
   height: 80vh;
@@ -200,4 +203,24 @@ div.field_with_errors{
   color: #2c2c2f;
   background: #ffffff;
 
+}
+
+// ドロップダウン
+.dropdown-toggle{
+  border-radius: 25px;
+  border-style: solid;
+  border-color: #d3d3d3
+}
+.dropdown-menu{
+  background-color: #d3d3d3;
+  padding-top:0;
+  padding-bottom:0;
+}
+
+.nav-item li{
+
+ display: inline-block;
+}
+.navbar-nav{
+  margin-left: auto;
 }
