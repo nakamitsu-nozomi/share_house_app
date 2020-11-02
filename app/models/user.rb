@@ -8,4 +8,5 @@ class User < ApplicationRecord
   validates :adress, presence: true
   validates :name, presence: true,length: {maximum: 20}
   has_many :houses, dependent: :destroy
+  has_many :clips,dependent: :destroy
 end
