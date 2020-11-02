@@ -4,6 +4,7 @@ ja:
     models:
       house: 物件
       area: エリア
+      clip: 保存
     attributes:
       house:
         name: 物件名
@@ -16,6 +17,9 @@ ja:
         content: その他物件情報
         house_image: 物件画像
         area_id: エリア
+      clip:
+        user: ユーザー
+        house: 物件
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
