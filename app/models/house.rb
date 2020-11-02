@@ -11,4 +11,5 @@ class House < ApplicationRecord
   belongs_to :area
   belongs_to :user
   mount_uploader :house_image, ImageUploader
+  has_many :clips,dependent: :destroy
 end
