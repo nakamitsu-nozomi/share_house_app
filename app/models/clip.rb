@@ -5,4 +5,5 @@ class Clip < ApplicationRecord
     scope: :house_id,
     message: "は同じ物件を2回以上保存はできません"
   }
+
 end
