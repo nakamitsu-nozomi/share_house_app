@@ -32,14 +32,13 @@
     </div>
   </div>
 </div>
-<p>
+<p id="house-<%= @house.id %>">
 <% if @house.cliped_by(current_user) %>
   <%= render 'clips',house: @house %>
 <% else %>
   <%= render 'not_clip',house: @house %>
 <% end %>
 </p>
-
 
  
 
