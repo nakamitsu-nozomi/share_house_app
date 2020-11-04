@@ -7,7 +7,15 @@
     /<%= @house.area.name%>
   <% end %>
 </h3>
-<h5>☆☆☆☆☆☆ 3.5 <i class="fas fa-comment-dots"></i> 3件 <i class="fas fa-bookmark"></i><%= @house.clips_count%></h5>
+<h5>☆☆☆☆☆☆ 3.5 <i class="fas fa-comment-dots"></i> 3件 <i class="fas fa-bookmark"></i>
+  <span id="housecount-<%= @house.id %>">
+    <% if @house.cliped_by(current_user) %>
+      <%= render 'clips_count',house: @house %>
+    <% else %>
+      <%= render 'not_clip_count',house: @house %>
+    <% end %>
+  </span>
+</h5>
 <hr>
 <div class="container-fluid">
   <div class="row">

@@ -1,2 +1,3 @@
 
 document.getElementById('house-<%= @house.id %>').innerHTML = '<%= j render("houses/clips", house: @house) %>'
+document.getElementById('housecount-<%= @house.id %>').innerHTML = '<%= j render("houses/clips_count", house: @house) %>'
