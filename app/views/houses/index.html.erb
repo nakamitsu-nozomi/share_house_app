@@ -10,7 +10,10 @@
             <p class="card-text">アクセス <%= house.station %>駅 / 徒歩<%= house.access %>分</p>
             <p class="card-text">☆☆☆☆☆☆</p>
             <p>最新の口コミ１件</p>
-            <p><i class="fas fa-bookmark"></i><%= house.clips_count%>件</p>
+            <p id="housecount-<%= house.id %>" >
+              <i class="fas fa-bookmark"></i>
+              <%= render 'clips_count',house: house %>件
+            </p>
           </div>
         </div>
       </div>
