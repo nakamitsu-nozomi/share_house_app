@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_03_231058) do
+ActiveRecord::Schema.define(version: 2020_11_05_025210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,23 @@ ActiveRecord::Schema.define(version: 2020_11_03_231058) do
     t.index ["house_id"], name: "index_clips_on_house_id"
     t.index ["user_id", "house_id"], name: "index_clips_on_user_id_and_house_id", unique: true
     t.index ["user_id"], name: "index_clips_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.bigint "house_id", null: false
+    t.boolean "type", default: false, null: false
+    t.integer "star"
+    t.string "title"
+    t.integer "clean_review"
+    t.integer "houserule_review"
+    t.integer "location_review"
+    t.integer "com_review"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["house_id"], name: "index_comments_on_house_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "houses", force: :cascade do |t|
@@ -68,6 +85,8 @@ ActiveRecord::Schema.define(version: 2020_11_03_231058) do
 
   add_foreign_key "clips", "houses"
   add_foreign_key "clips", "users"
+  add_foreign_key "comments", "houses"
+  add_foreign_key "comments", "users"
   add_foreign_key "houses", "areas"
   add_foreign_key "houses", "users"
 end
