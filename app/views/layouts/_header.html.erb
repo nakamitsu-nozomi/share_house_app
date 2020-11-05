@@ -18,7 +18,7 @@
           <%= image_tag current_user.user_icon.url,size: "40x40",class: "icon" %>
         </button>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-          <%= link_to "保存済み", "#",class:"dropdown-item" %>
+          <%= link_to "保存済み",clips_users_path,class:"dropdown-item" %>
           <%= link_to "口コミした物件", "#",class:"dropdown-item"%>
           <%= link_to "マイページ", users_path(current_user.id),class:"dropdown-item" %>
           <%= link_to "新規物件登録", new_house_path,class:"dropdown-item"  %>

@@ -120,6 +120,34 @@ body{
 table {
   margin: 2px auto;
 }
+.not_clip_btn{
+ border-color:#0099ff;
+ color:#0099ff;
+     &:hover {
+        border-color:#0099ff;
+        color:#0099ff;
+     }
+
+     &:active {
+       border-color:#0099ff;
+       color:#0099ff;
+     }
+}
+.clip_btn {
+  background-color: #0099ff;
+  color:#ffffff;
+
+  &:hover {
+   background-color: #0099ff;
+   color:#ffffff;
+  }
+
+  &:active {
+     background-color: #0099ff;
+     color:#ffffff;
+  }
+}
+
 
 // フッター
 footer {
