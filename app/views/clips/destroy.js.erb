@@ -1,2 +1,6 @@
 document.getElementById("house-<%= @house.id%>").innerHTML ="<%= j render("houses/not_clip",house: @house) %>"
 document.getElementById('housecount-<%= @house.id %>').innerHTML = '<%= j render("houses/not_clip_count", house: @house) %>'
+document.getElementById('houseclips').remove = '<%= j render("users/house") %>'
+
+
+
