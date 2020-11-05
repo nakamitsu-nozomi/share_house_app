@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   resources :houses do
     resource :clips,only: [:create,:destroy]
   end
-  resource :users, only: :show
+  resource :users, only: [:show] do
+    collection do
+      get :clips
+    end
+  end
   resource :areas
 end
