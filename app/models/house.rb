@@ -13,6 +13,7 @@ class House < ApplicationRecord
   mount_uploader :house_image, ImageUploader
   has_many :clips,dependent: :destroy
   has_many :cliped_users,through: :clips,source: :user
+  has_many :comments,dependent: :destroy
 
   def cliped_by(user)
     clips.find_by(user_id: user.id).present?
