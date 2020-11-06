@@ -18,5 +18,6 @@
   <p> ユーザー名: <%= comment.user.name%></p>
   <p>物件名: <%= @house.name%></p>
   <%= link_to '編集', edit_house_comment_path(house_id: params[:house_id],id:comment.id) %>
+  <%= link_to '削除', house_comment_path(house_id: params[:house_id],id:comment.id),method: :delete, data: { confirm: "削除しますか?" } %>
  </div>
 <% end %>
