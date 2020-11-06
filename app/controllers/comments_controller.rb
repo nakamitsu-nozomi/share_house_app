@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_house, only: [:index, :new, :create, :edit,:update]
+  before_action :set_house
   def index
     @comments=Comment.where(house_id:@house.id )
     @comment = Comment.new
@@ -27,11 +27,8 @@ class CommentsController < ApplicationController
   end
 
   def edit
- 
   end
 
-  def delete
-  end
 
   def update
     @comment.update(comment_params)
@@ -44,7 +41,9 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-  end
+    @comment.destroy!
+    redirect_to house_comments_path(house_id:@house.id),alert: "口コミを削除しました"
+  end 
 
 
 
