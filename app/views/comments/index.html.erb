@@ -1,6 +1,7 @@
 <h1>口コミ一覧</h1>
 <%= link_to '口コミを投稿する', new_house_comment_path(house_id: params[:house_id]) %>
 <% @comments.each do |comment|%>
+
 <div class=card>
   <% if comment.type.present? %>
     <p>内覧</p>
@@ -16,5 +17,6 @@
   <p>住民同士のコミュニケーション: <%= comment.com_review%></p>
   <p> ユーザー名: <%= comment.user.name%></p>
   <p>物件名: <%= @house.name%></p>
+  <%= link_to '編集', edit_house_comment_path(house_id: params[:house_id],id:comment.id) %>
  </div>
 <% end %>
