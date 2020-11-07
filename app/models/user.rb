@@ -10,4 +10,6 @@ class User < ApplicationRecord
   has_many :houses, dependent: :destroy
   has_many :clips,dependent: :destroy
   has_many :cliped_houses,through: :clips,source: :house
+  has_many :comments,dependent: :destroy
+  has_many :comments_houses,through: :comments,source: :house
 end
