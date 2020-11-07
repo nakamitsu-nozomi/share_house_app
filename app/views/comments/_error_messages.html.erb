@@ -1,0 +1,10 @@
+<% if @comment.errors.any? %>    
+  <div class="alert alert-danger" role="alert">
+    <a href="#" class="close" data-dismiss="alert">×</a>
+    <% @comment.errors.full_messages. each do |msg|%>
+    <ul>
+    <li class="errors"><%= msg %></li>
+    </ul>
+    <% end %>
+  </div>
+<% end %>

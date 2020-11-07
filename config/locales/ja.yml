@@ -5,6 +5,7 @@ ja:
       house: 物件
       area: エリア
       clip: 保存
+      comment: 口コミ
     attributes:
       house:
         name: 物件名
@@ -20,6 +21,15 @@ ja:
       clip:
         user: ユーザー
         house: 物件
+      comment:
+        title: タイトル
+        type: 口コミの種類
+        content: 本文
+        star: 評価
+        clean_review: 清潔感
+        houserule_review: ハウスルール順守度
+        location_review: 所在地
+        com_review: 住人同士の仲良し度
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
