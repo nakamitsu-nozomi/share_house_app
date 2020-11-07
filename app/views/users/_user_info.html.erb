@@ -20,7 +20,7 @@
         <div class="row">
           <div class="col-9 btn ">
             <%= link_to '登録物件', users_path(@user.id),class:"btn btn-outline-dark" %>
-            <%= link_to 'レビューした物件', "#",class:"btn btn-outline-dark" %>
+            <%= link_to 'レビューした物件', comments_users_path,class:"btn btn-outline-dark" %>
             <%= link_to '保存済み', clips_users_path,class:"btn btn-outline-dark" %>
             <%= link_to 'アカウント編集', edit_user_registration_path ,class:"btn btn-outline-dark" %>
           </div>

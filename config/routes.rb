@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resource :users, only: [:show] do
     collection do
       get :clips
+      get :comments
     end
   end
   resource :areas
