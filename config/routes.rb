@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root "tops#index"
   resources :houses do
     resource :clips,only: [:create,:destroy]
-    resources :comments
+    resources :comments do
+      resource :clips,only: [:create,:destroy]
+    end
   end
   resource :users, only: [:show] do
     collection do
