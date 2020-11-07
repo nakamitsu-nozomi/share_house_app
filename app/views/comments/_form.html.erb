@@ -3,6 +3,10 @@
     <%= f.label :type,"口コミの種類を選んでください。" %><br />
     <%= f.select :type ,[['内覧',true],['以前住んでいた',false]] %>
   </div>
+  <div class="form-group row" id="star">
+    <%= f.label :star, class:'col-md-3 col-form-label' %>
+    <%= f.hidden_field :star, id: :review_star %>
+  </div>
   <div>
     <%= f.label :title%>
     <%= f.text_field :title %>
@@ -13,34 +17,27 @@
     <%= f.text_field :content %>
   </div>
 
-
-
-  <div>
-    <%= f.label :clean_review%>
-    <%= f.text_field :clean_review %>
+  <div class="form-group row" id="clean_review">
+    <%= f.label :clean_review, class:'col-md-3 col-form-label' %>
+    <%= f.hidden_field :clean_review, id: :review_star %>
+  </div>
+  <div class="form-group row" id="houserule_review">
+    <%= f.label :houserule_review, class:'col-md-3 col-form-label' %>
+    <%= f.hidden_field :houserule_review, id: :review_star %>
+  </div>
+  <div class="form-group row" id="location_review">
+    <%= f.label :location_review, class:'col-md-3 col-form-label' %>
+    <%= f.hidden_field :location_review, id: :review_star %>
   </div>
 
-  <div>
-    <%= f.label :houserule_review%>
-    <%= f.text_field :houserule_review %>
-  </div>
-
-  <div>
-    <%= f.label :location_review%>
-    <%= f.text_field :location_review %>
-  </div>
-
-  <div>
-    <%= f.label :com_review%>
-    <%= f.text_field :com_review %>
+  <div class="form-group row" id="com_review">
+    <%= f.label :com_review,class:'col-md-3 col-form-label' %>
+    <%= f.hidden_field :com_review, id: :review_star %>
   </div>
   <div>
     <%= f.submit button_value %>
   </div>
-    <div class="form-group row" id="star">
-    <%= f.label :star,'評価 ', class:'col-md-3 col-form-label' %>
-    <%= f.hidden_field :star, id: :review_star %>
-  </div>
+
 
   <!-- 評価javascript -->
   <script>
@@ -48,10 +45,42 @@
     size     : 36,
     starOff:  '<%= asset_path('star-off.png') %>',
     starOn : '<%= asset_path('star-on.png') %>',
- 
     scoreName: 'comment[star]',
     half: false,
   });
+
+  $('#clean_review').raty({
+    size     : 36,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    scoreName: 'comment[clean_review]',
+    half: false,
+  });
+
+  $('#houserule_review').raty({
+    size     : 36,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    scoreName: 'comment[houserule_review]',
+    half: false,
+  });
+
+  $('#location_review').raty({
+    size     : 36,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    scoreName: 'comment[location_review]',
+    half: false,
+  });
+
+  $('#com_review').raty({
+    size     : 36,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    scoreName: 'comment[com_review]',
+    half: false,
+  });
   </script>  
+ 
 
 <% end %>
