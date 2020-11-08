@@ -1,47 +1,69 @@
+<%= render 'houses/house_info' %>
 <%= form_for [@house, @comment] do |f| %>
-  <div class="field">
-    <%= f.label :type,"口コミの種類を選んでください。" %><br />
-    <%= f.radio_button :type, "true" %>
-    <%= f.label :type, "内覧", {value: true, style: "display: inline-block;"} %>
-    <%= f.radio_button :type, "false" %>
-    <%= f.label :type, "以前住んでいた", {value: false, style: "display: inline-block;"} %>
-  </div>
-  <div class="form-group row" id="star">
-    <%= f.label :star, class:'col-md-3 col-form-label' %>
-    <%= f.hidden_field :star, id: :review_star %>
-  </div>
-  <div>
-    <%= f.label :title%>
-    <%= f.text_field :title %>
-  </div>
-
-  <div>
-    <%= f.label :content%>
-    <%= f.text_field :content %>
-  </div>
-
-  <div class="form-group row" id="clean_review">
-    <%= f.label :clean_review, class:'col-md-3 col-form-label' %>
-    <%= f.hidden_field :clean_review, id: :review_star %>
-  </div>
-  <div class="form-group row" id="houserule_review">
-    <%= f.label :houserule_review, class:'col-md-3 col-form-label' %>
-    <%= f.hidden_field :houserule_review, id: :review_star %>
-  </div>
-  <div class="form-group row" id="location_review">
-    <%= f.label :location_review, class:'col-md-3 col-form-label' %>
-    <%= f.hidden_field :location_review, id: :review_star %>
-  </div>
-
-  <div class="form-group row" id="com_review">
-    <%= f.label :com_review,class:'col-md-3 col-form-label' %>
-    <%= f.hidden_field :com_review, id: :review_star %>
-  </div>
-  <div>
-    <%= f.submit button_value %>
-  </div>
-
-
+<div class="card card mx-auto mt-5" style="width: 90%;">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <div class="field mt-3 text-center">
+      <%= f.label :type,"口コミの種類を選んでください。" %><br />
+      <%= f.radio_button :type, "true" %>
+      <%= f.label :type, "内覧", {value: true, style: "display: inline-block;",class: "m-1"} %>
+      <%= f.radio_button :type, "false" %>
+      <%= f.label :type, "以前住んでいた", {value: false, style: "display: inline-block;",class: "m-1"} %>
+      </div>
+      <div class="my-3 text-center" id="star">
+        <%= f.label :star,"総合評価", class:' text-center' %>
+        <%= f.hidden_field :star, id: :review_star ,class: " text-center" %>
+      </div>
+      <div>
+        <%= f.text_field :title,placeholder:"タイトル",style:"width: 100%;" %>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div>
+        <%= f.text_area :content,placeholder:"口コミ本文を入れてください",style:"width: 100%; height:400px;" %>
+      </div>
+      <div class="card my-3" >
+        <div class="card-body">
+          <h4 class="card-title">清潔さ</h4>
+          <p class="card-text">共用部は綺麗でしたか？</p>
+          <div class="form-group row ml-1" id="clean_review" >
+            <%= f.hidden_field :clean_review, id: :review_star %>
+          </div>
+        </div>
+      </div>
+      <div class="card my-3 " >
+        <div class="card-body">
+          <h4 class="card-title">騒音</h4>
+          <p class="card-text">周囲の生活音はどの程度聞こえますか？</p>
+          <div class="form-group row ml-1" id="houserule_review" >
+            <%= f.hidden_field :houserule_review, id: :review_star %>
+          </div>
+        </div>
+      </div>
+      <div class="card my-3" >
+        <div class="card-body">
+          <h4 class="card-title">所在地</h4>
+          <p class="card-text">不便に感じることはありましたか？</p>
+          <div class="form-group row ml-1" id="location_review" >
+            <%= f.hidden_field :location_review, id: :review_star %>
+          </div>
+        </div>
+      </div>
+      <div class="card my-3" >
+        <div class="card-body">
+          <h4 class="card-title">人間関係</h4>
+          <p class="card-text mb-0">住民同士でコミュニケーションをとっていましたか？<br>(例：頻繁にコミュニケーションする→星５つ)</p>
+          <div class="form-group row ml-1" id="com_review">
+            <%= f.hidden_field :com_review, id: :review_star %>
+          </div>
+        </div>
+      </div>  
+      <div class="text-center">
+       <%= f.submit button_value,class: "btn comment_submit" %>
+      </div>
+    </li>
+  </ul>
+</div>
   <!-- 評価javascript -->
   <script>
   $('#star').raty({
