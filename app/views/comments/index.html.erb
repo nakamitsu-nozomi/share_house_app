@@ -1,12 +1,12 @@
 <%= render 'houses/house_info' %>
+<% if @comments.present? %>
+  
+
 <div class="m-3">
  <h4>清潔感 <%= @comments.average(:clean_review).round(1)%></h4>
  <h4>騒音 <%= @comments.average(:houserule_review).round(1)%></h4>
  <h4>所在地 <%= @comments.average(:location_review).round(1)%></h4>
  <h4>人間関係 <%= @comments.average(:com_review).round(1)%></h4>
-
-
-
 
   <div class="col text-center m-3"> 
   <%= link_to '口コミを投稿する', new_house_comment_path(house_id: params[:house_id]),class:"btn comment_btn text-center"%>
@@ -58,3 +58,9 @@
     </div>
   <% end %>
 </div>
+<% else %>
+  <div class="col text-center m-3"> 
+  <%= link_to '口コミを投稿する', new_house_comment_path(house_id: params[:house_id]),class:"btn comment_btn text-center"%>
+  </div>
+  <p class="no-comment">口コミが投稿されていません</p>
+<% end %>

@@ -11,8 +11,14 @@ class HousesController < ApplicationController
   end
 
   def show
-    @house=House.find(params[:id])
-    @average_comment=Comment.where(house_id: @house.id).average(:star).round(1)
+    if params[:id].present? 
+       @house=House.find(params[:id])
+    else
+     @house=House.find(params[:house_id])
+    end
+
+    @comments=Comment.where(house_id: @house)
+    # @average_comment=Comment.where(house_id: @house).average(:star).round(1)
   end
 
   def new
