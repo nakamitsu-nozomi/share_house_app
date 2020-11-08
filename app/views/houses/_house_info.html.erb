@@ -7,13 +7,15 @@
     /<%= @house.area.name%>
   <% end %>
 </h3>
-<h5>☆☆☆☆☆☆ 3.5 <i class="fas fa-comment-dots"></i> 3件 <i class="fas fa-bookmark"></i>
+<h5 class="flex">
+  <span id="star-rate" ></span>
+  <%= @average_comment%> <i class="fas fa-comment-dots"></i> 3件 <i class="fas fa-bookmark"></i>
   <span id="housecount-<%= @house.id %>">
-    <% if @house.cliped_by(current_user) %>
-      <%= render 'houses/clips_count',house: @house %>
-    <% else %>
-      <%= render 'houses/not_clip_count',house: @house %>
-    <% end %>
+      <% if @house.cliped_by(current_user) %>
+        <%= render 'houses/clips_count',house: @house %>
+      <% else %>
+        <%= render 'houses/not_clip_count',house: @house %>
+      <% end %>
   </span>
 </h5>
 <hr>
@@ -52,3 +54,14 @@
     <%= link_to '周辺情報', "#",class:"btn btn-outline-secondary col-3"  %>
   </div>
 </div>
+
+<script>
+  $('#star-rate').raty({
+    size      : 36,
+    starOff   : '<%= asset_path('star-off.png') %>',
+    starOn    : '<%= asset_path('star-on.png') %>',
+    half      : false,
+    readOnly: true,
+    score: <%= @average_comment %>,
+  });
+</script>

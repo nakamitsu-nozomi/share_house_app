@@ -1,15 +1,17 @@
 class HousesController < ApplicationController
   before_action :authenticate_user!, except: [:index ,:show]
-  before_action :set_house, only: %i[edit update destroy]
+  before_action :set_house, only: %i[edit update destroy  ]
 
   def index
     @q = House.ransack(params[:q])
     @houses= @q.result(distinct: true)
     @areas=Area.all
+
   end
 
   def show
     @house=House.find(params[:id])
+    @average_comment=Comment.where(house_id: @house.id).average(:star).round(1)
   end
 
   def new
@@ -44,6 +46,7 @@ class HousesController < ApplicationController
    @house.destroy!
    redirect_to root_path,alert: "削除しました"
   end
+ 
 
   private
   def house_params
