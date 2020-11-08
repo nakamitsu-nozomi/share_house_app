@@ -6,8 +6,8 @@ class HousesController < ApplicationController
     @q = House.ransack(params[:q])
     @houses= @q.result(distinct: true)
     @areas=Area.all
-    @comments=Comment.where(house_id: @houses)
-    @average_comment=@comments.average(:star).round(1)
+    @comments=Comment.where(house_id: @house)
+  
   end
 
   def show
