@@ -9,7 +9,7 @@
 </h3>
 <h5 class="flex">
   <span id="star-rate" ></span>
-  <%= @average_comment%> <i class="fas fa-comment-dots"></i> 3件 <i class="fas fa-bookmark"></i>
+  <%= @average_comment%> <i class="fas fa-comment-dots"></i><%= @house.comments.count%> 件 <i class="fas fa-bookmark"></i>
   <span id="housecount-<%= @house.id %>">
       <% if @house.cliped_by(current_user) %>
         <%= render 'houses/clips_count',house: @house %>
