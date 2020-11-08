@@ -10,9 +10,7 @@
 <h5 class="flex">
  <% if @comments.present? %>
    <span id="star-rate" ></span>
-   <% @comments.each do |comment|%>
     <%= @comments.average(:star).round(1)%> <i class="fas fa-comment-dots"></i><%= @comments.count%> 件 <i class="fas fa-bookmark"></i>
-  <% end %>
  <% else %>
  <img src="/assets/star-off.png">
  <img src="/assets/star-off.png">
