@@ -1,39 +1,52 @@
-<h1>口コミ一覧</h1>
-<%= link_to '口コミを投稿する', new_house_comment_path(house_id: params[:house_id]) %>
-<% @comments.each do |comment|%>
-
-  <div class=card>
-    <% if comment.type.present? %>
-      <p>内覧</p>
-    <% else %>
-      <p>以前住んでいた</p>
-    <% end %>
-    <p> タイトル: <%= comment.title%></p>
-    <p>内容:<%= comment.content%></p>
-    <p>評価 :<%= comment.star%>点</p>
-    <div id="star-rate<%= comment.id%>"></div>    
-    <script>
-      $('#star-rate<%= comment.id%>').raty({
-        size      : 36,
-        starOff   : '<%= asset_path('star-off.png') %>',
-        starOn    : '<%= asset_path('star-on.png') %>',
-        half      : false,
-        readOnly: true,
-        score: <%= comment.star %>,
-      });
-    </script>
-    <p>清潔感: <%= comment.clean_review%></p>
-    <p>ハウスルール遵守: <%= comment.houserule_review%></p>
-    <p>利便性: <%= comment.location_review%></p>
-    <p>住民同士のコミュニケーション: <%= comment.com_review%></p>
-    <p> ユーザー名: <%= comment.user.name%></p>
-    <p>物件名: <%= @house.name%></p>
-    <% if comment.user_id == current_user.id %>
-      <%= link_to '編集', edit_house_comment_path(house_id: params[:house_id],id:comment.id) %>
-      <%= link_to '削除', house_comment_path(house_id: params[:house_id],id:comment.id),method: :delete, data: { confirm: "削除しますか?" } %>
-    <% end %>
-
+<%= render 'houses/house_info' %>
+<div class="m-3">
+<h1>⭐︎全体評価</h1>
+  <div class="col text-center m-3"> 
+  <%= link_to '口コミを投稿する', new_house_comment_path(house_id: params[:house_id]),class:"btn comment_btn text-center"%>
   </div>
-<% end %>
 
-
+  <% @comments.each do |comment|%>
+    <div class="card mx-auto card-columns card-dec m-3" style="width: 90%;">
+      <ul class="list-group list-group-flush pl-5 pr-5">
+        <li class=" list-group-item">
+          <div class="row" >
+            <div class="col-6 ">
+              <h4 class=""><%= image_tag comment.user.user_icon.url,class:" icon",size: "50x50"%> <%= comment.user.name%></h4>
+            </div>
+            <div class="col-6 d-flex align-items-center " >
+              <% if comment.type.present? %>
+                <p class="btn-experience mt-2">内覧</p>
+              <% else %>
+                <p class="btn-experience mt-2">以前住んでいた</p>
+              <% end %>
+            </div>
+          </div>
+          <div class="pull-right">
+          <% if comment.user_id == current_user.id %>
+            <%= link_to '編集', edit_house_comment_path(house_id: params[:house_id],id:comment.id),class:"text-right"%>
+            <%= link_to '削除', house_comment_path(house_id: params[:house_id],id:comment.id),method: :delete, data: { confirm: "削除しますか?" },class:"text-right" %>
+          <% end %>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div id="star-rate<%= comment.id%>"></div>    
+          <script>
+            $('#star-rate<%= comment.id%>').raty({
+              size      : 36,
+              starOff   : '<%= asset_path('star-off.png') %>',
+              starOn    : '<%= asset_path('star-on.png') %>',
+              half      : false,
+              readOnly: true,
+              score: <%= comment.star %>,
+            });
+          </script>
+        </li>
+        <li class="list-group-item">
+          <h5><%= comment.title%></h5>
+          <p><%= comment.content%></p>
+          <p class="text-right"><%= comment.created_at.strftime('%Y/%m/%d')%></p>
+        </li>
+      </ul>
+    </div>
+  <% end %>
+</div>

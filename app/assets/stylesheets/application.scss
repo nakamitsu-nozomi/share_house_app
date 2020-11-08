@@ -147,6 +147,31 @@ table {
      color:#ffffff;
   }
 }
+.comment_btn{
+   border-color:#FFA500;
+   color:#FFA500;
+
+
+   &:hover {
+   border-color:#FFA500;
+   color:#FFA500;
+   }
+
+   &:active {
+   border-color: #FFA500;
+   color:#FFA500;
+   }
+        
+}
+.btn-experience {
+  display: inline-block;
+  padding: 7px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #FFF;
+  background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+  transition: .4s;
+}
 
 
 // フッター
@@ -251,4 +276,9 @@ div.field_with_errors{
 }
 .navbar-nav{
   margin-left: auto;
+}
+// 口コミフォーム
+.comment_submit{
+  background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+  
 }
