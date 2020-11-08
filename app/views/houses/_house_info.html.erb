@@ -59,8 +59,9 @@
   $('#star-rate').raty({
     size      : 36,
     starOff   : '<%= asset_path('star-off.png') %>',
+    starHalf   : '<%= asset_path('star-half.png') %>',
     starOn    : '<%= asset_path('star-on.png') %>',
-    half      : false,
+    half      : true,
     readOnly: true,
     score: <%= @average_comment %>,
   });
