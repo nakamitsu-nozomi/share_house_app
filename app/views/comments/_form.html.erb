@@ -1,7 +1,10 @@
 <%= form_for [@house, @comment] do |f| %>
   <div class="field">
     <%= f.label :type,"口コミの種類を選んでください。" %><br />
-    <%= f.select :type ,[['内覧',true],['以前住んでいた',false]] %>
+    <%= f.radio_button :type, "true" %>
+    <%= f.label :type, "内覧", {value: true, style: "display: inline-block;"} %>
+    <%= f.radio_button :type, "false" %>
+    <%= f.label :type, "以前住んでいた", {value: false, style: "display: inline-block;"} %>
   </div>
   <div class="form-group row" id="star">
     <%= f.label :star, class:'col-md-3 col-form-label' %>
