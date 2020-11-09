@@ -9,26 +9,22 @@
             <p class="card-text">賃料 <%= house.house_rent %>円</p>
             <p class="card-text">アクセス <%= house.station %>駅 / 徒歩<%= house.access %>分</p>
              <% if house.comments.present? %>
-              <span id="index-star-rate" ></span>
+              <span id="star-rate-<%= house.id %>"></span>
                 <%= house.comments.average(:star).round(1)%>
                 <p>最新の口コミ<%= house.comments.count%>件</p>  
-<script>
-$('#index-star-rate').raty({
-  size      : 36,
-  starOff   : '<%= asset_path('star-off.png') %>',
-  starHalf  : '<%= asset_path('star-half.png') %>',
-  starOn    : '<%= asset_path('star-on.png') %>',
-  half      : true,
-  readOnly: true,
-  score: <%=  house.comments.present? ? house.comments.average(:star).round(1) :0 %>,
-});
-</script>  
-
-
-
-
-
-
+                <script>
+                $(document).on('turbolinks:load', function(){
+                $("#star-rate-<%= house.id %>").raty({
+                  size      : 36,
+                  starOff   : '<%= asset_path('star-off.png') %>',
+                  starHalf  : '<%= asset_path('star-half.png') %>',
+                  starOn    : '<%= asset_path('star-on.png') %>',
+                  half      : true,
+                  readOnly: true,
+                  score: <%=  house.comments.present? ? house.comments.average(:star).round(1) :0 %>,
+                });
+                })
+                </script>  
             <% else %>
             <img src="/assets/star-off.png">
             <img src="/assets/star-off.png">
