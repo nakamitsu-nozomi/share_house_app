@@ -1,5 +1,5 @@
 <div class="house_list">
-<% @houses.zip(@comments) do |house, comment|%>
+<% @houses.each do |house|%>
     <%= link_to house, class:"card border-light mb-3 card-columns card-dec Editlink", style:"max-width: 80%; border-width:5px 0 0 0;" do %>
       <div class="card-header"><%= house.name %> / <%= house.area.name%></div>
       <div class="card-body">
@@ -8,12 +8,27 @@
           <div class="col-9 ">
             <p class="card-text">賃料 <%= house.house_rent %>円</p>
             <p class="card-text">アクセス <%= house.station %>駅 / 徒歩<%= house.access %>分</p>
-             <% if @comments.present? %>
-              <span id="star-rate" ></span>
-              <% @comments.each do |comment|%>
-                <%= @comments.average(:star).round(1)%> <i class="fas fa-comment-dots"></i><%= @comments.count%> 件 <i class="fas fa-bookmark"></i>
-                <p>最新の口コミ<%= house.comments.count%>件</p>
-              <% end %>
+             <% if house.comments.present? %>
+              <span id="index-star-rate" ></span>
+                <%= house.comments.average(:star).round(1)%>
+                <p>最新の口コミ<%= house.comments.count%>件</p>  
+<script>
+$('#index-star-rate').raty({
+  size      : 36,
+  starOff   : '<%= asset_path('star-off.png') %>',
+  starHalf  : '<%= asset_path('star-half.png') %>',
+  starOn    : '<%= asset_path('star-on.png') %>',
+  half      : true,
+  readOnly: true,
+  score: <%=  house.comments.present? ? house.comments.average(:star).round(1) :0 %>,
+});
+</script>  
+
+
+
+
+
+
             <% else %>
             <img src="/assets/star-off.png">
             <img src="/assets/star-off.png">
@@ -33,16 +48,8 @@
     <% end %>
   <% end %>
 </div>
-<script>
-  $('#star-count').raty({
-    size      : 36,
-    starOff   : '<%= asset_path('star-off.png') %>',
-    starOn    : '<%= asset_path('star-on.png') %>',
-    half      : false,
-    readOnly: true,
-    score: <%=  @comments.present? ? @comments.average(:star).round(1) :0 %>,
-  });
-</script>
+
+
 
 
 
