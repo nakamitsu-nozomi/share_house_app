@@ -15,6 +15,7 @@ class House < ApplicationRecord
   has_many :cliped_users,through: :clips,source: :user
   has_many :comments,dependent: :destroy
   has_many :comments_users,through: :comments,source: :user
+  
   def cliped_by(user)
     clips.find_by(user_id: user.id).present?
   end

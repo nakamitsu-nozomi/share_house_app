@@ -58,5 +58,7 @@ class CommentsController < ApplicationController
   def set_house
     @house = House.find(params[:house_id])
     @comment =Comment.find_by(house_id: params[:house_id])
+    @comments=Comment.where(house_id:@house.id )
+
   end
 end
