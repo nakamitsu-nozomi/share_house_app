@@ -1,16 +1,86 @@
 <%= render 'houses/house_info' %>
-<% if @comments.present? %>
-  
-
-<div class="m-3">
- <h4>清潔感 <%= @comments.average(:clean_review).round(1)%></h4>
- <h4>騒音 <%= @comments.average(:houserule_review).round(1)%></h4>
- <h4>所在地 <%= @comments.average(:location_review).round(1)%></h4>
- <h4>人間関係 <%= @comments.average(:com_review).round(1)%></h4>
-
-  <div class="col text-center m-3"> 
+<div class=" text-center m-5"> 
   <%= link_to '口コミを投稿する', new_house_comment_path(house_id: params[:house_id]),class:"btn comment_btn text-center"%>
+</div>
+<% if @comments.present? %>
+<div class="m-3">
+<div class=" review-container" >
+<h4 class="mb-3"><i class="fas fa-star"style="color:#FFA500;"></i><%= @comments.average(:star).round(1)%> (<%= @comments.count%>件のレビュー) </h4>
+<div class="review_content ">
+  <h5 class="review_item">清潔感 <%= @comments.average(:clean_review).round(1)%></h5>
+  <div class="graph review_item  "> 
+      <% if @comments.average(:clean_review).round(1) == 5 %>
+      <span class="bar" style="width: 100%;"></span>
+      <% elsif @comments.average(:clean_review).round(1) > 4 %>
+        <span class="bar" style="width: 80%;"></span>
+      <% elsif @comments.average(:clean_review).round(1) > 3 %>
+        <span class="bar" style="width: 60%;"></span>
+      <% elsif @comments.average(:clean_review).round(1) > 2%>
+        <span class="bar" style="width: 40%;"></span>
+      <% elsif @comments.average(:clean_review).round(1) > 1 %>
+        <span class="bar" style="width: 20%;"></span>
+      <% elsif @comments.average(:clean_review).round(1)== 0 %>
+        <span class="bar" style="width: 0%;"></span>
+      <% end %>
   </div>
+</div>
+
+<div class="review_content">
+  <h5 class="review_item" >騒音 <%= @comments.average(:houserule_review).round(1)%></h5>
+  <div class="graph review_item" >
+     <% if @comments.average(:houserule_review).round(1) == 5 %>
+      <span class="bar" style="width: 100%;"></span>
+      <% elsif @comments.average(:houserule_review).round(1) > 4 %>
+       <span class="bar" style="width: 80%;"></span>
+      <% elsif @comments.average(:houserule_review).round(1) > 3 %>
+       <span class="bar" style="width: 60%;"></span>
+      <% elsif @comments.average(:houserule_review).round(1) > 2%>
+       <span class="bar" style="width: 40%;"></span>
+      <% elsif @comments.average(:houserule_review).round(1) > 1 %>
+       <span class="bar" style="width: 20%;"></span>
+      <% elsif @comments.average(:houserule_review).round(1)== 0 %>
+       <span class="bar" style="width: 0%;"></span>
+     <% end %>
+  </div>
+</div>
+<div class="review_content">
+  <h5 class="review_item">所在地 <%= @comments.average(:location_review).round(1)%></h5>
+  <div class="graph review_item">
+  <% if @comments.average(:location_review).round(1) == 5 %>
+  <span class="bar" style="width: 100%;"></span>
+  <% elsif @comments.average(:location_review).round(1) > 4 %>
+    <span class="bar" style="width: 80%;"></span>
+  <% elsif @comments.average(:location_review).round(1) > 3 %>
+    <span class="bar" style="width: 60%;"></span>
+  <% elsif @comments.average(:location_review).round(1) > 2%>
+    <span class="bar" style="width: 40%;"></span>
+  <% elsif @comments.average(:location_review).round(1) > 1 %>
+    <span class="bar" style="width: 20%;"></span>
+  <% elsif @comments.average(:location_review).round(1)== 0 %>
+    <span class="bar" style="width: 0%;"></span>
+  <% end %>
+  </div>
+</div>
+<div class="review_content">
+ <h5 class="review_item" >人間関係 <%= @comments.average(:com_review).round(1)%></h5>
+    <div class="graph review_item">
+     <% if @comments.average(:com_review).round(1) == 5 %>
+      <span class="bar" style="width: 100%;"></span>
+      <% elsif @comments.average(:com_review).round(1) > 4 %>
+       <span class="bar" style="width: 80%;"></span>
+      <% elsif @comments.average(:com_review).round(1) > 3 %>
+       <span class="bar" style="width: 60%;"></span>
+      <% elsif @comments.average(:com_review).round(1) > 2%>
+       <span class="bar" style="width: 40%;"></span>
+      <% elsif @comments.average(:com_review).round(1) > 1 %>
+       <span class="bar" style="width: 20%;"></span>
+      <% elsif @comments.average(:com_review).round(1)== 0 %>
+       <span class="bar" style="width: 0%;"></span>
+     <% end %>
+    </div>
+</div>
+</div>
+
 
   <% @comments.each do |comment|%>
     <div class="card mx-auto card-columns card-dec m-3" style="width: 90%;">
