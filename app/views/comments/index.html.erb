@@ -2,7 +2,7 @@
 
 <% if @comments.present? %>
 <div class="m-3">
-<div class="col text-center m-5"> 
+<div class=" text-center m-5"> 
   <%= link_to '口コミを投稿する', new_house_comment_path(house_id: params[:house_id]),class:"btn comment_btn text-center"%>
 </div>
 <div class=" review-container" >
@@ -129,7 +129,7 @@
   <% end %>
 </div>
 <% else %>
-  <div class="col text-center m-3"> 
+  <div class=" text-center m-3"> 
   <%= link_to '口コミを投稿する', new_house_comment_path(house_id: params[:house_id]),class:"btn comment_btn text-center"%>
   </div>
   <p class="no-comment">口コミが投稿されていません</p>
