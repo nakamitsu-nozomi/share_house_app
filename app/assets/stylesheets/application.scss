@@ -288,3 +288,43 @@ div.field_with_errors{
   text-align: center;
 }
 
+// 口コミ一覧ページ
+.graph {
+  position: relative;
+  /* IE is dumb */
+  width: 150px;
+  height: 5px;
+  padding: 0;
+  background:lightgrey;
+  border-radius: 10px;
+  margin-top: px;
+  
+
+}
+
+.graph .bar {
+  display: block;
+  position: relative;
+  background: black;
+  text-align: center;
+  color: #f0ffff;
+  height: 5px;
+  line-height: 2em;
+  border-radius: 10px;
+
+}
+
+.graph .bar span {
+  position: absolute;
+  left: 1em;
+}
+.review_item{
+  display: inline-block;
+  width: 7em;
+  text-align: left;
+}
+.review-container{
+text-align: center;
+margin-top: 50px;
+margin-bottom: 50px;
+}
