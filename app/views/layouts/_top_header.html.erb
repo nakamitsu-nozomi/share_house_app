@@ -21,7 +21,9 @@
           <%= image_tag current_user.user_icon.url,size: "40x40",class: "icon" %>
         </button>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-          <%= link_to "新規物件登録", new_house_path,class:"dropdown-item"  %>
+          <% if current_user.admin?%>
+            <%= link_to "新規物件登録", new_house_path,class:"dropdown-item"  %>
+          <% end %>
           <%= link_to "アカウント編集", edit_user_registration_path,class:"dropdown-item" %>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" },class:"dropdown-item"  %>
         </div>

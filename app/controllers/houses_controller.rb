@@ -1,7 +1,7 @@
 class HousesController < ApplicationController
   before_action :authenticate_user!, except: [:index ,:show]
   before_action :set_house, only: %i[edit update destroy  ]
-  before_action :if_not_admin,only: %i[edit update destroy  ]
+  before_action :if_not_admin,only: %i[edit update destroy new create ]
 
   def index
     @q = House.ransack(params[:q])
@@ -78,8 +78,9 @@ class HousesController < ApplicationController
       redirect_to root_path
     end
   end
+
   def if_not_admin
-    redirect_to admin_new_houses_path  unless current_user.admin?
+    redirect_to root_path  unless current_user.admin?
   end
 
 end
