@@ -6,9 +6,6 @@ Rails.application.routes.draw do
     resources :comments do
       resource :clips,only: [:create,:destroy]
     end
-    collection do
-      get 'admin_new'
-    end
   end
   resource :users, only: [:show] do
     collection do
