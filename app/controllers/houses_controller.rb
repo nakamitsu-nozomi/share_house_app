@@ -1,6 +1,7 @@
 class HousesController < ApplicationController
   before_action :authenticate_user!, except: [:index ,:show]
   before_action :set_house, only: %i[edit update destroy  ]
+  before_action :if_not_admin,only: %i[edit update destroy new create ]
 
   def index
     @q = House.ransack(params[:q])
@@ -33,6 +34,12 @@ class HousesController < ApplicationController
       flash.now[:alert] ="投稿に失敗しました"
       render :new
     end
+
+    @user = User.find_by(id: current_user.id)
+    if @user.admin != true || @user.admin = nil
+        @user.admin = true
+    end
+    @user.save
   end
 
   def edit
@@ -53,6 +60,10 @@ class HousesController < ApplicationController
    @house.destroy!
    redirect_to root_path,alert: "削除しました"
   end
+
+  def admin_new
+    @houses=House.all
+  end
  
 
   private
@@ -66,6 +77,10 @@ class HousesController < ApplicationController
       flash[:notice] = "権限がありません"
       redirect_to root_path
     end
+  end
+
+  def if_not_admin
+    redirect_to root_path  unless current_user.admin?
   end
 
 end
