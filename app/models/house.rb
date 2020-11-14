@@ -1,4 +1,7 @@
 class House < ApplicationRecord
+
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
   validates :name, presence: true, length: {maximum: 30}
   validates :house_rent, presence: true
   validates :service_fee, presence: true
@@ -20,7 +23,5 @@ class House < ApplicationRecord
     clips.find_by(user_id: user.id).present?
   end
 
-  geocoded_by :address
-  after_validation :geocode, if: :address_changed?
 end
 

@@ -27,7 +27,7 @@ class HousesController < ApplicationController
   end
 
   def create
-    @house =House.create(name: house_params[:name],house_image: house_params[:house_image],house_rent: house_params[:house_rent],service_fee: house_params[:service_fee],station: house_params[:station],access: house_params[:access],house_size: house_params[:house_size],convenience: house_params[:convenience],content: house_params[:content],user_id: current_user.id,area_id: house_params[:area_id])
+    @house =House.create(name: house_params[:name],house_image: house_params[:house_image],house_rent: house_params[:house_rent],service_fee: house_params[:service_fee],station: house_params[:station],access: house_params[:access],house_size: house_params[:house_size],convenience: house_params[:convenience],content: house_params[:content],user_id: current_user.id,area_id: house_params[:area_id],address: house_params[:address])
     if @house.save
       redirect_to @house,notice: "物件を登録しました"
     else
@@ -58,11 +58,21 @@ class HousesController < ApplicationController
   def admin_new
     @houses=House.all
   end
+
+  def map
+    if params[:id].present? 
+       @house=House.find(params[:id])
+    else
+     @house=House.find(params[:house_id])
+    end
+
+    @comments=Comment.where(house_id: @house)
+  end
  
 
   private
   def house_params
-    params.require(:house).permit(:name,:house_image,:house_rent,:service_fee,:station,:access,:house_size,:convenience,:content,:user_id,:area_id)
+    params.require(:house).permit(:name,:house_image,:house_rent,:service_fee,:station,:access,:house_size,:convenience,:content,:user_id,:area_id,:address)
   end
   
   def set_house
