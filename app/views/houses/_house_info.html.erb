@@ -79,3 +79,7 @@
     score: <%=  @comments.present? ? @comments.average(:star).round(1) :0 %>,
   });
 </script>
+
+<%= @house.address %>
+<%= @house.latitude%>
+<%= @house.longitude %>
