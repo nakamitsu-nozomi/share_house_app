@@ -1,4 +1,3 @@
-
 Geocoder.configure(
 
     # street address geocoding service (default :nominatim)
@@ -11,6 +10,8 @@ Geocoder.configure(
     timeout: 5,
 
     # set default units to kilometers:
-    units: :km
+    units: :km,
+
+    use_https: true
 
 )
