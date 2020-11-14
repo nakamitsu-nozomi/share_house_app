@@ -34,12 +34,6 @@ class HousesController < ApplicationController
       flash.now[:alert] ="投稿に失敗しました"
       render :new
     end
-
-    @user = User.find_by(id: current_user.id)
-    if @user.admin != true || @user.admin = nil
-        @user.admin = true
-    end
-    @user.save
   end
 
   def edit
