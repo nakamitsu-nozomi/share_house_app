@@ -18,7 +18,7 @@ gem 'devise-i18n'
 gem 'ransack'
 gem 'jquery-rails'
 gem 'rails_12factor', group: :production
-
+gem "geocoder"
 
 
 group :development, :test do
