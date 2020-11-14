@@ -19,5 +19,8 @@ class House < ApplicationRecord
   def cliped_by(user)
     clips.find_by(user_id: user.id).present?
   end
+
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 end
 
