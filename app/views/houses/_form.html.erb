@@ -20,6 +20,10 @@
     <%= form.collection_select :area_id, Area.all, :id, :name,include_blank: "エリアを選択して下さい" %>
   </div>
   <div>
+    <%= form.label :address, "住所" %>
+    <%= form.text_field :adress %>
+  </div>
+  <div>
     <%= form.label :station, "最寄駅" %>
     <%= form.text_field :station %>
   </div>
