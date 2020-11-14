@@ -21,8 +21,6 @@
  <% end %>
 
 
-
-
   <span id="housecount-<%= @house.id %>">
       <% if @house.cliped_by(current_user) %>
         <%= render 'houses/clips_count',house: @house %>

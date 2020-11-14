@@ -72,7 +72,7 @@ class HousesController < ApplicationController
 
   private
   def house_params
-    params.require(:house).permit(:name,:house_image,:house_rent,:service_fee,:station,:access,:house_size,:convenience,:content,:user_id,:area_id,:address)
+    params.require(:house).permit(:name,:house_image,:house_rent,:service_fee,:station,:access,:house_size,:convenience,:content,:user_id,:area_id,:address,:latitude, :longitude)
   end
   
   def set_house
