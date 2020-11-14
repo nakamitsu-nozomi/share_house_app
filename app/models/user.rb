@@ -12,4 +12,10 @@ class User < ApplicationRecord
   has_many :cliped_houses,through: :clips,source: :house
   has_many :comments,dependent: :destroy
   has_many :comments_houses,through: :comments,source: :house
+
+  def self.guest
+    find_or_create_by!(name: "ゲストユーザー",email: "guest@example.com",adress: "東京", experience: true,admin: true) do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
+  end
 end
