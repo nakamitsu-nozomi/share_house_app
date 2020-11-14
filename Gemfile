@@ -19,6 +19,7 @@ gem 'ransack'
 gem 'jquery-rails'
 gem 'rails_12factor', group: :production
 gem "geocoder"
+gem 'dotenv-rails'
 
 
 group :development, :test do

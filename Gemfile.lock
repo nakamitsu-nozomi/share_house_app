@@ -82,6 +82,10 @@ GEM
       warden (~> 1.2.3)
     devise-i18n (1.9.2)
       devise (>= 4.7.1)
+    dotenv (2.7.6)
+    dotenv-rails (2.7.6)
+      dotenv (= 2.7.6)
+      railties (>= 3.2)
     erubi (1.9.0)
     excon (0.78.0)
     ffi (1.13.1)
@@ -267,6 +271,7 @@ DEPENDENCIES
   carrierwave (~> 2.0)
   devise
   devise-i18n
+  dotenv-rails
   fog-aws
   geocoder
   jbuilder (~> 2.7)
