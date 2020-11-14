@@ -6,7 +6,13 @@
           <%= image_tag @user.user_icon.url,class:" icon",size: "100x100"%>
           <div class="col-9 ">
             <h3 class="card-title"><%= @user.name%>さんのマイページ</h3>
-            <h6 class="card-subtitle mb-2 text-muted">管理者権限 有/無</h6>
+            <h6 class="card-subtitle mb-2 text-muted">
+            <% if @user.admin? %>
+            <h6 class="card-subtitle mb-2 text-muted">管理者権限 / 有</h6>
+            <% else %>
+             <h6 class="card-subtitle mb-2 text-muted">管理者権限 / 無</h6>
+            <% end %>
+            </h6>
             <p class="card-text"><%= @user.adress%>在住</p>
             <% if @user.experience.present? %>
               <p class="card-text">シェアハウス経験あり</p>
@@ -19,7 +25,9 @@
       <div class="right_content">
         <div class="row">
           <div class="col-9 btn ">
+          <% if @user.admin? %>
             <%= link_to '登録物件', users_path(@user.id),class:"btn btn-outline-dark" %>
+          <% end %>
             <%= link_to 'レビューした物件', comments_users_path,class:"btn btn-outline-dark" %>
             <%= link_to '保存済み', clips_users_path,class:"btn btn-outline-dark" %>
             <%= link_to 'アカウント編集', edit_user_registration_path ,class:"btn btn-outline-dark" %>
