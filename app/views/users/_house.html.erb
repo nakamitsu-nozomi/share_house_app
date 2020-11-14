@@ -18,9 +18,7 @@
         <% end %>
       <% end %>
       <div class="right mt-3 ml-3 pl-3" >
-      <% if @user.admin? %>
-        <p>物件投稿件数 <%= @myhouse.count%>件 </p>
-      <% end %>
+      <p>物件投稿件数 <%= @myhouse.count%>件 </p>
       <p>保存件数 <%= @houses.count%>件 </p>
       <p>レビュー件数 <%= @comments.count%>件</p>
       </div>
