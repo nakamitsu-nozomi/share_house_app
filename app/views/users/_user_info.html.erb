@@ -6,7 +6,13 @@
           <%= image_tag @user.user_icon.url,class:" icon",size: "100x100"%>
           <div class="col-9 ">
             <h3 class="card-title"><%= @user.name%>さんのマイページ</h3>
-            <h6 class="card-subtitle mb-2 text-muted">管理者権限 有/無</h6>
+            <h6 class="card-subtitle mb-2 text-muted">
+            <% if @user.admin? %>
+            <h6 class="card-subtitle mb-2 text-muted">管理者権限 / 有</h6>
+            <% else %>
+             <h6 class="card-subtitle mb-2 text-muted">管理者権限 / 無</h6>
+            <% end %>
+            </h6>
             <p class="card-text"><%= @user.adress%>在住</p>
             <% if @user.experience.present? %>
               <p class="card-text">シェアハウス経験あり</p>
