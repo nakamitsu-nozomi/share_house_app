@@ -26,7 +26,7 @@ end
 
 # facilityの初期データ投入
 Facility.create([
-  {name: "リビング"},
-  {name: "WiFi"},
-  {name: "駐輪場"}
+  {name: "リビング",icon: "icons/couch.png"},
+  {name: "WiFi",icon: "icons/wi-fi.png"},
+  {name: "駐輪場",icon: "icons/bike.png"}
   ])

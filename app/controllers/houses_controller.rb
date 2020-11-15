@@ -13,13 +13,13 @@ class HousesController < ApplicationController
 
   def show
     if params[:id].present? 
-       @house=House.find(params[:id])
+      @house=House.find(params[:id])
     else
-     @house=House.find(params[:house_id])
+      @house=House.find(params[:house_id])
     end
-
     @comments=Comment.where(house_id: @house)
-    # @average_comment=Comment.where(house_id: @house).average(:star).round(1)
+    @facilities=Facility.all
+    @with_facility_ids=HousesFacility.where(house_id:@house.id).pluck(:facility_id)
   end
 
   def new
