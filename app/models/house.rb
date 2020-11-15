@@ -30,6 +30,9 @@ class House < ApplicationRecord
   has_many :cliped_users,through: :clips,source: :user
   has_many :comments,dependent: :destroy
   has_many :comments_users,through: :comments,source: :user
+  has_many :houses_facilities,dependent: :destroy
+  has_many :facilities, through: :houses_facilities
+  accepts_nested_attributes_for :houses_facilities, allow_destroy: true
   
   def cliped_by(user)
     clips.find_by(user_id: user.id).present?

@@ -72,6 +72,15 @@
     <%= form.number_field :bathroom,:value => 0,min:"0",max:"20" %>
   </div>
 
+  <div class="field">
+    <%= form.label :facilities %><br />
+    <%= collection_check_boxes(:house, :facility_ids, Facility.all, :id, :name) do |b| %>
+      <%= b.label { b.check_box + b.text } %>
+    <% end %>
+  </div>
+
+
+
 
   <div>
     <%= form.submit button_value,class: "btn btn-block" %>

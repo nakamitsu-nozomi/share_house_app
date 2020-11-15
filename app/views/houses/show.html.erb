@@ -22,3 +22,6 @@
 <p>トイレ<%= @house.toilet%></p>
 <p>シャワー<%= @house.shower%></p>
 <p>浴室<%= @house.bathroom%></p>
+<% @house.facilities.each do |facility|%> 
+<%= facility.name %>
+<% end %>
