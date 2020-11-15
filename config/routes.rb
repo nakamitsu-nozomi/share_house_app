@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     resources :comments do
       resource :clips,only: [:create,:destroy]
     end
+    member do
+      get "map"
+    end
   end
 
   resource :users, only: [:show] do
