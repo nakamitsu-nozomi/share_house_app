@@ -83,7 +83,7 @@
   <p><i class="fas fa-bath fa-5x no-facility"></i></p>
   <p class="no-facility">浴室<%= @house.bathroom%>台</p>
 <% else %>
-  <p><i class="fas fa-bath facilityfa-5x"></i></p>
+  <p><i class="fas fa-bath facility fa-5x"></i></p>
   <p class="facility">浴室<%= @house.bathroom%>台</p>
 <% end %>
 </div>
@@ -92,15 +92,15 @@
 <% @facilities.each do |facility| %>
   <div class="col-3">
   <% if @with_facility_ids.include?(facility.id)%>
+      <%= image_tag facility.color_icon,  size:'90x90' %> 
       <p class="facility"><%=  facility.name %></p>
     <% else %>
-     <%= image_tag facility.icon, class: "icon" %> 
+     <%= image_tag facility.icon, size:'90x90' %> 
       <p class="no-facility"><%=  facility.name %></p>
   <% end %>
 
   </div>
 <% end %>
-
 
 </div>
 
