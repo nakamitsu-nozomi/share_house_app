@@ -73,7 +73,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :facilities %><br />
+    <%= form.label :facilities, "共用設備" %><br />
     <%= collection_check_boxes(:house, :facility_ids, Facility.all, :id, :name) do |b| %>
       <%= b.label { b.check_box + b.text } %>
     <% end %>
