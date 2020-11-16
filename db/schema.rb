@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_14_062310) do
+ActiveRecord::Schema.define(version: 2020_11_16_230047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,14 @@ ActiveRecord::Schema.define(version: 2020_11_14_062310) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "facilities", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.string "icon"
+    t.string "color_icon"
+  end
+
   create_table "houses", force: :cascade do |t|
     t.string "name"
     t.string "house_image"
@@ -66,8 +74,24 @@ ActiveRecord::Schema.define(version: 2020_11_14_062310) do
     t.string "address"
     t.float "latitude"
     t.float "longitude"
+    t.integer "kitchen"
+    t.integer "refrigerator"
+    t.integer "laundry"
+    t.integer "dryer"
+    t.integer "toilet"
+    t.integer "shower"
+    t.integer "bathroom"
     t.index ["area_id"], name: "index_houses_on_area_id"
     t.index ["user_id"], name: "index_houses_on_user_id"
+  end
+
+  create_table "houses_facilities", force: :cascade do |t|
+    t.bigint "house_id"
+    t.bigint "facility_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["facility_id"], name: "index_houses_facilities_on_facility_id"
+    t.index ["house_id"], name: "index_houses_facilities_on_house_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -93,4 +117,6 @@ ActiveRecord::Schema.define(version: 2020_11_14_062310) do
   add_foreign_key "comments", "users"
   add_foreign_key "houses", "areas"
   add_foreign_key "houses", "users"
+  add_foreign_key "houses_facilities", "facilities"
+  add_foreign_key "houses_facilities", "houses"
 end

@@ -13,13 +13,13 @@ class HousesController < ApplicationController
 
   def show
     if params[:id].present? 
-       @house=House.find(params[:id])
+      @house=House.find(params[:id])
     else
-     @house=House.find(params[:house_id])
+      @house=House.find(params[:house_id])
     end
-
     @comments=Comment.where(house_id: @house)
-    # @average_comment=Comment.where(house_id: @house).average(:star).round(1)
+    @facilities=Facility.all
+    @with_facility_ids=HousesFacility.where(house_id:@house.id).pluck(:facility_id)
   end
 
   def new
@@ -27,7 +27,8 @@ class HousesController < ApplicationController
   end
 
   def create
-    @house =House.create(name: house_params[:name],house_image: house_params[:house_image],house_rent: house_params[:house_rent],service_fee: house_params[:service_fee],station: house_params[:station],access: house_params[:access],house_size: house_params[:house_size],convenience: house_params[:convenience],content: house_params[:content],user_id: current_user.id,area_id: house_params[:area_id],address: house_params[:address])
+    @house =House.create(name: house_params[:name],house_image: house_params[:house_image],house_rent: house_params[:house_rent],service_fee: house_params[:service_fee],station: house_params[:station],access: house_params[:access],house_size: house_params[:house_size],convenience: house_params[:convenience],content: house_params[:content],user_id: current_user.id,area_id: house_params[:area_id],address: house_params[:address],kitchen: house_params[:kitchen],refrigerator: house_params[:refrigerator],laundry: house_params[:laundry],dryer: house_params[:dryer],toilet: house_params[:toilet],bathroom: house_params[:bathroom], shower: house_params[:shower])
+
     if @house.save
       redirect_to @house,notice: "物件を登録しました"
     else
@@ -72,7 +73,7 @@ class HousesController < ApplicationController
 
   private
   def house_params
-    params.require(:house).permit(:name,:house_image,:house_rent,:service_fee,:station,:access,:house_size,:convenience,:content,:user_id,:area_id,:address,:latitude, :longitude)
+    params.require(:house).permit(:name,:house_image,:house_rent,:service_fee,:station,:access,:house_size,:convenience,:content,:user_id,:area_id,:address,:latitude, :longitude,:kitchen,:refrigerator,:laundry,:dryer,:toilet,:shower,:bathroom, { facility_ids: [] })
   end
   
   def set_house

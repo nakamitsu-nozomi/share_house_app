@@ -44,6 +44,45 @@
     <%= form.text_area :content %>
   </div>
   <div>
+    <%= form.label :kitchen, "キッチン" %>
+    <%= form.number_field :kitchen,:value => 0,min:"0",max:"20" %>
+  </div>
+  <div>
+    <%= form.label :refrigerator, "冷蔵庫" %>
+    <%= form.number_field :refrigerator,:value => 0,min:"0",max:"20"  %>
+  </div>
+  <div>
+    <%= form.label :laundry, "洗濯機" %>
+    <%= form.number_field :laundry,:value => 0,min:"0",max:"20"  %>
+  </div>
+  <div>
+    <%= form.label :dryer, "乾燥機" %>
+    <%= form.number_field :dryer,:value => 0,min:"0",max:"20"  %>
+  </div>
+  <div>
+    <%= form.label :toilet, "トイレ" %>
+    <%= form.number_field :toilet,:value => 0,min:"0",max:"20"  %>
+  </div>
+    <div>
+    <%= form.label :shower, "シャワー" %>
+    <%= form.number_field :shower,:value => 0,min:"0",max:"20" %>
+  </div>
+  <div>
+    <%= form.label :bathroom, "浴室" %>
+    <%= form.number_field :bathroom,:value => 0,min:"0",max:"20" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :facilities, "共用設備" %><br />
+    <%= collection_check_boxes(:house, :facility_ids, Facility.all, :id, :name) do |b| %>
+      <%= b.label { b.check_box + b.text } %>
+    <% end %>
+  </div>
+
+
+
+
+  <div>
     <%= form.submit button_value,class: "btn btn-block" %>
   </div>
 

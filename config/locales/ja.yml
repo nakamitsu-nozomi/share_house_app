@@ -6,6 +6,7 @@ ja:
       area: エリア
       clip: 保存
       comment: 口コミ
+      facility: 共用設備
     attributes:
       house:
         name: 物件名
@@ -18,6 +19,14 @@ ja:
         content: その他物件情報
         house_image: 物件画像
         area_id: エリア
+        adress: 住所
+        kitchen: キッチン
+        refrigerator: 冷蔵庫
+        laundry: 洗濯機
+        toilet: トイレ
+        dryer: 乾燥機
+        shower: シャワー
+        bathroom: 浴室
       clip:
         user: ユーザー
         house: 物件
@@ -30,6 +39,7 @@ ja:
         houserule_review: ハウスルール順守度
         location_review: 所在地
         com_review: 住人同士の仲良し度
+
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"

@@ -13,13 +13,20 @@ User.find_or_create_by!(email: EMAIL) do |user|
   user.experience = EXPERIENCE
   puts 'ユーザーの初期データインポートに成功しました。'
 end 
-# 管理者ユーザーを作成
-User.create!(name:  "管理者",
-             email: "admin@example.com",
-             password:  "password",
-             password_confirmation: "password",      
-             user_icon: USER_ICON,
-             adress: ADRESS,
-             experience: EXPERIENCE,
-             admin: true)
+# 管理者ユーザーが存在しないときだけ作成
+User.find_or_create_by!(email: "admin@example.com") do |user|
+  user.password = PASSWORD
+  user.name = "管理者"
+  user.user_icon =USER_ICON
+  user.adress = ADRESS
+  user.experience = EXPERIENCE
+  user.admin = true
+  puts '管理者ユーザーの初期データインポートに成功しました。'
+end 
 
+# facilityの初期データ投入
+Facility.create([
+  {name: "リビング",icon: "icons/couch.png",color_icon: "icons/couch_color.png"},
+  {name: "WiFi",icon: "icons/wi-fi.png",color_icon: "icons/wi-fi_color.png"},
+  {name: "駐輪場",icon: "icons/bike.png",color_icon: "icons/bike_color.png"}
+  ])
