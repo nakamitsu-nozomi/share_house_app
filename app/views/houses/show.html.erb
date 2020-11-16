@@ -18,91 +18,88 @@
 <%# 共用設備の表示 %>
 
 <div class="card text-center w-75 p-3 facility-card mt-5">
-<h3 class="m-3">共有設備</h3>
-<div class="row">
-<div class="col-3" >
-  <% if  @house.kitchen == 0 %>
-    <p class="no-facility"><i class="fas fa-utensils fa-5x no-facility"></i></p>
-    <p class="no-facility">キッチン<%= @house.kitchen%>台</p>
-  <% else %>
-    <p><i class="fas fa-utensils facility fa-5x"></i></p>
-    <p class="facility">キッチン<%= @house.kitchen%>台</p>
-  <% end %>
-</div>
+  <h3 class="m-3">共有設備</h3>
+  <div class="row">
+    <div class="col-3" >
+      <% if  @house.kitchen == 0 %>
+        <p class="no-facility"><i class="fas fa-utensils fa-5x no-facility"></i></p>
+        <p class="no-facility">キッチン<%= @house.kitchen%>台</p>
+      <% else %>
+        <p><i class="fas fa-utensils facility fa-5x"></i></p>
+        <p class="facility">キッチン<%= @house.kitchen%>台</p>
+      <% end %>
+    </div>
 
-<div class="col-3">
-<% if  @house.refrigerator == 0 %>
-  <p><i class="fas fa-snowflake fa-5x no-facility"></i></p>
-  <p class="no-facility">冷蔵庫<%= @house.refrigerator%>台</p>
-<% else %>
-  <p><i class="fas fa-snowflake facility fa-5x"></i></p>
-  <p class="facility">冷蔵庫<%= @house.refrigerator%>台</p>
-<% end %>
-</div>
-<div class="col-3">
-<% if  @house.laundry == 0 %>
-  <p><i class="fas fa-tshirt fa-5x no-facility"></i></p>
-  <p class="no-facility">洗濯機<%= @house.laundry%>台</p>
-<% else %>
-  <p><i class="fas fa-tshirt facility fa-5x"></i></p>
-  <p class="facility">洗濯機<%= @house.laundry%>台</p>
-<% end %>
-</div>
-<div class="col-3">
-<% if  @house.dryer == 0 %>
-  <p><i class="fas fa-tshirt fa-5x no-facility"></i></p>
-  <p class="no-facility">乾燥機<%= @house.dryer%>台</p>
-<% else %>
-  <p><i class="fas fa-tshirt facility fa-5x"></i></p>
-  <p class="facility">乾燥機<%= @house.dryer%>台</p>
-<% end %>
-</div>
-</div>
-<div class="row">
-<div class="col-3">
-<% if  @house.toilet == 0 %>
-  <p><i class="fas fa-toilet fa-5x no-facility"></i></p>
-  <p class="no-facility">トイレ<%= @house.toilet%>台</p>
-<% else %>
-  <p><i class="fas  fa-toilet facility fa-5x"></i></p>
-  <p class="facility">トイレ<%= @house.toilet%>台</p>
-<% end %>
-</div>
-<div class="col-3">
-<% if  @house.shower == 0 %>
-  <p><i class="fas fa-shower fa-5x no-facility"></i></p>
-  <p class="no-facility">シャワー<%= @house.shower%>台</p>
-<% else %>
-  <p><i class="fas fa-shower facility fa-5x"></i></p>
-  <p class="facility">シャワー<%= @house.shower%>台</p>
-<% end %>
-</div>
-
-<div class="col-3">
-<% if  @house.bathroom == 0 %>
-  <p><i class="fas fa-bath fa-5x no-facility"></i></p>
-  <p class="no-facility">浴室<%= @house.bathroom%>台</p>
-<% else %>
-  <p><i class="fas fa-bath facility fa-5x"></i></p>
-  <p class="facility">浴室<%= @house.bathroom%>台</p>
-<% end %>
-</div>
-
-
-<% @facilities.each do |facility| %>
-  <div class="col-3">
-  <% if @with_facility_ids.include?(facility.id)%>
-      <%= image_tag facility.color_icon,  size:'90x90' %> 
-      <p class="facility"><%=  facility.name %></p>
-    <% else %>
-     <%= image_tag facility.icon, size:'90x90' %> 
-      <p class="no-facility"><%=  facility.name %></p>
-  <% end %>
-
+    <div class="col-3">
+      <% if  @house.refrigerator == 0 %>
+        <p><i class="fas fa-snowflake fa-5x no-facility"></i></p>
+        <p class="no-facility">冷蔵庫<%= @house.refrigerator%>台</p>
+      <% else %>
+        <p><i class="fas fa-snowflake facility fa-5x"></i></p>
+        <p class="facility">冷蔵庫<%= @house.refrigerator%>台</p>
+      <% end %>
+    </div>
+    <div class="col-3">
+      <% if  @house.laundry == 0 %>
+        <p><i class="fas fa-tshirt fa-5x no-facility"></i></p>
+        <p class="no-facility">洗濯機<%= @house.laundry%>台</p>
+      <% else %>
+        <p><i class="fas fa-tshirt facility fa-5x"></i></p>
+        <p class="facility">洗濯機<%= @house.laundry%>台</p>
+      <% end %>
+    </div>
+    <div class="col-3">
+      <% if  @house.dryer == 0 %>
+        <p><i class="fas fa-tshirt fa-5x no-facility"></i></p>
+        <p class="no-facility">乾燥機<%= @house.dryer%>台</p>
+      <% else %>
+        <p><i class="fas fa-tshirt facility fa-5x"></i></p>
+        <p class="facility">乾燥機<%= @house.dryer%>台</p>
+      <% end %>
+    </div>
   </div>
-<% end %>
+  <div class="row">
+    <div class="col-3">
+      <% if  @house.toilet == 0 %>
+        <p><i class="fas fa-toilet fa-5x no-facility"></i></p>
+        <p class="no-facility">トイレ<%= @house.toilet%>台</p>
+      <% else %>
+        <p><i class="fas  fa-toilet facility fa-5x"></i></p>
+        <p class="facility">トイレ<%= @house.toilet%>台</p>
+      <% end %>
+      </div>
+    <div class="col-3">
+      <% if  @house.shower == 0 %>
+        <p><i class="fas fa-shower fa-5x no-facility"></i></p>
+        <p class="no-facility">シャワー<%= @house.shower%>台</p>
+      <% else %>
+        <p><i class="fas fa-shower facility fa-5x"></i></p>
+        <p class="facility">シャワー<%= @house.shower%>台</p>
+      <% end %>
+    </div>
 
-</div>
+    <div class="col-3">
+      <% if  @house.bathroom == 0 %>
+        <p><i class="fas fa-bath fa-5x no-facility"></i></p>
+        <p class="no-facility">浴室<%= @house.bathroom%>台</p>
+      <% else %>
+        <p><i class="fas fa-bath facility fa-5x"></i></p>
+        <p class="facility">浴室<%= @house.bathroom%>台</p>
+      <% end %>
+    </div>
 
+
+    <% @facilities.each do |facility| %>
+      <div class="col-3">
+        <% if @with_facility_ids.include?(facility.id)%>
+            <%= image_tag facility.color_icon,  size:'90x90' %> 
+            <p class="facility"><%=  facility.name %></p>
+          <% else %>
+          <%= image_tag facility.icon, size:'90x90' %> 
+            <p class="no-facility"><%=  facility.name %></p>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
 
