@@ -19,7 +19,7 @@ class House < ApplicationRecord
   validates :toilet, presence: true,numericality: { only_integer: true,greater_than: -1, less_than: 20 }
   validates :shower, presence: true,numericality: { only_integer: true,greater_than: -1, less_than: 20 }
   validates :bathroom, presence: true,numericality: { only_integer: true,greater_than: -1, less_than: 20 }
-
+  has_many :rooms,dependent: :destroy
 
 
 
