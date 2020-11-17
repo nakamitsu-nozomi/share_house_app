@@ -7,6 +7,7 @@ ja:
       clip: 保存
       comment: 口コミ
       facility: 共用設備
+      room: 部屋
     attributes:
       house:
         name: 物件名
@@ -39,6 +40,13 @@ ja:
         houserule_review: ハウスルール順守度
         location_review: 所在地
         com_review: 住人同士の仲良し度
+      room:
+        room_num: 部屋番号
+        room_type: 種類
+        image: 画像
+        size: 広さ
+        rent: 家賃
+        vacancy: 空室状況
 
     errors:
       messages:
