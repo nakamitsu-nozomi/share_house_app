@@ -9,11 +9,11 @@
   </div>
   <div>
     <%= form.label :house_rent, "家賃" %>
-    <%= form.text_field :house_rent %>
+    <%= form.text_field :house_rent %>円
   </div>
   <div>
     <%= form.label :service_fee, "共益費" %>
-    <%= form.text_field :service_fee %>
+    <%= form.text_field :service_fee %>円
   </div>
   <div>
     <%= form.label :area_id %>
@@ -78,9 +78,41 @@
       <%= b.label { b.check_box + b.text } %>
     <% end %>
   </div>
+<h3>部屋情報入力</h3>
+  <%= form.fields_for :rooms do |i| %>
+    <div>
+    <%= i.label :room_num, "部屋番号" %>
+    <%= i.text_field :room_num %>
+  </div>
+    <div class="field mt-3 ">
+    <%= i.label :vacancy,"空室状況を選んでください" %><br />
+    <%= i.radio_button :vacancy, "true" %>
+    <%= i.label :vacancy, "空室", {value: true, style: "display: inline-block;",class: "m-1"} %>
+    <%= i.radio_button :vacancy, "false" %>
+    <%= i.label :vacancy, "満室", {value: false, style: "display: inline-block;",class: "m-1"} %>
+  </div>
+  <div>
+    <%= i.label :image, "部屋画像" %>
+    <%= i.file_field :image,accept: "image/png,image/jpeg,image/gif" %>
+  </div>
+  <div>
+    <%= i.label :size, "広さ（単位：m²)" %>
+    <%= i.text_field :size %>m²
+  </div>
+  <div>
+    <%= i.label :rent, "家賃" %>
+    <%= i.text_field :rent %>円
+  </div>
+  <div class="field mt-3">
+    <%= i.label :room_type,"お部屋の種類を選んでください。" %><br />
+    <%= i.radio_button :room_type, "true" %>
+    <%= i.label :room_type, "個室", {value: true, style: "display: inline-block;",class: "m-1"} %>
+    <%= i.radio_button :room_type, "false" %>
+    <%= i.label :room_type, "ドミトリー", {value: false, style: "display: inline-block;",class: "m-1"} %>
+  </div>
 
-
-
+  
+  <% end %>
 
   <div>
     <%= form.submit button_value,class: "btn btn-block" %>
@@ -88,3 +120,5 @@
 
 
 <% end %>
+
+

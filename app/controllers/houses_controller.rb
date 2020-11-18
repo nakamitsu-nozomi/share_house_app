@@ -24,12 +24,13 @@ class HousesController < ApplicationController
 
   def new
     @house= House.new
+    @house.rooms.build
   end
 
   def create
-    @house =House.create(name: house_params[:name],house_image: house_params[:house_image],house_rent: house_params[:house_rent],service_fee: house_params[:service_fee],station: house_params[:station],access: house_params[:access],house_size: house_params[:house_size],convenience: house_params[:convenience],content: house_params[:content],user_id: current_user.id,area_id: house_params[:area_id],address: house_params[:address],kitchen: house_params[:kitchen],refrigerator: house_params[:refrigerator],laundry: house_params[:laundry],dryer: house_params[:dryer],toilet: house_params[:toilet],bathroom: house_params[:bathroom], shower: house_params[:shower])
-
-    if @house.save
+    @house=current_user.houses.build(house_params)
+    # @house =House.create(name: house_params[:name],house_image: house_params[:house_image],house_rent: house_params[:house_rent],service_fee: house_params[:service_fee],station: house_params[:station],access: house_params[:access],house_size: house_params[:house_size],convenience: house_params[:convenience],content: house_params[:content],user_id: current_user.id,area_id: house_params[:area_id],address: house_params[:address],kitchen: house_params[:kitchen],refrigerator: house_params[:refrigerator],laundry: house_params[:laundry],dryer: house_params[:dryer],toilet: house_params[:toilet],bathroom: house_params[:bathroom], shower: house_params[:shower])
+    if @house.save 
       redirect_to @house,notice: "物件を登録しました"
     else
       flash.now[:alert] ="投稿に失敗しました"
@@ -73,7 +74,7 @@ class HousesController < ApplicationController
 
   private
   def house_params
-    params.require(:house).permit(:name,:house_image,:house_rent,:service_fee,:station,:access,:house_size,:convenience,:content,:user_id,:area_id,:address,:latitude, :longitude,:kitchen,:refrigerator,:laundry,:dryer,:toilet,:shower,:bathroom, { facility_ids: [] })
+    params.require(:house).permit(:name,:house_image,:house_rent,:service_fee,:station,:access,:house_size,:convenience,:content,:user_id,:area_id,:address,:latitude, :longitude,:kitchen,:refrigerator,:laundry,:dryer,:toilet,:shower,:bathroom, { facility_ids: [] }, rooms_attributes: [:room_num, :image,:size,:rent,:room_type,:vacancy]).merge(area_id: params[:house][:area_id])
   end
   
   def set_house
@@ -87,5 +88,7 @@ class HousesController < ApplicationController
   def if_not_admin
     redirect_to root_path  unless current_user.admin?
   end
+
+
 
 end

@@ -19,7 +19,6 @@ class House < ApplicationRecord
   validates :toilet, presence: true,numericality: { only_integer: true,greater_than: -1, less_than: 20 }
   validates :shower, presence: true,numericality: { only_integer: true,greater_than: -1, less_than: 20 }
   validates :bathroom, presence: true,numericality: { only_integer: true,greater_than: -1, less_than: 20 }
-  has_many :rooms,dependent: :destroy
 
 
 
@@ -33,7 +32,8 @@ class House < ApplicationRecord
   has_many :houses_facilities,dependent: :destroy
   has_many :facilities, through: :houses_facilities
   accepts_nested_attributes_for :houses_facilities, allow_destroy: true
-  
+  has_many :rooms
+  accepts_nested_attributes_for :rooms, allow_destroy: true
   def cliped_by(user)
     clips.find_by(user_id: user.id).present?
   end
