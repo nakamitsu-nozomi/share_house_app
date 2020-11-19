@@ -20,6 +20,7 @@ class HousesController < ApplicationController
     @comments=Comment.where(house_id: @house)
     @facilities=Facility.all
     @with_facility_ids=HousesFacility.where(house_id:@house.id).pluck(:facility_id)
+    @rooms=Room.where(house_id: @house.id)
   end
 
   def new
@@ -43,8 +44,8 @@ class HousesController < ApplicationController
   end
 
   def update
-    @house.update(house_params)
-    if @house.update(house_params)
+    @house= House.find(params[:id])
+    if @house.update(update_house_params)
       redirect_to @house,notice: "更新しました"
     else
       flash.now[:alert] ="更新に失敗しました"
@@ -75,6 +76,9 @@ class HousesController < ApplicationController
   private
   def house_params
     params.require(:house).permit(:name,:house_image,:house_rent,:service_fee,:station,:access,:house_size,:convenience,:content,:user_id,:area_id,:address,:latitude, :longitude,:kitchen,:refrigerator,:laundry,:dryer,:toilet,:shower,:bathroom, { facility_ids: [] }, rooms_attributes: [:room_num, :image,:size,:rent,:room_type,:vacancy]).merge(area_id: params[:house][:area_id])
+  end
+  def update_house_params
+    params.require(:house).permit(:name,:house_image,:house_rent,:service_fee,:station,:access,:house_size,:convenience,:content,:user_id,:area_id,:address,:latitude, :longitude,:kitchen,:refrigerator,:laundry,:dryer,:toilet,:shower,:bathroom, { facility_ids: [] }, rooms_attributes: [:room_num, :image,:size,:rent,:room_type,:vacancy,:_destroy, :id]).merge(area_id: params[:house][:area_id])
   end
   
   def set_house
