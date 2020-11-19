@@ -8,7 +8,7 @@
     <p class="m-auto"> こちらの物件には、お部屋情報が登録されておりません。</p>
   </div>
 <% end %>
-<% @rooms.each do |room|%>
+
 <table class="table table-bordered text-center mt-5">
   <thead>
     <tr>
@@ -21,10 +21,11 @@
       <th scope="col">写真</th>
     </tr>
   </thead>
+    <% @rooms.each do |room|%>
   <tbody >
     <tr>
     <td >
-    編集
+    <%= link_to '部屋情報を追加',  edit_house_room_path(house_id:@house.id id:@room) %>
     削除
     </td>
       <td>
@@ -48,12 +49,12 @@
       <td><%= room.rent%>円</td>
       <td><%=  image_tag room.image.to_s,size:'100x100' %> </td>
     </tr>
-
   </tbody>
+  <% end %>
 </table>
 
 
 
 
-<% end %>
+
 
