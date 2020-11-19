@@ -63,18 +63,19 @@ class HousesController < ApplicationController
   end
 
   def map
-    if params[:id].present? 
-       @house=House.find(params[:id])
-    else
-     @house=House.find(params[:house_id])
-    end
-
+    @house=House.find(params[:id])
     @comments=Comment.where(house_id: @house)
+  end
+  
+  def room
+     @house=House.find(params[:id])
+     @rooms=Room.where(house_id: @house.id)
   end
  
 
   private
   def house_params
+    
     params.require(:house).permit(:name,:house_image,:house_rent,:service_fee,:station,:access,:house_size,:convenience,:content,:user_id,:area_id,:address,:latitude, :longitude,:kitchen,:refrigerator,:laundry,:dryer,:toilet,:shower,:bathroom, { facility_ids: [] }, rooms_attributes: [:room_num, :image,:size,:rent,:room_type,:vacancy]).merge(area_id: params[:house][:area_id])
   end
   def update_house_params
