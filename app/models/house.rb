@@ -22,7 +22,6 @@ class House < ApplicationRecord
 
 
 
-
   belongs_to :area
   belongs_to :user
   mount_uploader :house_image, ImageUploader
@@ -33,7 +32,8 @@ class House < ApplicationRecord
   has_many :houses_facilities,dependent: :destroy
   has_many :facilities, through: :houses_facilities
   accepts_nested_attributes_for :houses_facilities, allow_destroy: true
-  
+  has_many :rooms
+  accepts_nested_attributes_for :rooms, allow_destroy: true
   def cliped_by(user)
     clips.find_by(user_id: user.id).present?
   end

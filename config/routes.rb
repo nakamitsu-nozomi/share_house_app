@@ -11,8 +11,10 @@ Rails.application.routes.draw do
     resources :comments do
       resource :clips,only: [:create,:destroy]
     end
+    resources :rooms,only: [:create,:destroy,:new,:edit,:update]
     member do
       get "map"
+      get "room"
     end
   end
 

@@ -9,11 +9,11 @@
   </div>
   <div>
     <%= form.label :house_rent, "家賃" %>
-    <%= form.text_field :house_rent %>
+    <%= form.text_field :house_rent %>円
   </div>
   <div>
     <%= form.label :service_fee, "共益費" %>
-    <%= form.text_field :service_fee %>
+    <%= form.text_field :service_fee %>円
   </div>
   <div>
     <%= form.label :area_id %>
@@ -78,13 +78,61 @@
       <%= b.label { b.check_box + b.text } %>
     <% end %>
   </div>
+  <h3>部屋情報入力</h3>
+ 
+  <div id="house_rooms_box">
+    <%= form.fields_for :rooms do |i| %>
+      <div class="js-house_room" id="add_room_' + room_count + '">
+        <div>
+          <%= i.label :room_num, "部屋番号" %>
+          <%= i.text_field :room_num,class: 'form-control', required: true %>
+        </div>
+        <div class="field">
+          <span>空室状況をお選びください</span><br>
+          <div>
+            <%= i.radio_button :vacancy, :vacancy, checked: "checked" %>
+            <%= i.label :vacancy,"空室" %>
+          </div>
+          <div>
+            <%= i.radio_button :vacancy, :no_vacancy %>
+            <%= i.label :no_vacancy,"満室" %>
+          </div>
+        </div>
+        <div>
+          <%= i.label :image, "部屋画像" %>
+          <%= i.file_field :image,accept: "image/png,image/jpeg,image/gif",class: 'form-control' %>
+        </div>
+        <div>
+          <%= i.label :size, "広さ（単位：m²)" %>
+          <%= i.text_field :size,class: 'form-control', required: true %>m²
+        </div>
+        <div>
+          <%= i.label :rent, "家賃" %>
+          <%= i.text_field :rent,class: 'form-control', required: true %>円
+        </div>
+        <div class="field">
+          <span>お部屋タイプをお選びください</span><br>
+          <div>
+            <%= i.radio_button :room_type, :private_room, checked: "checked" %>
+            <%= i.label :private_room,"個室" %>
+          </div>
+          <div>
+            <%= i.radio_button :room_type, :domitory %>
+            <%= i.label :domitory,"ドミトリー" %>
+          </div>
+          <div>
+            <%= i.radio_button :room_type, :room_share %>
+            <%= i.label :room_share,"ルームシェア" %>
+          </div>
+        </div>
 
-
-
-
+      </div>
+    <% end %>
+    </div>
+  </div>
   <div>
     <%= form.submit button_value,class: "btn btn-block" %>
   </div>
-
-
 <% end %>
+
+
