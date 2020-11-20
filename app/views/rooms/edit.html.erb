@@ -1,5 +1,5 @@
   <h3>部屋情報入力</h3>
-    <%= form_with method: :patch, url: "/houses/#{params[:house_id]}/rooms/#{params[:id]}", local:true do |f| %>
+    <%= form_with model: @room,method: :patch, url: "/houses/#{params[:house_id]}/rooms/#{params[:id]}", local:true do |f| %>
       <div class="js-house_room" id="add_room_' + room_count + '">
         <div>
           <%= f.label :room_num, "部屋番号" %>

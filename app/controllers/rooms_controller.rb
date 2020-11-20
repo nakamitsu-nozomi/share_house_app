@@ -47,7 +47,7 @@ class RoomsController < ApplicationController
   def room_params
     params.permit(:room_num,:vacancy,:image,:size,:rent,:room_type)
   end
-  def room_params
-    params.permit(:room_num,:vacancy,:image,:size,:rent,:room_type,:_destroy, :id)
+  def update_room_params
+    params.require(:room).permit(:room_num,:vacancy,:image,:size,:rent,:room_type)
   end
 end
