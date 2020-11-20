@@ -25,8 +25,8 @@
   <tbody >
     <tr>
     <td >
-    <%= link_to '部屋情報を追加',  edit_house_room_path(house_id:@house.id id:@room) %>
-    削除
+    <p><%= link_to '部屋情報を編集',  edit_house_room_path(house_id: @house.id, id: room) %></p>
+    <p><%= link_to '部屋情報を削除',  house_room_path(house_id: @house.id, id: room),method: :delete, data: { confirm: "削除しますか?" } %></p>
     </td>
       <td>
       <% if room.vacancy? %>
