@@ -1,6 +1,6 @@
 <%= render 'house_info' %>
 <% if current_user.id == @house.user.id %>
-  <%= link_to '部屋情報を追加',  new_house_room_path(house_id:@house.id) %>
+  <p class="mt-4 text-center"><%= link_to '部屋情報を追加',  new_house_room_path(house_id:@house.id),class:"btn room_btn" %></p>
 <% end %>
 
 <% if @rooms.empty? %>
@@ -9,7 +9,7 @@
   </div>
 <% end %>
 
-<table class="table table-bordered text-center mt-5">
+<table class="table table-bordered text-center mt-5 ">
   <thead>
     <tr>
       <th></th>
@@ -22,11 +22,14 @@
     </tr>
   </thead>
     <% @rooms.each do |room|%>
-  <tbody >
-    <tr>
+  <tbody  >
+    <tr >
     <td >
-    <p><%= link_to '部屋情報を編集',  edit_house_room_path(house_id: @house.id, id: room) %></p>
-    <p><%= link_to '部屋情報を削除',  house_room_path(house_id: @house.id, id: room),method: :delete, data: { confirm: "削除しますか?" } %></p>
+    <% if current_user.id == @house.user.id %>
+      <p><%= link_to '編集',  edit_house_room_path(house_id: @house.id, id: room),class:" btn room_btn " %></p>
+      <p><%= link_to '削除',  house_room_path(house_id: @house.id, id: room),method: :delete, data: { confirm: "削除しますか?" },class:"btn room_btn" %></p>
+    <% end %>
+
     </td>
       <td>
       <% if room.vacancy? %>

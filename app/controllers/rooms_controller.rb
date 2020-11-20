@@ -14,7 +14,7 @@ class RoomsController < ApplicationController
     @room=Room.new(room_params)
     @room.house_id=@house.id
     if @room.save 
-      redirect_to @house,notice: "部屋情報を登録しました"
+      redirect_to room_house_path(@house),notice: "部屋情報を登録しました"
     else
       flash.now[:alert] ="投稿に失敗しました"
       render :new

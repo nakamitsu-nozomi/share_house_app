@@ -147,22 +147,7 @@ table {
      color:#ffffff;
   }
 }
-.comment_btn{
-   border-color:#FFA500;
-   color:#FFA500;
 
-
-   &:hover {
-   border-color:#FFA500;
-   color:#FFA500;
-   }
-
-   &:active {
-   border-color: #FFA500;
-   color:#FFA500;
-   }
-        
-}
 .btn-experience {
   display: inline-block;
   padding: 7px 20px;
@@ -339,8 +324,42 @@ text-align: center;
 margin-top: 50px;
 margin-bottom: 50px;
 }
+.comment_btn {
+  border-color: #FFA500;
+  color: #FFA500;
+
+
+  &:hover {
+    border-color: #FFA500;
+    color: #FFA500;
+  }
+
+  &:active {
+    border-color: #FFA500;
+    color: #FFA500;
+  }
+
+}
 
 // 物件投稿フォーム
 .room_delete_btn{
   display: none;
+}
+
+// 部屋情報一覧
+.room_btn {
+  border-color: #0099ff;
+  color: #0099ff;
+
+
+  &:hover {
+    border-color: #0099ff;
+    color: #0099ff;
+  }
+
+  &:active {
+    border-color: #0099ff;
+    color: #0099ff;
+  }
+
 }
