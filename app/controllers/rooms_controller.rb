@@ -1,10 +1,6 @@
 class RoomsController < ApplicationController
-  def index
-  end
-
-  def show
-  end
-
+  before_action :set_room, only: %i[edit update destroy create new ]
+  before_action :if_not_admin,only: %i[edit update destroy new create ]
   def new
     @room=Room.new
   end
@@ -49,5 +45,18 @@ class RoomsController < ApplicationController
   end
   def update_room_params
     params.require(:room).permit(:room_num,:vacancy,:image,:size,:rent,:room_type)
+  end
+
+  def set_room
+    @house=House.find(params[:house_id])
+    if @house.user_id != current_user.id
+      flash[:notice] = "権限がありません"
+      redirect_to room_house_path(@house)
+    end
+  end
+
+  def if_not_admin
+    @house=House.find(params[:house_id])
+    redirect_to room_house_path(@house)  unless current_user.admin?
   end
 end
