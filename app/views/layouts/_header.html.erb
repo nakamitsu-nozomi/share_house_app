@@ -22,7 +22,7 @@
           <%= link_to "新規物件登録", new_house_path,class:"dropdown-item"  %>
         <% end %>
           <%= link_to "保存済み",clips_users_path,class:"dropdown-item" %>
-          <%= link_to "レビューした物件", "#",class:"dropdown-item"%>
+          <%= link_to "レビューした物件",  comments_users_path,class:"dropdown-item"%>
           <%= link_to "マイページ", users_path(current_user.id),class:"dropdown-item" %>
           <%= link_to "アカウント編集", edit_user_registration_path,class:"dropdown-item" %>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" },class:"dropdown-item"  %>
@@ -35,9 +35,6 @@
   <nav class="navbar navbar-expand navbar-light bg-light ">
     <%= link_to 'シェアハウス検索サイト',root_path,class: "navbar-brand" %>
     <ul class="navbar-nav ">
-      <li class="nav-item  text-right">
-          <%= link_to "登録物件",new_user_session_path,class:" nav-item nav-link mt-3" %>
-      </li>
       <li class="nav-item text-right">
         <%= link_to "レビューした物件",new_user_session_path,class:" nav-item nav-link mt-3" %>
       </li>

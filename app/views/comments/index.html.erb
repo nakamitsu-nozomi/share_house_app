@@ -100,7 +100,7 @@
             </div>
           </div>
           <div class="pull-right">
-          <% if comment.user_id == current_user.id %>
+          <% if comment.user_id == current_user&.id %>
             <%= link_to '編集', edit_house_comment_path(house_id: params[:house_id],id:comment.id),class:"text-right"%>
             <%= link_to '削除', house_comment_path(house_id: params[:house_id],id:comment.id),method: :delete, data: { confirm: "削除しますか?" },class:"text-right" %>
           <% end %>

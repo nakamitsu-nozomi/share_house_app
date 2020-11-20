@@ -1,4 +1,5 @@
 class ClipsController < ApplicationController
+  before_action :authenticate_user!
   def create
     current_user.clips.create!(house_id: params[:house_id])
     @house= House.find(params[:house_id])

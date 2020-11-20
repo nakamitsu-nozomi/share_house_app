@@ -35,7 +35,7 @@ class House < ApplicationRecord
   has_many :rooms
   accepts_nested_attributes_for :rooms, allow_destroy: true
   def cliped_by(user)
-    clips.find_by(user_id: user.id).present?
+    clips.find_by(user_id: user&.id).present?
   end
 
 end

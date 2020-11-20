@@ -38,7 +38,7 @@
     </div>
     <div class="col-6 text-right">
       <p id="house-<%= @house.id %>">
-        <% if @house.user_id == current_user.id %>
+        <% if @house.user_id == current_user&.id %>
           <%= link_to  edit_house_path(@house),class:"btn btn-outline-success" do %>
             <i class="fas fa-edit"></i>編集
           <% end %>
@@ -46,11 +46,11 @@
             <i class="fas fa-trash-alt"></i>削除
           <% end %>
         <% else %>
-          <% if @house.cliped_by(current_user) %>
-            <%= render 'houses/clips',house: @house %>
-          <% else %>
-            <%= render 'houses/not_clip',house: @house %>
-          <% end %>
+            <% if @house.cliped_by(current_user) %>
+              <%= render 'houses/clips',house: @house %>
+            <% else %>
+              <%= render 'houses/not_clip',house: @house %>
+            <% end %>
         <% end %>
       </p>
     </div>

@@ -1,5 +1,5 @@
 <%= render 'house_info' %>
-<% if current_user.id == @house.user.id %>
+<% if current_user&.id == @house.user.id %>
   <p class="mt-4 text-center"><%= link_to '部屋情報を追加',  new_house_room_path(house_id:@house.id),class:"btn room_btn" %></p>
 <% end %>
 
@@ -25,7 +25,7 @@
   <tbody  >
     <tr >
     <td >
-    <% if current_user.id == @house.user.id %>
+    <% if current_user&.id == @house.user.id %>
       <p><%= link_to '編集',  edit_house_room_path(house_id: @house.id, id: room),class:" btn room_btn " %></p>
       <p><%= link_to '削除',  house_room_path(house_id: @house.id, id: room),method: :delete, data: { confirm: "削除しますか?" },class:"btn room_btn" %></p>
     <% end %>

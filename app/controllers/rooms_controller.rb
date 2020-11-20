@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_room, only: %i[edit update destroy create new ]
   before_action :if_not_admin,only: %i[edit update destroy new create ]
   def new

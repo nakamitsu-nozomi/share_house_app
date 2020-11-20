@@ -1,3 +1,10 @@
-<%= link_to house_clips_path(house),method: :post,remote: true,class:"btn not_clip_btn " do  %>
+<% if user_signed_in? %>
+  <%= link_to house_clips_path(house),method: :post,remote: true,class:"btn not_clip_btn " do  %>
   <i class="fas fa-bookmark"></i> 保存 
+  <% end %>
+<% else %>
+  <%= link_to  user_session_path,class:"btn not_clip_btn " do  %>
+  <i class="fas fa-bookmark"></i> 保存 
+  <% end %>
 <% end %>
+
