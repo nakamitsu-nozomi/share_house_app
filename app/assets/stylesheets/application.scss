@@ -367,7 +367,7 @@ margin-bottom: 50px;
 // ログイン画面
 
 .card-container.card {
-  max-width: 350px;
+  max-width: 500px;
   padding: 40px 40px;
 }
 
@@ -388,7 +388,7 @@ margin-bottom: 50px;
   /* just in case there no content*/
   padding: 20px 25px 30px;
   margin: 0 auto 25px;
-  margin-top: 50px;
+  margin-top: 20px;
   /* shadows and rounded borders */
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
@@ -508,3 +508,10 @@ margin-bottom: 50px;
   padding-right: 30px;
 }
 
+// 新規登録フォーム
+.field{
+  margin: 20px;
+}
+.sign_up_title{
+  font-weight: 700;
+}
