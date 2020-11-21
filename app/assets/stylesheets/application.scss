@@ -192,8 +192,10 @@ div.field_with_errors{
 
 .site-name{
     margin: 0;
-    padding: 0;
-    padding: 40px;
+    padding-top:10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 40px;
     
 }
 .app_title {
@@ -218,7 +220,31 @@ div.field_with_errors{
   background: #ffffff;
 
 }
+// ヘッダー
+.navbar-brand{
+  color:#0099ff;
+}
+.search_btn{
 
+ background-color: #0099ff;
+ border-color: #0099ff;
+ color: #FFF;
+ border-radius: 10%;
+
+
+  &:hover {
+  background-color: #7FCCFF;
+  border-color: #7FCCFF;
+  color: #FFF;
+  }
+
+  &:active {
+   background-color: #7FCCFF;
+   border-color: #7FCCFF;
+   
+  }
+
+}
 // ドロップダウン
 .dropdown-toggle{
   border-radius: 25px;
@@ -238,6 +264,9 @@ div.field_with_errors{
 .navbar-nav{
   margin-left: auto;
 }
+
+
+
 // 口コミフォーム
 .comment_submit{
   background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);

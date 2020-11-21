@@ -1,14 +1,17 @@
 <% if user_signed_in? %>
   <!-- ログイン時 -->
   <nav class="navbar navbar-expand navbar-light bg-light ">
-    <%= link_to 'シェアハウス検索サイト',root_path,class: "navbar-brand" %>
+   <img src="/assets/tokyo.png" style="width:50px; height:50px; ">
+    <%= link_to 'TOKYO シェア不動産',root_path,class: "navbar-brand" %>
     <ul class="navbar-nav  ">
       <li class="nav-item text-center">
         <%= search_form_for(@q,url: houses_path) do |f|%>
           <div class="input-group my-3 d-flex align-items-center mr-6"  >
             <%= f.label "エリアで検索",class:"d-flex align-items-center mr-2" %> 
             <%= f.search_field :area_name_cont, class:"form-control col-12 ",placeholder:"エリア[例：渋谷]" %>
-            <%= f.submit "検索" ,class:"btn btn-primary" %>
+            <button type="submit" class="btn search_btn " >
+              <i class="fas fa-search"></i> 
+            </button>
           </div>
         <% end %>
       </li>
@@ -26,15 +29,26 @@
           <%= link_to "マイページ", users_path(current_user.id),class:"dropdown-item" %>
           <%= link_to "アカウント編集", edit_user_registration_path,class:"dropdown-item" %>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" },class:"dropdown-item"  %>
-  
         </div>
       </li>
     </ul>
   </nav>
 <% else %>
   <nav class="navbar navbar-expand navbar-light bg-light ">
-    <%= link_to 'シェアハウス検索サイト',root_path,class: "navbar-brand" %>
+    <img src="/assets/tokyo.png" style="width:50px; height:50px; ">
+    <%= link_to 'TOKYO シェア不動産',root_path,class: "navbar-brand" %>
     <ul class="navbar-nav ">
+      <li class="nav-item text-center">
+        <%= search_form_for(@q,url: houses_path) do |f|%>
+          <div class="input-group my-3 d-flex align-items-center mr-6"  >
+            <%= f.label "エリアで検索",class:"d-flex align-items-center mr-2" %> 
+            <%= f.search_field :area_name_cont, class:"form-control col-12 ",placeholder:"エリア[例：渋谷]" %>
+            <button type="submit" class="btn search_btn " >
+              <i class="fas fa-search"></i> 
+            </button>
+          </div>
+        <% end %>
+      </li>   
       <li class="nav-item text-right">
         <%= link_to "レビューした物件",new_user_session_path,class:" nav-item nav-link mt-3" %>
       </li>
