@@ -2,9 +2,9 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   def show
     @user=User.find(current_user.id)
-    @houses = House.where(user_id: current_user.id)
+    @houses = House.where(user_id: @user.id)
     @clips= @user.cliped_houses
-    @comments= Comment.where(user_id: current_user.id)
+    @comments= Comment.where(user_id: @user.id)
   end
   def clips
     @user=User.find(current_user.id)

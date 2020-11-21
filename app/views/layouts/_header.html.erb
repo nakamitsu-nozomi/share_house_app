@@ -26,7 +26,7 @@
         <% end %>
           <%= link_to "保存済み",clips_users_path,class:"dropdown-item" %>
           <%= link_to "レビューした物件",  comments_users_path,class:"dropdown-item"%>
-          <%= link_to "マイページ", users_path(current_user.id),class:"dropdown-item" %>
+          <%= link_to "マイページ", users_path(@user),class:"dropdown-item" %>
           <%= link_to "アカウント編集", edit_user_registration_path,class:"dropdown-item" %>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" },class:"dropdown-item"  %>
         </div>
