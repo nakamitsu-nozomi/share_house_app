@@ -9,7 +9,12 @@
       <div class="card-header house_title"><%= house.name %> / <%= house.area.name%></div>
       <div class="card-body">
         <div class="row">
-          <%= image_tag house.house_image.url,class:"col-6" %>
+        <% if house.house_image? %>
+          <%= image_tag house.house_image.url,class:"col-6 house_image" %>  
+        <% elsif  %>
+          <img src="/assets/noimage.png" class="col-6  house_image"  >
+        <% end %>
+          
           <div class="col-6 ">
             <p class="card-text my-1">賃料 <%= house.house_rent %>円</p>
             <p class="card-text my-1">アクセス <%= house.station %>駅 / 徒歩<%= house.access %>分</p>

@@ -39,10 +39,10 @@
     <div class="col-6 text-right">
       <p id="house-<%= @house.id %>">
         <% if @house.user_id == current_user&.id %>
-          <%= link_to  edit_house_path(@house),class:"btn btn-outline-success" do %>
-            <i class="fas fa-edit"></i>編集
+          <%= link_to  edit_house_path(@house),class:"btn white_blue_btn" do %>
+            <i class="fas fa-edit "></i>編集
           <% end %>
-          <%= link_to  @house, method: :delete, data: { confirm: "削除しますか?" },class:"btn btn-outline-success"  do%>
+          <%= link_to  @house, method: :delete, data: { confirm: "削除しますか?" },class:"btn white_blue_btn"  do%>
             <i class="fas fa-trash-alt"></i>削除
           <% end %>
         <% else %>

@@ -1,6 +1,6 @@
 <%= render 'house_info' %>
 <% if current_user&.id == @house.user.id %>
-  <p class="mt-4 text-center"><%= link_to '部屋情報を追加',  new_house_room_path(house_id:@house.id),class:"btn room_btn" %></p>
+  <p class="mt-4 text-center"><%= link_to '部屋情報を追加',  new_house_room_path(house_id:@house.id),class:"btn white_blue_btn" %></p>
 <% end %>
 
 <% if @rooms.empty? %>
@@ -26,8 +26,8 @@
     <tr >
     <td >
     <% if current_user&.id == @house.user.id %>
-      <p><%= link_to '編集',  edit_house_room_path(house_id: @house.id, id: room),class:" btn room_btn " %></p>
-      <p><%= link_to '削除',  house_room_path(house_id: @house.id, id: room),method: :delete, data: { confirm: "削除しますか?" },class:"btn room_btn" %></p>
+      <p><%= link_to '編集',  edit_house_room_path(house_id: @house.id, id: room),class:" btn white_blue_btn " %></p>
+      <p><%= link_to '削除',  house_room_path(house_id: @house.id, id: room),method: :delete, data: { confirm: "削除しますか?" },class:"btn white_blue_btn" %></p>
     <% end %>
 
     </td>
@@ -50,7 +50,12 @@
       </td>
       <td><%= room.size%>m²</td>
       <td><%= room.rent%>円</td>
-      <td><%=  image_tag room.image.to_s,size:'100x100' %> </td>
+        <% if room.image? %>
+          <td><%=  image_tag room.image.to_s,size:'100x100' %> </td>
+        <% elsif  %>
+          <td><img src="/assets/noimage.png" class="room_no_image" ></td>
+        <% end %>
+   
     </tr>
   </tbody>
   <% end %>
