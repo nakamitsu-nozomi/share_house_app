@@ -1,50 +1,57 @@
-  <h3>部屋情報入力</h3>
-    <%= form_with method: :post, url: "/houses/#{params[:house_id]}/rooms", local:true do |f| %>
-      <div class="js-house_room" id="add_room_' + room_count + '">
-        <div>
-          <%= f.label :room_num, "部屋番号" %>
-          <%= f.text_field :room_num,class: 'form-control', required: true %>
-        </div>
-        <div class="field">
-          <span>空室状況をお選びください</span><br>
-          <div>
+<h3 class="text-center m-5">新しい部屋を登録する</h3>
+<%= form_with method: :post, url: "/houses/#{params[:house_id]}/rooms", local:true do |f| %>
+  <table class="table table-bordered w-75" >
+    <tbody>
+      <tr>
+        <th scope="row"><%= f.label :room_num, "部屋番号" %></th>
+        <td> <%= f.text_field :room_num,style: "width:200px;" ,placeholder:"例：101" %></td>
+      </tr>
+      <tr>
+        <th scope="row">空室状況</th>
+        <td>
+          <div class="radio_btn" >
             <%= f.radio_button :vacancy, :vacancy, checked: "checked" %>
             <%= f.label :vacancy,"空室" %>
           </div>
-          <div>
+          <div class="radio_btn">
             <%= f.radio_button :vacancy, :no_vacancy %>
             <%= f.label :no_vacancy,"満室" %>
           </div>
-        </div>
-        <div>
-          <%= f.label :image, "部屋画像" %>
-          <%= f.file_field :image,accept: "image/png,image/jpeg,image/gif",class: 'form-control' %>
-        </div>
-        <div>
-          <%= f.label :size, "広さ（単位：m²)" %>
-          <%= f.text_field :size,class: 'form-control', required: true %>m²
-        </div>
-        <div>
-          <%= f.label :rent, "家賃" %>
-          <%= f.text_field :rent,class: 'form-control', required: true %>円
-        </div>
-        <div class="field">
-          <span>お部屋タイプをお選びください</span><br>
-          <div>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row"><%= f.label :image, "部屋画像" %></th>
+        <td><%= f.file_field :image,accept: "image/png,image/jpeg,image/gif"%></td>
+      </tr>
+      <tr>
+        <th scope="row"> <%= f.label :size, "広さ（単位：m²)" %></th>
+        <td><%= f.text_field :size,style: "width:200px;"  ,placeholder:"例：10.5"%>m²</td>
+      </tr>
+      <tr>
+        <th scope="row"><%= f.label :rent, "家賃" %></th>
+        <td ><%= f.text_field :rent,style: "width:200px;" ,placeholder:"例：30000" %>円</td>
+
+      </tr>
+      <tr>
+        <th scope="row">お部屋タイプ</th>
+        <td>
+          <div class="radio_btn">
             <%= f.radio_button :room_type, :private_room, checked: "checked" %>
             <%= f.label :private_room,"個室" %>
           </div>
-          <div>
+          <div class="radio_btn">
             <%= f.radio_button :room_type, :domitory %>
             <%= f.label :domitory,"ドミトリー" %>
           </div>
-          <div>
+          <div class="radio_btn">
             <%= f.radio_button :room_type, :room_share %>
             <%= f.label :room_share,"ルームシェア" %>
           </div>
-        </div>
-        <div>
-          <%= f.submit "部屋情報を登録"%>
-        </div>
-      </div>
-    <% end %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <%= f.submit class:"btn btn-lg btn-primary btn-block btn-signin w-75 mx-auto my-5" %>
+  </div>
+<% end %>
