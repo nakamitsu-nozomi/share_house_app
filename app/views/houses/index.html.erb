@@ -1,17 +1,16 @@
 <div class="house_list">
 <% @houses.each do |house|%>
-    <%= link_to house, class:"card border-light mb-3 card-columns card-dec Editlink", style:"max-width: 80%; border-width:5px 0 0 0;" do %>
+    <%= link_to house, class:"card border-light my-5 card-columns card-dec Editlink mx-auto", style:"max-width: 90%; border-width:5px 0 0 0;" do %>
       <div class="card-header"><%= house.name %> / <%= house.area.name%></div>
       <div class="card-body">
         <div class="row">
-          <%= image_tag house.house_image.url,class:"col-3" %>
-          <div class="col-9 ">
-            <p class="card-text">賃料 <%= house.house_rent %>円</p>
-            <p class="card-text">アクセス <%= house.station %>駅 / 徒歩<%= house.access %>分</p>
+          <%= image_tag house.house_image.url,class:"col-6" %>
+          <div class="col-6 ">
+            <p class="card-text my-1">賃料 <%= house.house_rent %>円</p>
+            <p class="card-text my-1">アクセス <%= house.station %>駅 / 徒歩<%= house.access %>分</p>
              <% if house.comments.present? %>
               <span id="star-rate-<%= house.id %>"></span>
-                <%= house.comments.average(:star).round(1)%>
-                <p>最新の口コミ<%= house.comments.count%>件</p>  
+                <%= house.comments.average(:star).round(1)%>  
                 <script>
                 $(document).on('turbolinks:load', function(){
                 $("#star-rate-<%= house.id %>").raty({
@@ -32,11 +31,12 @@
             <img src="/assets/star-off.png">
             <img src="/assets/star-off.png">
               <%= 0.0%> 
-              <p>最新の口コミ<%= house.comments.count%>件</p>
             <% end %>
             <p id="housecount-<%= house.id %>" >
               <i class="fas fa-bookmark"></i>
               <%= render 'clips_count',house: house %>件
+              <i class="fas fa-comment-dots"></i>
+              <%= house.comments.count%>件</p>
             </p>
           </div>
         </div>
