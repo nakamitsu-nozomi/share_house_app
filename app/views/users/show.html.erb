@@ -3,9 +3,8 @@
 <%# 投稿物件一覧パート %>
 <% if @user.admin? %>
   <div id='houseclips'>
-  <div class="bottom_content">
       <% @houses.each do |house| %>
-        <%= link_to house, class:"card border-light mt-3 card-columns card-dec Editlink left", style:"max-width: 90%; border-width:5px 0 0 0;" do %>
+        <%= link_to house, class:"card border-light  card-columns card-dec Editlink mx-auto", style:"max-width: 90%; border-width:5px 0 0 0;" do %>
           <div class="card-header"><%= house.name %>/エリア</div>
           <div class="card-body">
             <div class="row">
@@ -20,13 +19,7 @@
           </div>
         <% end %>
       <% end %>
-      <div class="right mt-3 ml-3 pl-3" >
-      <p>保存件数 <%= @clips.count%>件 </p>
-      <p>物件投稿件数 <%=@houses.count %>件</p>
-      <p>レビュー件数<%=@comments.count %>件</p>
-      </div>
   </div>
-</div>
 <% end %>
 
 
