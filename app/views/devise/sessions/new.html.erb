@@ -10,9 +10,9 @@
             <p id="profile-name" class="profile-name-card"></p>
             <form class="form-signin">
                 <span id="reauth-email" class="reauth-email"></span>
-                <%= f.email_field :email, autofocus: true, autocomplete: "email",id:"inputEmail",class:"form-control", placeholder:"Email address" %> <br>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email",id:"inputEmail",class:"form-control", placeholder:"メールアドレス" %> <br>
 
-                <%= f.password_field :password, autocomplete: "current-password",id:"inputPassword", class:"form-control", placeholder:"Password" %> <br>
+                <%= f.password_field :password, autocomplete: "current-password",id:"inputPassword", class:"form-control", placeholder:"パスワード" %> <br>
                 <% if devise_mapping.rememberable? %>
                   <div id="remember" class="checkbox">
                     <%= f.check_box :remember_me %>
