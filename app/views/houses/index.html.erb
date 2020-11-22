@@ -5,7 +5,7 @@
 <% elsif %>
   <div class="house_list">
   <% @houses.each do |house|%>
-    <%= link_to house, class:"card border-light my-5 card-columns card-dec Editlink mx-auto", style:"max-width: 90%; border-width:5px 0 0 0;" do %>
+    <%= link_to house, class:"card border-light my-5 card-columns card-dec Editlink mx-auto", style:"max-width: 70%; border-width:5px 0 0 0;" do %>
       <div class="card-header house_title"><%= house.name %> / <%= house.area.name%></div>
       <div class="card-body">
         <div class="row">

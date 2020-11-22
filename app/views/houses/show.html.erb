@@ -1,22 +1,19 @@
 <%= render 'house_info' %>
 <% if @house.house_image? %>
-  <p class="text-center mt-3"><%= image_tag @house.house_image.url,class: "w-75" ,style: "height:300px;"  %></p>
+  <p class="text-center my-5"><%= image_tag @house.house_image.url,style: "height:300px; max-width: 70%"  %></p>
   <% elsif  %>
-  <p class="text-center mt-3"><img src="/assets/noimage.png" class="w-75 no-image"  ></p>
+  <p class="text-center my-5"><img src="/assets/noimage.png" class=" no-image",style="max-width: 70%;"  ></p>
 <% end %>
 
-<table class="table w-75 ">
+<table class="table my-5" style="max-width: 70%;">
   <tr><th class="bg-light text-center " >エリア</th><td><%= @house.area.name%></td></tr>
   <tr><th class="bg-light text-center">世帯数</th><td><%= @house.house_size %>世帯</td></tr>
   <tr><th class="bg-light text-center">物件投稿者</th><td><%= @house.user.name%></td></tr>
   <tr><th class="bg-light text-center">その他情報</th><td><%= @house.content%></td></tr>
 </table>
-</div>
-
-
 <%# 共用設備の表示 %>
 
-<div class="card text-center w-75 p-3 facility-card my-5">
+<div class="card text-center  p-3 facility-card my-5"style="max-width: 70%;" >
   <h3 class="m-3">共有設備</h3>
   <div class="row">
     <div class="col-3" >

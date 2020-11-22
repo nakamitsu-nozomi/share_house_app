@@ -1,71 +1,68 @@
 <%# レイアウト修正%>
-<div class="m-3">
-
-<hr>
-<h3><%= @house.name %>
-  <% if @house.area_id %>
-    /<%= @house.area.name%>
-  <% end %>
-</h3>
-<h5 class="flex">
- <% if @comments.present? %>
-   <span id="star-rate" ></span>
-    <%= @comments.average(:star).round(1)%> <i class="fas fa-comment-dots"></i><%= @comments.count%> 件 <i class="fas fa-bookmark"></i>
- <% else %>
- <img src="/assets/star-off.png">
- <img src="/assets/star-off.png">
- <img src="/assets/star-off.png">
- <img src="/assets/star-off.png">
- <img src="/assets/star-off.png">
-  <%= 0.0%> <i class="fas fa-comment-dots"></i>0件 <i class="fas fa-bookmark"></i>
- <% end %>
-
-
-  <span id="housecount-<%= @house.id %>">
-      <% if @house.cliped_by(current_user) %>
-        <%= render 'houses/clips_count',house: @house %>
-      <% else %>
-        <%= render 'houses/not_clip_count',house: @house %>
-      <% end %>
-  </span>
-</h5>
-<hr>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-6 ">
-      <h5> <%= @house.house_rent %>円<small>/管理費・共益費：<%= @house.service_fee %>円</small></h5>
-      <h6> <%= @house.station %>駅,徒歩<%= @house.access%>分</h6>
-    </div>
-    <div class="col-6 text-right">
-      <p id="house-<%= @house.id %>">
-        <% if @house.user_id == current_user&.id %>
-          <%= link_to  edit_house_path(@house),class:"btn white_blue_btn" do %>
-            <i class="fas fa-edit "></i>編集
+<div class="mx-auto" style="max-width: 70%;" >
+  <hr>
+  <h3><%= @house.name %>
+    <% if @house.area_id %>
+      /<%= @house.area.name%>
+    <% end %>
+  </h3>
+  <h5 class="flex">
+    <% if @comments.present? %>
+      <span id="star-rate" ></span>
+        <%= @comments.average(:star).round(1)%> <i class="fas fa-comment-dots"></i><%= @comments.count%> 件 <i class="fas fa-bookmark"></i>
+    <% else %>
+    <img src="/assets/star-off.png">
+    <img src="/assets/star-off.png">
+    <img src="/assets/star-off.png">
+    <img src="/assets/star-off.png">
+    <img src="/assets/star-off.png">
+      <%= 0.0%> <i class="fas fa-comment-dots"></i>0件 <i class="fas fa-bookmark"></i>
+    <% end %>
+      <span id="housecount-<%= @house.id %>">
+          <% if @house.cliped_by(current_user) %>
+            <%= render 'houses/clips_count',house: @house %>
+          <% else %>
+            <%= render 'houses/not_clip_count',house: @house %>
           <% end %>
-          <%= link_to  @house, method: :delete, data: { confirm: "削除しますか?" },class:"btn white_blue_btn"  do%>
-            <i class="fas fa-trash-alt"></i>削除
-          <% end %>
-        <% else %>
-            <% if @house.cliped_by(current_user) %>
-              <%= render 'houses/clips',house: @house %>
-            <% else %>
-              <%= render 'houses/not_clip',house: @house %>
+      </span>
+  </h5>
+  <hr>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-6 ">
+        <h5> <%= @house.house_rent %>円<small>/管理費・共益費：<%= @house.service_fee %>円</small></h5>
+        <h6> <%= @house.station %>駅,徒歩<%= @house.access%>分</h6>
+      </div>
+      <div class="col-6 text-right">
+        <p id="house-<%= @house.id %>">
+          <% if @house.user_id == current_user&.id %>
+            <%= link_to  edit_house_path(@house),class:"btn white_blue_btn" do %>
+              <i class="fas fa-edit "></i>編集
             <% end %>
-        <% end %>
-      </p>
+            <%= link_to  @house, method: :delete, data: { confirm: "削除しますか?" },class:"btn white_blue_btn"  do%>
+              <i class="fas fa-trash-alt"></i>削除
+            <% end %>
+          <% else %>
+              <% if @house.cliped_by(current_user) %>
+                <%= render 'houses/clips',house: @house %>
+              <% else %>
+                <%= render 'houses/not_clip',house: @house %>
+              <% end %>
+          <% end %>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <%= link_to '物件情報',house_path(@house),class:"btn btn-outline-secondary col-3" %>
+      <%= link_to '部屋情報', room_house_path(@house),class:"btn btn-outline-secondary col-3"  %>
+      <%= link_to '口コミ', house_comments_path(house_id:@house.id),class:"btn btn-outline-secondary col-3"  %>
+      <%= link_to '周辺情報', map_house_path(@house),class:"btn btn-outline-secondary col-3"  %>
     </div>
   </div>
 </div>
-
-<div class="container-fluid">
-  <div class="row">
-   <%= link_to '物件情報',house_path(@house),class:"btn btn-outline-secondary col-3" %>
-    <%= link_to '部屋情報', room_house_path(@house),class:"btn btn-outline-secondary col-3"  %>
-    <%= link_to '口コミ', house_comments_path(house_id:@house.id),class:"btn btn-outline-secondary col-3"  %>
-    <%= link_to '周辺情報', map_house_path(@house),class:"btn btn-outline-secondary col-3"  %>
-  </div>
-</div>
-
 <script>
   $('#star-rate').raty({
     size      : 36,
