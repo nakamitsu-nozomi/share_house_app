@@ -2,7 +2,11 @@
 <%= render 'user_info' %>
 <%# 投稿物件一覧パート %>
 <% if @user.admin? %>
-<%= render 'house' %>
+  <% if @houses.empty? %>
+      <p class="no-item"> 物件の登録がありません。</p>
+  <% else %>
+    <%= render :partial => "houses/house_list", :locals => { houses: @houses }  %>
+  <% end %>
 <% end %>
 
 

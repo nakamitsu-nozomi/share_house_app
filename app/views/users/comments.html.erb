@@ -4,28 +4,6 @@
 <% if @comments.empty? %>
   <p class="no-item">口コミした物件はありません。</p>
 <% else %> 
-  <div id='houseclips'>
-    <div class="bottom_content">
-        <% @comments.each do |house| %>
-          <%= link_to house, class:"card border-light my-3 card-columns card-dec Editlink left", style:" border-width:5px 0 0 0;" do %>
-            <div class="card-header"><%= house.name %>/エリア</div>
-            <div class="card-body">
-              <div class="row">
-                <% if house.house_image? %>
-                  <%= image_tag house.house_image.url,class:"col-6 img-responsive house_image" %>  
-                <% elsif  %>
-                  <img src="/assets/noimage.png" class="col-6 img-responsive house_image"  >
-                <% end %>
-                <div class="col-6 ">
-                  <p class="card-text">賃料 <%= house.house_rent %>円</p>
-                  <p class="card-text">アクセス <%= house.station %>駅 / 徒歩<%= house.access %>分</p>
-                  <p class="card-text">☆☆☆☆☆☆</p>
-                  <p>最新の口コミ１件</p>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-    </div>
-  </div> 
+<%= render :partial => "houses/house_list", :locals => { houses: @comments }  %>
 <% end %>
+
