@@ -5,14 +5,14 @@
 <% elsif %>
   <div class="house_list">
   <% @houses.each do |house|%>
-    <%= link_to house, class:"card border-light my-5 card-columns card-dec Editlink mx-auto", style:"max-width: 70%; border-width:5px 0 0 0;" do %>
+    <%= link_to house, class:"card border-light my-5 card-columns card-dec Editlink mx-auto", style:"max-width: 50%; border-width:5px 0 0 0;" do %>
       <div class="card-header house_title"><%= house.name %> / <%= house.area.name%></div>
       <div class="card-body">
         <div class="row">
         <% if house.house_image? %>
-          <%= image_tag house.house_image.url,class:"col-6 house_image" %>  
+          <%= image_tag house.house_image.url,class:"col-6 img-responsive house_image" %>  
         <% elsif  %>
-          <img src="/assets/noimage.png" class="col-6  house_image"  >
+          <img src="/assets/noimage.png" class="col-6 img-responsive house_image"  >
         <% end %>
           
           <div class="col-6 ">

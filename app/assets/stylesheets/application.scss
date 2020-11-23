@@ -528,9 +528,10 @@ margin-bottom: 50px;
   font-size: large;
  }
 .house_image{
-  height: 200px;
+ max-height: 200px;
+
 }
 .bottom_content{
-  max-width: 70%;
+  max-width: 50%;
   margin: 0 auto;
 }

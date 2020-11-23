@@ -1,8 +1,8 @@
 <%= render 'house_info' %>
 <% if @house.house_image? %>
-  <p class="text-center my-5"><%= image_tag @house.house_image.url,style: "height:300px; max-width: 70%"  %></p>
+  <p class="text-center my-5"><%= image_tag @house.house_image.url,style: "height:300px; max-width: 80%"  %></p>
   <% elsif  %>
-  <p class="text-center my-5"><img src="/assets/noimage.png" class=" no-image",style="max-width: 70%;"  ></p>
+  <p class="text-center my-5"><img src="/assets/noimage.png" class=" no-image",style="max-width: 80%; height:300px;"  ></p>
 <% end %>
 
 <table class="table my-5" style="max-width: 70%;">

@@ -87,7 +87,7 @@
 
 <h3 class="text-center m-5">部屋情報入力</h3>
  <%= form.fields_for :rooms do |i| %>
-<table class="table table-bordered w-75" >
+<table class="table table-bordered " style="max-width: 70%;" >
   <tbody>
     <tr>
       <th scope="row"><%= i.label :room_num, "部屋番号" %></th>
@@ -139,8 +139,8 @@
   </tbody>
 </table>
 <% end %>
-  <div>
-    <%= form.submit button_value,class:"btn btn-lg btn-primary btn-block btn-signin w-75 mx-auto my-5" %>
+  <div >
+    <%= form.submit button_value,class:"btn btn-lg btn-primary btn-block btn-signin  mx-auto my-5", style:"max-width: 70%;" %>
   </div>
 <% end %>
 

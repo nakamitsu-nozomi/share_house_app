@@ -24,11 +24,23 @@
     <div class="container-fluid mx-auto ">
       <div class="row">
         <% if @user.admin? %>
-          <%= link_to "登録物件 #{ @houses.count}件", users_path(@user.id),class:"btn btn-outline-dark col-3" %>
+          <% if current_page?(users_path(@user.id)) %>
+            <%= link_to "登録物件 #{ @houses.count}件", users_path(@user.id),class:"btn btn-dark col-3" %>
+          <% else %>
+            <%= link_to "登録物件 #{ @houses.count}件", users_path(@user.id),class:"btn btn-outline-dark col-3" %>
+          <% end %>
         <% end %>
+        <% if current_page?(comments_users_path) %>
+          <%= link_to "レビュー物件 #{@comments.count}件", comments_users_path,class:"btn btn-dark col-3" %>
+        <% else %>
           <%= link_to "レビュー物件 #{@comments.count}件", comments_users_path,class:"btn btn-outline-dark col-3" %>
-          <%= link_to "保存済み #{@clips.count}件", clips_users_path,class:"btn btn-outline-dark col-3" %>
-          <%= link_to 'アカウント編集', edit_user_registration_path ,class:"btn btn-outline-dark col-3" %>
+        <% end %>
+        <% if current_page?(clips_users_path,)  %>
+            <%= link_to "保存済み #{@clips.count}件", clips_users_path,class:"btn btn-outline-dark col-3" %>
+        <% else %>
+            <%= link_to "保存済み #{@clips.count}件", clips_users_path,class:"btn btn-outline-dark col-3" %>
+        <% end %>
+        <%= link_to 'アカウント編集', edit_user_registration_path ,class:"btn btn-outline-dark col-3" %>
       </div>
     </div>
   </div>      

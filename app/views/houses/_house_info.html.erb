@@ -56,10 +56,30 @@
 
   <div class="container-fluid">
     <div class="row">
+    <% if current_page?(house_path(@house)) %>
+      <%= link_to '物件情報',house_path(@house),class:"btn btn-secondary col-3" %>
+    <% else %>
       <%= link_to '物件情報',house_path(@house),class:"btn btn-outline-secondary col-3" %>
+    <% end %>
+    <% if current_page?(room_house_path(@house)) %>
+      <%= link_to '部屋情報', room_house_path(@house),class:"btn btn-secondary col-3"  %>
+    <% else %>
       <%= link_to '部屋情報', room_house_path(@house),class:"btn btn-outline-secondary col-3"  %>
+    <% end %>
+    <% if current_page?(house_comments_path(house_id:@house.id)) %>
+      <%= link_to '口コミ', house_comments_path(house_id:@house.id),class:"btn btn-secondary col-3"  %>
+    <% else %>
       <%= link_to '口コミ', house_comments_path(house_id:@house.id),class:"btn btn-outline-secondary col-3"  %>
+    <% end %>
+    <% if  map_house_path(@house) %>
       <%= link_to '周辺情報', map_house_path(@house),class:"btn btn-outline-secondary col-3"  %>
+    <% else %>
+      <%= link_to '周辺情報', map_house_path(@house),class:"btn btn-outline-secondary col-3"  %>
+    <% end %>
+
+
+
+
     </div>
   </div>
 </div>
