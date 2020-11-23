@@ -1,39 +1,79 @@
-<div class="card m-5 " style="width: 90%;">
-  <div class="card-body">
-    <div class="top_content">
-      <div class="left_content">
-        <div class="row">
-          <%= image_tag @user.user_icon.url,class:" icon",size: "100x100"%>
-          <div class="col-9 ">
-            <h3 class="card-title"><%= @user.name%>さんのマイページ</h3>
-            <h6 class="card-subtitle mb-2 text-muted">
-            <% if @user.admin? %>
-            <h6 class="card-subtitle mb-2 text-muted">管理者権限 / 有</h6>
-            <% else %>
-             <h6 class="card-subtitle mb-2 text-muted">管理者権限 / 無</h6>
-            <% end %>
-            </h6>
-            <p class="card-text"><%= @user.adress%>在住</p>
-            <% if @user.experience.present? %>
-              <p class="card-text">シェアハウス経験あり</p>
-            <% else %>
-            <p class="card-text"> シェアハウス経験無し</p>
-            <% end %>
-          </div>
-        </div>
-      </div>
-      <div class="right_content">
-        <div class="row">
-          <div class="col-9 btn ">
-          <% if @user.admin? %>
-            <%= link_to '登録物件', users_path(@user.id),class:"btn btn-outline-dark" %>
-          <% end %>
-            <%= link_to 'レビューした物件', comments_users_path,class:"btn btn-outline-dark" %>
-            <%= link_to '保存済み', clips_users_path,class:"btn btn-outline-dark" %>
-            <%= link_to 'アカウント編集', edit_user_registration_path ,class:"btn btn-outline-dark" %>
-          </div>
-        </div>
+<div class="card mx-auto my-5 " style="max-width: 70%;">
+  <div class="card-body ">
+    <div class="row mx-2">
+      <%= image_tag @user.user_icon.url,class:" icon",size: "100x100"%>
+      <div class="col-9 ">
+        <h3 class="card-title"><%= @user.name%>さんのマイページ</h3>
+        
+        
+        <h6 class="card-subtitle mb-2 text-muted">
+        <% if @user.admin? %>
+        <h6 class="card-subtitle  text-muted">管理者権限 / 有</h6>
+        <% else %>
+          <h6 class="card-subtitle  text-muted">管理者権限 / 無</h6>
+        <% end %>
+        </h6>
+        <p class="card-text m-0"><%= @user.adress%>在住</p>
+        <% if @user.experience.present? %>
+          <p class="card-text  mb-3">シェアハウス経験あり</p>
+        <% else %>
+        <p class="card-text  mb-3"> シェアハウス経験無し</p>
+        <% end %>
       </div>
     </div>
-  </div>
+    <div class="container-fluid mx-auto ">
+      <div class="row">
+        <% if @user.admin? %>
+          <% if current_page?(users_path(@user.id)) %>
+            <%= link_to "登録物件 #{ @houses.count}件", users_path(@user.id),class:"btn btn-dark col-3" %>
+          <% else %>
+            <%= link_to "登録物件 #{ @houses.count}件", users_path(@user.id),class:"btn btn-outline-dark col-3" %>
+          <% end %>
+
+        <% if current_page?(comments_users_path) %>
+          <%= link_to "レビュー物件 #{@comments.count}件", comments_users_path,class:"btn btn-dark col-3" %>
+        <% else %>
+          <%= link_to "レビュー物件 #{@comments.count}件", comments_users_path,class:"btn btn-outline-dark col-3" %>
+        <% end %>
+        <% if current_page?(clips_users_path)  %>
+            <%= link_to "保存済み #{@clips.count}件", clips_users_path,class:"btn btn-dark col-3" %>
+        <% else %>
+            <%= link_to "保存済み #{@clips.count}件", clips_users_path,class:"btn btn-outline-dark col-3" %>
+        <% end %>
+        <%= link_to 'アカウント編集', edit_user_registration_path ,class:"btn btn-outline-dark col-3" %>
+      <% else %> 
+        <% if current_page?(comments_users_path) %>
+          <%= link_to "レビュー物件 #{@comments.count}件", comments_users_path,class:"btn btn-dark col-4" %>
+        <% else %>
+          <%= link_to "レビュー物件 #{@comments.count}件", comments_users_path,class:"btn btn-outline-dark col-4" %>
+        <% end %>
+        <% if current_page?(clips_users_path)  %>
+            <%= link_to "保存済み #{@clips.count}件", clips_users_path,class:"btn btn-dark col-4" %>
+        <% else %>
+            <%= link_to "保存済み #{@clips.count}件", clips_users_path,class:"btn btn-outline-dark col-4" %>
+        <% end %>
+        <%= link_to 'アカウント編集', edit_user_registration_path ,class:"btn btn-outline-dark col-4" %>   
+      <% end %>
+
+      </div>
+    </div>
+  </div>      
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

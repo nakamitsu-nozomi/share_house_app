@@ -58,57 +58,6 @@ body{
 
 }
 
-// マイページ
-.top_content {
-  display: flex;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.left_content {
-  flex: 1;
-  // background-color: #eee;
-  
-  
-}
-
-.right_content {
-  text-align: center;
-  // background-color: #888;
-  width: 60%;
-  margin-right: 0;
-
-  .btn {
-    list-style: none;
-    display: inline-block;
-    margin-top: 0;
-    text-decoration: none;
-    margin-right: 5px;
-
-  }
-
-}
-
-// マイページ下
-.bottom_content {
-  display: flex;
-  margin-left: auto;
-  margin-right: auto;
-  width: 90%;
-}
-
-.left {
-  flex: 1;
-  // background-color: #eee;
-
-}
-
-.right {
-  background-color: #888;
-  width: 25%;
-}
-
-
 
 // ユーザーアイコン
 .icon {
@@ -170,14 +119,31 @@ table {
 }
 
 
+ .no-image{
+   height: 300px;
 
-// フッター
+}
+
+.wrapper {
+  min-height: 100vh;
+  position: relative;
+  /*←相対位置*/
+  padding-bottom: 120px;
+  /*←footerの高さ*/
+  box-sizing: border-box;
+  /*←全て含めてmin-height:100vhに*/
+}
+
 footer {
-  height: 100px;
   width: 100%;
-  padding-bottom: 100px;
-  margin-top: 10px;
-
+  color:black;
+  text-align: center;
+  padding: 40px 0;
+  margin-top: 0;
+  position: absolute;
+  /*←絶対位置*/
+  bottom: 0;
+  /*下に固定*/
 }
 
 // フラッシュ
@@ -213,7 +179,7 @@ div.field_with_errors{
   background-image: image-url("top_image.jpg") ;
   background-repeat: no-repeat;
   background-position: center;
- background-size: cover;
+  background-size: cover;
 }
 
 .jumbotron-container {
@@ -228,8 +194,10 @@ div.field_with_errors{
 
 .site-name{
     margin: 0;
-    padding: 0;
-    padding: 40px;
+    padding-top:10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 40px;
     
 }
 .app_title {
@@ -254,15 +222,39 @@ div.field_with_errors{
   background: #ffffff;
 
 }
+// ヘッダー
+.navbar-brand{
+  color:#0099ff;
+}
+.search_btn{
 
+ background-color: #0099ff;
+ border-color: #0099ff;
+ color: #FFF;
+ border-radius: 10%;
+
+
+  &:hover {
+  background-color: #7FCCFF;
+  border-color: #7FCCFF;
+  color: #FFF;
+  }
+
+  &:active {
+   background-color: #7FCCFF;
+   border-color: #7FCCFF;
+   
+  }
+
+}
 // ドロップダウン
 .dropdown-toggle{
   border-radius: 25px;
-  border-style: solid;
-  border-color: #d3d3d3
+  border-style: none;
+  
 }
 .dropdown-menu{
-  background-color: #d3d3d3;
+  background-color:#FFF;
   padding-top:0;
   padding-bottom:0;
 }
@@ -274,11 +266,14 @@ div.field_with_errors{
 .navbar-nav{
   margin-left: auto;
 }
+
+
+
 // 口コミフォーム
 .comment_submit{
   background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
 }
-.no-comment{
+.no-item{
   height: 500px;
   vertical-align: middle;
   text-align: center;
@@ -347,7 +342,7 @@ margin-bottom: 50px;
 }
 
 // 部屋情報一覧
-.room_btn {
+.white_blue_btn {
   border-color: #0099ff;
   color: #0099ff;
 
@@ -362,4 +357,181 @@ margin-bottom: 50px;
     color: #0099ff;
   }
 
+}
+.room_no_image{
+  width:100px;
+  height: 100px;
+}
+
+// ログイン画面
+
+.card-container.card {
+  max-width: 500px;
+  padding: 40px 40px;
+}
+
+.btn-signin {
+  font-weight: 700;
+  height: 36px;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+/*
+ * Card component
+ */
+.login_card {
+
+  /* just in case there no content*/
+  padding: 20px 25px 30px;
+  margin: 0 auto 25px;
+  margin-top: 20px;
+  /* shadows and rounded borders */
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.profile-img-card {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 10px;
+  display: block;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+/*
+ * Form styles
+ */
+.profile-name-card {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px 0 0;
+  min-height: 1em;
+}
+
+.reauth-email {
+  display: block;
+  color: #404040;
+  line-height: 2;
+  margin-bottom: 10px;
+  font-size: 14px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.form-signin #inputEmail,
+.form-signin #inputPassword {
+  direction: ltr;
+  height: 44px;
+  font-size: 16px;
+}
+
+.form-signin input[type=email],
+.form-signin input[type=password],
+.form-signin input[type=text],
+.form-signin button {
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
+  z-index: 1;
+  position: relative;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.form-signin .form-control:focus {
+  border-color: rgb(104, 145, 162);
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgb(104, 145, 162);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgb(104, 145, 162);
+}
+
+.btn.btn-signin {
+  /*background-color: #4d90fe; */
+  background-color: #7FCCFF;
+  /* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
+  padding: 0px;
+  font-weight: 700;
+  font-size: 14px;
+  height: 36px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: none;
+  -o-transition: all 0.218s;
+  -moz-transition: all 0.218s;
+  -webkit-transition: all 0.218s;
+  transition: all 0.218s;
+}
+
+.btn.btn-signin:hover,
+.btn.btn-signin:active,
+.btn.btn-signin:focus {
+  background-color:#0099ff;
+}
+
+
+.jumbotron-extend-login {
+  min-height: 100vh;
+  margin-bottom:0;
+  background-image: image-url("top_image.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color:rgba(255, 255, 255, 0.3);
+  background-blend-mode:lighten;
+}
+
+.jumbotron-containe-login {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+// 新規登録フォーム
+.field{
+  margin: 20px;
+}
+.sign_up_title{
+  font-weight: 700;
+}
+
+// 物件投稿フォーム
+.radio_btn{
+  display: inline-block;
+}
+
+
+//  物件一覧ページ
+ .house_title{
+  color:#0099ff;
+  font-weight: 700;
+  font-size: large;
+ }
+.house_image{
+ max-height: 200px;
+
+}
+.bottom_content{
+  max-width: 50%;
+  margin: 0 auto;
 }

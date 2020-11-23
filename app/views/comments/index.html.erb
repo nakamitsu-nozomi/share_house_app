@@ -2,7 +2,7 @@
 
 
 <% if @comments.present? %>
-<div class="m-3">
+<div class="m-5">
 <div class=" text-center m-5"> 
   <%= link_to '口コミを投稿する', new_house_comment_path(house_id: params[:house_id]),class:"btn comment_btn text-center"%>
 </div>
@@ -84,7 +84,7 @@
 </div>
 
   <% @comments.each do |comment|%>
-    <div class="card mx-auto card-columns card-dec m-3" style="width: 90%;">
+    <div class="card mx-auto card-columns card-dec m-3" style="max-width: 50%;" >
       <ul class="list-group list-group-flush pl-5 pr-5">
         <li class=" list-group-item">
           <div class="row" >
@@ -133,5 +133,5 @@
   <div class=" text-center m-3"> 
   <%= link_to '口コミを投稿する', new_house_comment_path(house_id: params[:house_id]),class:"btn comment_btn text-center"%>
   </div>
-  <p class="no-comment">口コミが投稿されていません</p>
+  <p class="no-item">口コミが投稿されていません</p>
 <% end %>

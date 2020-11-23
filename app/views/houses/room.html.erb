@@ -1,42 +1,39 @@
 <%= render 'house_info' %>
 <% if current_user&.id == @house.user.id %>
-  <p class="mt-4 text-center"><%= link_to '部屋情報を追加',  new_house_room_path(house_id:@house.id),class:"btn room_btn" %></p>
+  <p class="mt-4 text-center"><%= link_to '部屋情報を追加',  new_house_room_path(house_id:@house.id),class:"btn white_blue_btn" %></p>
 <% end %>
 
 <% if @rooms.empty? %>
-  <div style="height:500px;" class="d-flex align-items-center ">
-    <p class="m-auto"> こちらの物件には、お部屋情報が登録されておりません。</p>
-  </div>
-<% end %>
-
-<table class="table table-bordered text-center mt-5 ">
-  <thead>
-    <tr>
-      <th></th>
-      <th scope="col">空席状況</th>
-      <th scope="col">部屋番号</th>
-      <th scope="col">部屋タイプ</th>
-      <th scope="col">広さ</th>
-      <th scope="col">家賃</th>
-      <th scope="col">写真</th>
-    </tr>
-  </thead>
-    <% @rooms.each do |room|%>
-  <tbody  >
-    <tr >
-    <td >
-    <% if current_user&.id == @house.user.id %>
-      <p><%= link_to '編集',  edit_house_room_path(house_id: @house.id, id: room),class:" btn room_btn " %></p>
-      <p><%= link_to '削除',  house_room_path(house_id: @house.id, id: room),method: :delete, data: { confirm: "削除しますか?" },class:"btn room_btn" %></p>
-    <% end %>
-
-    </td>
-      <td>
-      <% if room.vacancy? %>
-        <p>空室</p>
-      <% else %>
-        <p> 満室</p>
+    <p class="no-item"> こちらの物件には、お部屋情報が登録されておりません。</p>
+<% else %>
+  <table class="table table-bordered text-center my-5 " style="max-width: 70%;" >
+    <thead>
+      <tr>
+        <th></th>
+        <th scope="col">空席状況</th>
+        <th scope="col">部屋番号</th>
+        <th scope="col">部屋タイプ</th>
+        <th scope="col">広さ</th>
+        <th scope="col">家賃</th>
+        <th scope="col">写真</th>
+      </tr>
+    </thead>
+      <% @rooms.each do |room|%>
+    <tbody  >
+      <tr >
+      <td >
+      <% if current_user&.id == @house.user.id %>
+        <p><%= link_to '編集',  edit_house_room_path(house_id: @house.id, id: room),class:" btn white_blue_btn " %></p>
+        <p><%= link_to '削除',  house_room_path(house_id: @house.id, id: room),method: :delete, data: { confirm: "削除しますか?" },class:"btn white_blue_btn" %></p>
       <% end %>
+
+      </td>
+      <td>
+        <% if room.vacancy? %>
+          <p>空室</p>
+        <% else %>
+          <p> 満室</p>
+        <% end %>
       </td>
       <td><%= room.room_num%></td>
       <td>
@@ -48,14 +45,18 @@
           <p>ルームシェア</p>
         <% end %>
       </td>
-      <td><%= room.size%>m²</td>
-      <td><%= room.rent%>円</td>
-      <td><%=  image_tag room.image.to_s,size:'100x100' %> </td>
-    </tr>
-  </tbody>
-  <% end %>
-</table>
-
+        <td><%= room.size%>m²</td>
+        <td><%= room.rent%>円</td>
+          <% if room.image? %>
+            <td><%=  image_tag room.image.to_s,size:'100x100' %> </td>
+          <% elsif  %>
+            <td><img src="/assets/noimage.png" class="room_no_image" ></td>
+          <% end %>
+      </tr>
+    </tbody>
+    <% end %>
+  </table>
+<% end %>
 
 
 

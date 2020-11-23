@@ -1,138 +1,155 @@
+
+<h3 class="text-center m-5"><%= form_title %></h3>
+
 <%= form_with model: @house, local: true do |form| %>
-  <div>
-    <%= form.label :name, "物件名" %>
-    <%= form.text_field :name %>
-  </div>
-  <div>
-    <%= form.label :house_image, "物件画像" %>
-    <%= form.file_field :house_image,accept: "image/png,image/jpeg,image/gif" %>
-  </div>
-  <div>
-    <%= form.label :house_rent, "家賃" %>
-    <%= form.text_field :house_rent %>円
-  </div>
-  <div>
-    <%= form.label :service_fee, "共益費" %>
-    <%= form.text_field :service_fee %>円
-  </div>
-  <div>
-    <%= form.label :area_id %>
-    <%= form.collection_select :area_id, Area.all, :id, :name,include_blank: "エリアを選択して下さい" %>
-  </div>
-  <div>
-    <%= form.label :address, "住所" %>
-    <%= form.text_field :address %>
-  </div>
-  <div>
-    <%= form.label :station, "最寄駅" %>
-    <%= form.text_field :station %>
-  </div>
-  <div>
-    <%= form.label :access, "最寄駅までの徒歩距離" %>
-    <%= form.text_field :access %>分
-  </div>
-  <div>
-    <%= form.label :house_size, "世帯数" %>
-    <%= form.text_field :house_size %>世帯
-  </div>
-  <div>
-    <%= form.label :convenience, "物件周辺情報" %>
-    <%= form.text_area :convenience %>
-  </div>
-  <div>
-    <%= form.label :content, "その他物件情報" %>
-    <%= form.text_area :content %>
-  </div>
-  <div>
-    <%= form.label :kitchen, "キッチン" %>
-    <%= form.number_field :kitchen,:value => 0,min:"0",max:"20" %>
-  </div>
-  <div>
-    <%= form.label :refrigerator, "冷蔵庫" %>
-    <%= form.number_field :refrigerator,:value => 0,min:"0",max:"20"  %>
-  </div>
-  <div>
-    <%= form.label :laundry, "洗濯機" %>
-    <%= form.number_field :laundry,:value => 0,min:"0",max:"20"  %>
-  </div>
-  <div>
-    <%= form.label :dryer, "乾燥機" %>
-    <%= form.number_field :dryer,:value => 0,min:"0",max:"20"  %>
-  </div>
-  <div>
-    <%= form.label :toilet, "トイレ" %>
-    <%= form.number_field :toilet,:value => 0,min:"0",max:"20"  %>
-  </div>
-    <div>
-    <%= form.label :shower, "シャワー" %>
-    <%= form.number_field :shower,:value => 0,min:"0",max:"20" %>
-  </div>
-  <div>
-    <%= form.label :bathroom, "浴室" %>
-    <%= form.number_field :bathroom,:value => 0,min:"0",max:"20" %>
-  </div>
+<table class="table table-bordered " style="max-width: 70%;">
+  <tbody>
+    <tr>
+      <th scope="row"><%= form.label :name, "物件名" %></th>
+      <td><%= form.text_field :name ,style: "width:100%;", placeholder:"例：シェアハウス渋谷"%></td>
+    </tr>
+    <tr>
+      <th scope="row"> <%= form.label :house_image, "物件画像" %></th>
+      <td><%= form.file_field :house_image,accept: "image/png,image/jpeg,image/gif" %></td>
+    </tr>
+    <tr>
+      <th scope="row"><%= form.label :house_rent, "家賃" %></th>
+      <td><%= form.text_field :house_rent, placeholder:"例：30000" %>円</td>
+    </tr>
+    <tr>
+      <th scope="row"><%= form.label :service_fee, "共益費" %></th>
+      <td><%= form.text_field :service_fee, placeholder:"例：10000" %>円</td>
+    </tr>
+    <tr>
+      <th scope="row"><%= form.label :area_id %></th>
+      <td><%= form.collection_select :area_id, Area.all, :id, :name,include_blank: "エリアを選択して下さい" %></td>
+    </tr>
+     <tr>
+      <th scope="row"><%= form.label :address, "住所" %></th>
+      <td><%= form.text_field :address,style: "width:100%;", placeholder:"例：東京都渋谷区３丁目" %></td>
+    </tr>
+     <tr>
+      <th scope="row"><%= form.label :station, "最寄駅" %></th>
+      <td><%= form.text_field :station, placeholder:"例：渋谷" %>駅 徒歩<%= form.text_field :access, placeholder:"例：5" %>分</td>
+    </tr>
+    <tr>
+      <th scope="row"><%= form.label :house_size, "世帯数" %></th>
+      <td><%= form.text_field :house_size, placeholder:"例：5" %>世帯</td>
+    </tr> 
+    <tr>
+      <th scope="row"><%= form.label :convenience, "物件周辺情報" %></th>
+      <td><%= form.text_area :convenience,style: "width:100%; height:200px", placeholder:"例：新宿や池袋へ乗換なしで行くことができJR山手線も乗り入れています。駅前には、個人経営のお店も並び、居酒屋や喫茶店などが充実しております。ショッピングセンター徒歩５分、コンビニ徒歩３分。" %></td>
+    </tr>  
+    <tr>
+      <th scope="row"><%= form.label :content, "その他物件情報" %></th>
+      <td><%= form.text_area :content,style: "width:100%; height:200px",placeholder:"例：清掃頻度：週一回。ハウスルール：禁煙、ペット不可。その他共有設備：映画鑑賞専用ルーム。"%></td>
+    </tr>  
+    <tr>
+      <th scope="row">共用設備</th>
+      <td>
+        <div>
+          <%= form.label :kitchen, "キッチン" %>
+          <%= form.number_field :kitchen,:value => 0,min:"0",max:"20" %>
+        </div>
+        <div>
+          <%= form.label :refrigerator, "冷蔵庫" %>
+          <%= form.number_field :refrigerator,:value => 0,min:"0",max:"20"  %>
+        </div>
+        <div>
+          <%= form.label :laundry, "洗濯機" %>
+          <%= form.number_field :laundry,:value => 0,min:"0",max:"20"  %>
+        </div>
+        <div>
+          <%= form.label :dryer, "乾燥機" %>
+          <%= form.number_field :dryer,:value => 0,min:"0",max:"20"  %>
+        </div>
+        <div>
+          <%= form.label :toilet, "トイレ" %>
+          <%= form.number_field :toilet,:value => 0,min:"0",max:"20"  %>
+        </div>
+          <div>
+          <%= form.label :shower, "シャワー" %>
+          <%= form.number_field :shower,:value => 0,min:"0",max:"20" %>
+        </div>
+        <div>
+          <%= form.label :bathroom, "浴室" %>
+          <%= form.number_field :bathroom,:value => 0,min:"0",max:"20" %>
+        </div>
+        <div class="mt-3">
+          <%= collection_check_boxes(:house, :facility_ids, Facility.all, :id, :name) do |b| %>
+            <%= b.label { b.check_box + b.text } %>
+          <% end %>
+        </div>     
+      </td>
+    </tr>  
+  </tbody>
+</table>
 
-  <div class="field">
-    <%= form.label :facilities, "共用設備" %><br />
-    <%= collection_check_boxes(:house, :facility_ids, Facility.all, :id, :name) do |b| %>
-      <%= b.label { b.check_box + b.text } %>
-    <% end %>
-  </div>
-  <h3>部屋情報入力</h3>
- 
-  <div id="house_rooms_box">
-    <%= form.fields_for :rooms do |i| %>
-      <div class="js-house_room" id="add_room_' + room_count + '">
-        <div>
-          <%= i.label :room_num, "部屋番号" %>
-          <%= i.text_field :room_num,class: 'form-control', required: true %>
+<h3 class="text-center m-5">部屋情報入力</h3>
+ <%= form.fields_for :rooms do |i| %>
+<table class="table table-bordered " style="max-width: 70%;" >
+  <tbody>
+    <tr>
+      <th scope="row"><%= i.label :room_num, "部屋番号" %></th>
+      <td> <%= i.text_field :room_num,style: "width:200px;" ,placeholder:"例：101" %></td>
+    </tr>
+    <tr>
+      <th scope="row">空室状況</th>
+      <td>
+        <div class="radio_btn" >
+          <%= i.radio_button :vacancy, :vacancy, checked: "checked" %>
+          <%= i.label :vacancy,"空室" %>
         </div>
-        <div class="field">
-          <span>空室状況をお選びください</span><br>
-          <div>
-            <%= i.radio_button :vacancy, :vacancy, checked: "checked" %>
-            <%= i.label :vacancy,"空室" %>
-          </div>
-          <div>
-            <%= i.radio_button :vacancy, :no_vacancy %>
-            <%= i.label :no_vacancy,"満室" %>
-          </div>
+        <div class="radio_btn">
+          <%= i.radio_button :vacancy, :no_vacancy %>
+          <%= i.label :no_vacancy,"満室" %>
         </div>
-        <div>
-          <%= i.label :image, "部屋画像" %>
-          <%= i.file_field :image,accept: "image/png,image/jpeg,image/gif",class: 'form-control' %>
-        </div>
-        <div>
-          <%= i.label :size, "広さ（単位：m²)" %>
-          <%= i.text_field :size,class: 'form-control', required: true %>m²
-        </div>
-        <div>
-          <%= i.label :rent, "家賃" %>
-          <%= i.text_field :rent,class: 'form-control', required: true %>円
-        </div>
-        <div class="field">
-          <span>お部屋タイプをお選びください</span><br>
-          <div>
-            <%= i.radio_button :room_type, :private_room, checked: "checked" %>
-            <%= i.label :private_room,"個室" %>
-          </div>
-          <div>
-            <%= i.radio_button :room_type, :domitory %>
-            <%= i.label :domitory,"ドミトリー" %>
-          </div>
-          <div>
-            <%= i.radio_button :room_type, :room_share %>
-            <%= i.label :room_share,"ルームシェア" %>
-          </div>
-        </div>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row"><%= i.label :image, "部屋画像" %></th>
+      <td><%= i.file_field :image,accept: "image/png,image/jpeg,image/gif"%></td>
+    </tr>
+    <tr>
+      <th scope="row"> <%= i.label :size, "広さ（単位：m²)" %></th>
+      <td><%= i.text_field :size,style: "width:200px;"  ,placeholder:"例：10.5"%>m²</td>
+    </tr>
+    <tr>
+      <th scope="row"><%= i.label :rent, "家賃" %></th>
+      <td ><%= i.text_field :rent,style: "width:200px;" ,placeholder:"例：30000" %>円</td>
 
-      </div>
-    <% end %>
-    </div>
-  </div>
-  <div>
-    <%= form.submit button_value,class: "btn btn-block" %>
+    </tr>
+    <tr>
+      <th scope="row">お部屋タイプ</th>
+      <td>
+        <div class="radio_btn">
+          <%= i.radio_button :room_type, :private_room, checked: "checked" %>
+          <%= i.label :private_room,"個室" %>
+        </div>
+        <div class="radio_btn">
+          <%= i.radio_button :room_type, :domitory %>
+          <%= i.label :domitory,"ドミトリー" %>
+        </div>
+        <div class="radio_btn">
+          <%= i.radio_button :room_type, :room_share %>
+          <%= i.label :room_share,"ルームシェア" %>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<% end %>
+  <div >
+    <%= form.submit button_value,class:"btn btn-lg btn-primary btn-block btn-signin  mx-auto my-5", style:"max-width: 70%;" %>
   </div>
 <% end %>
+
+
+
+
+
+
+
+
 
 

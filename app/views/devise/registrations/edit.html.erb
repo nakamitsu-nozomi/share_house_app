@@ -1,58 +1,63 @@
-<h2><%= t('.title', resource: resource.model_name.human) %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <div class="field">
-    <%= f.label :name,"ユーザー名" %><br />
-    <%= f.text_field :name, autofocus: true %>
-  </div>
-  <div class="field">
-    <%= f.label :user_icon,"アイコン画像" %><br />
-    <%= f.file_field :user_icon, autofocus: true %>
-  </div>
-  <div class="field">
-    <%= f.label :adress,"住んでいる都道府県" %><br />
-    <%= f.text_field :adress, autofocus: true %>
-  </div>
-   <div class="field">
-    <%= f.label :experience,"シェアハウス経験 有/無" %><br />
-    <%= f.select :experience ,[['有',true],['無',false]] %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<div>
+  <div class="jumbotron jumbotron-extend-login">
+    <div class="container-fluid jumbotron-container-login">
+       <div class="container login_page">
+        <div class="card card-container login_card">
+          <h3 class="text-center">アカウント編集</h3>
+          <hr>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+            <div class="field">
+              <%= f.label :name,"アカウント名",class:"sign_up_title" %><br />
+              <%= f.text_field :name, autofocus: true,class:"form-control" %>
+            </div>
+            <div class="field">
+              <%= f.label :user_icon,"アイコン画像",class:"sign_up_title" %><br />
+              <%= f.file_field :user_icon, autofocus: true  %>
+            </div>
+            <div class="field">
+              <%= f.label :adress,"住んでいる都道府県",class:"sign_up_title" %><br />
+              <%= f.text_field :adress, autofocus: true,class:"form-control", placeholder:"例： 東京"  %>
+            </div>
+            <div class="field">
+              <%= f.label :experience,"シェアハウス経験 有/無",class:"sign_up_title" %><br />
+              <%= f.select :experience ,[['有',true],['無',false]],class:"form-control"  %>
+            </div>
+            <div class="field">
+              <%= f.label :email,class:"sign_up_title" %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control"  %>
+            </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
-  <% end %>
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <div ><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
+            <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
-    <% end %>
+            <div class="field">
+              <%= f.label :password ,class:"sign_up_title" %> <i class="sign_up_title">(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i><br />
+              <%= f.password_field :password, autocomplete: "new-password",class:"form-control"  %>
+              <% if @minimum_password_length %>
+                <em class="sign_up_title"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
+              <% end %>
+            </div>
+
+            <div class="field">
+              <%= f.label :password_confirmation ,class:"sign_up_title"%><br />
+              <%= f.password_field :password_confirmation, autocomplete: "new-password",class:"form-control"  %>
+            </div>
+
+            <div class="field">
+              <%= f.label :current_password,class:"sign_up_title" %> <i class="sign_up_title">(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i><br />
+              <%= f.password_field :current_password, autocomplete: "current-password",class:"form-control"  %>
+            </div>
+
+            <div class="actions field">
+              <%= f.submit t('.update'),class:"btn btn-lg btn-primary btn-block btn-signin mt-3" %>
+            </div>
+          <% end %>
+
+        </div><!-- /card-container -->
+    </div><!-- /container -->
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit t('.update') %>
-  </div>
-<% end %>
-
-<h3><%= t('.cancel_my_account') %></h3>
-
-<p><%= t('.unhappy') %> <%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %></p>
-
-<%= link_to t('devise.shared.links.back'), :back %>
+</div>

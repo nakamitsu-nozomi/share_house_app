@@ -1,26 +1,39 @@
-<h2><%= t('.sign_in') %></h2>
-<%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<div>
+  <div class="jumbotron jumbotron-extend-login">
+    <div class="container-fluid jumbotron-container-login">
+       <div class="container login_page">
+        <div class="card card-container login_card">
+        <h3 class="text-center">ログイン</h3>
+        <hr>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+            <p id="profile-name" class="profile-name-card"></p>
+            <form class="form-signin">
+                <span id="reauth-email" class="reauth-email"></span>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email",id:"inputEmail",class:"form-control", placeholder:"メールアドレス" %> <br>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+                <%= f.password_field :password, autocomplete: "current-password",id:"inputPassword", class:"form-control", placeholder:"パスワード" %> <br>
+                <% if devise_mapping.rememberable? %>
+                  <div id="remember" class="checkbox">
+                    <%= f.check_box :remember_me %>
+                    <%= f.label :remember_me %>
+                  </div>
+                   <br>
+                <% end %>               
+                <div class="actions">
+                  <%= f.submit t('.sign_in'),class:"btn btn-lg btn-primary btn-block btn-signin" %>
+                </div>
+            </form><!-- /form -->
+        <% end %>
+        <hr>
+        <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class:"btn btn-outline-secondary my-2 gest_btn" %>
+        <%= render "devise/shared/links" %>
+        </div><!-- /card-container -->
+    </div><!-- /container -->
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit t('.sign_in') %>
   </div>
-<% end %>
+</div>
 
-<%= render "devise/shared/links" %>
+
+
+
