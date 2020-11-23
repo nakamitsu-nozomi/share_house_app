@@ -2,10 +2,10 @@ class HousesController < ApplicationController
   before_action :authenticate_user!, except: [:index ,:show,:map,:room]
   before_action :set_house, only: %i[edit update destroy  ]
   before_action :if_not_admin,only: %i[edit update destroy new create ]
-
+  PER_PAGE =5
   def index
     @q = House.ransack(params[:q])
-    @houses= @q.result(distinct: true)
+    @houses= @q.result(distinct: true).page(params[:page]).per(PER_PAGE)
     @areas=Area.all
     @comments=Comment.where(house_id: @house)
   

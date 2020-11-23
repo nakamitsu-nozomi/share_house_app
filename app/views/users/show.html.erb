@@ -6,6 +6,7 @@
     <p class="no-item"> 物件の登録がありません。</p>
   <% else %>
     <%= render :partial => "houses/house_list", :locals => { houses: @houses }  %>
+     <%= paginate @houses  %>
   <% end %>
 <% end %>
 

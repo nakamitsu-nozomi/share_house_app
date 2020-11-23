@@ -20,6 +20,7 @@ gem 'jquery-rails'
 gem 'rails_12factor', group: :production
 gem "geocoder"
 gem 'dotenv-rails'
+gem 'kaminari'
 
 
 group :development, :test do
