@@ -4,6 +4,7 @@
   </div>
 <% elsif %>
 <%= render :partial => "house_list", :locals => { houses: @houses }  %>
+  <%= paginate @houses  %>
 <% end %>
 
 
