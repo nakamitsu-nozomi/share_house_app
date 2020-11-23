@@ -1,4 +1,5 @@
-  <div class="house_list">
+<div class="house_list my-3" >
+
   <% houses.each do |house|%>
     <%= link_to house, class:"card border-light my-5 card-columns card-dec Editlink mx-auto", style:"max-width: 50%; border-width:5px 0 0 0;" do %>
       <div class="card-header house_title"><%= house.name %> / <%= house.area.name%></div>
@@ -48,4 +49,6 @@
       </div>
     <% end %>
   <% end %>
+  <%= paginate houses  %>
 </div>
+
