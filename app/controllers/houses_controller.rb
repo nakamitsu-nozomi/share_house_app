@@ -34,7 +34,7 @@ class HousesController < ApplicationController
     if @house.save 
       redirect_to @house,notice: "物件を登録しました"
     else
-      flash.now[:alert] ="投稿に失敗しました"
+      flash.now[:alert] ="入力内容に不備があります。確認してもう一度送信してください。"
       render :new
     end
   end
@@ -48,7 +48,7 @@ class HousesController < ApplicationController
     if @house.update(update_house_params)
       redirect_to @house,notice: "更新しました"
     else
-      flash.now[:alert] ="更新に失敗しました"
+      flash.now[:alert] ="入力内容に不備があります。確認してもう一度送信してください。"
       render :edit    
     end
   end
