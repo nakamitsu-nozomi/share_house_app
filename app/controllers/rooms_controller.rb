@@ -13,7 +13,7 @@ class RoomsController < ApplicationController
     if @room.save 
       redirect_to room_house_path(@house),notice: "部屋情報を登録しました"
     else
-      flash.now[:alert] ="投稿に失敗しました"
+      flash.now[:alert] ="入力内容に不備があります。確認してもう一度送信してください。"
       render :new
     end
   end
@@ -27,9 +27,9 @@ class RoomsController < ApplicationController
     @room= Room.find_by(house_id: params[:house_id],id: params[:id])
     @room.house_id=@house.id
     if @room.update(update_room_params)
-      redirect_to room_house_path(@house),notice: "更新しました"
+      redirect_to room_house_path(@house),notice: "更新しました。"
     else
-      flash.now[:alert] ="更新に失敗しました"
+      flash.now[:alert] ="入力内容に不備があります。確認してもう一度送信してください。"
       render :edit    
     end
   end
@@ -38,7 +38,7 @@ class RoomsController < ApplicationController
     @house=House.find(params[:house_id])
     @room= Room.find_by(house_id: params[:house_id],id: params[:id])
     @room.destroy!
-    redirect_to room_house_path(@house),alert: "削除しました"
+    redirect_to room_house_path(@house),alert: "削除しました。"
   end
   private
   def room_params

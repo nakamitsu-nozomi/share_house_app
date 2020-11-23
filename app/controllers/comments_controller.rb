@@ -18,9 +18,9 @@ class CommentsController < ApplicationController
       com_review: comment_params[:com_review]
     )
     if @comment.save
-      redirect_to house_comments_path(house_id:@house.id),notice: "物件を登録しました"
+      redirect_to house_comments_path(house_id:@house.id),notice: "口コミを登録しました"
     else
-      flash.now[:alert] ="投稿に失敗しました"
+      flash.now[:alert] ="入力内容に不備があります。確認してもう一度送信してください。"
       render :new
     end
   end
@@ -34,7 +34,7 @@ class CommentsController < ApplicationController
     if @comment.update(comment_params)
       redirect_to house_comments_path(house_id:@house.id),notice: "口コミを編集しました"
     else
-      flash.now[:alert] ="編集に失敗しました"
+      flash.now[:alert] ="入力内容に不備があります。確認してもう一度送信してください。"
       render :edit
     end
   end
