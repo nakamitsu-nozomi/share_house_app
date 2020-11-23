@@ -4,6 +4,6 @@
 <% if @comments.empty? %>
   <p class="no-item">口コミした物件はありません。</p>
 <% else %> 
-<%= render :partial => "houses/house_list", :locals => { houses: @comments }  %>
+  <%= render :partial => "houses/house_list", :locals => { houses: @comments }  %>
 <% end %>
 

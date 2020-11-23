@@ -4,5 +4,5 @@
 <% if @clips.empty?%>
   <p class="no-item"> 保存した物件はありません。</p>
 <% else %>
-<%= render :partial => "houses/house_list", :locals => { houses: @clips }  %>
+  <%= render :partial => "houses/house_list", :locals => { houses: @clips }  %>
 <% end %>
