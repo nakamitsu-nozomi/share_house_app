@@ -5,49 +5,38 @@
       <div class="card-header house_title"><%= house.name %> / <%= house.area.name%></div>
       <div class="card-body">
         <div class="row">
-        <% if house.house_image? %>
-          <%= image_tag house.house_image.url,class:"col-6 img-responsive house_image" %>  
-        <% elsif  %>
-          <img src="/assets/noimage.png" class="col-6 img-responsive house_image"  >
-        <% end %>
-          
+          <% if house.house_image? %>
+            <%= image_tag house.house_image.url,class:"col-6 img-responsive house_image" %>
+          <% elsif  %>
+            <img src="/assets/noimage.png" class="col-6 img-responsive house_image"  >
+          <% end %>
           <div class="col-6 ">
             <p class="card-text my-1">賃料 <%= house.house_rent %>円</p>
             <p class="card-text my-1">アクセス <%= house.station %>駅 / 徒歩<%= house.access %>分</p>
-             <% if house.comments.present? %>
               <span id="star-rate-<%= house.id %>"></span>
-                <%= house.comments.average(:star).round(1)%>  
-                <script>
-                $(document).on('turbolinks:load', function(){
-                $("#star-rate-<%= house.id %>").raty({
-                  size      : 36,
-                  starOff   : '<%= asset_path('star-off.png') %>',
-                  starHalf  : '<%= asset_path('star-half.png') %>',
-                  starOn    : '<%= asset_path('star-on.png') %>',
-                  half      : true,
-                  readOnly: true,
-                  score: <%=  house.comments.present? ? house.comments.average(:star).round(1) :0 %>,
-                });
-                })
-                </script>  
-            <% else %>
-            <img src="/assets/star-off.png">
-            <img src="/assets/star-off.png">
-            <img src="/assets/star-off.png">
-            <img src="/assets/star-off.png">
-            <img src="/assets/star-off.png">
-              <%= 0.0%> 
-            <% end %>
+              <%= house.comments&.average(:star)&.round(1) || 0 %>
+              <script>
+                if(!$("#star-rate-<%= house.id %> img").length) {
+                  $("#star-rate-<%= house.id %>").raty({
+                      size : 36,
+                      starOff : '<%= asset_path('star-off.png') %>',
+                      starHalf : '<%= asset_path('star-half.png') %>',
+                      starOn : '<%= asset_path('star-on.png') %>',
+                      half : true,
+                      readOnly: true,
+                      score: <%= house.comments&.average(:star)&.round(1) || 0 %>,
+                  })
+                }   
+            </script>
             <p id="housecount-<%= house.id %>" >
               <i class="fas fa-bookmark"></i>
               <%= render 'houses/clips_count',house: house %>件
               <i class="fas fa-comment-dots"></i>
               <%= house.comments.count%>件</p>
-            </p>
-          </div>
+          </p>
         </div>
       </div>
-    <% end %>
+    </div>
   <% end %>
+<% end %>
 </div>
-
