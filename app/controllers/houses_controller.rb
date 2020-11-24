@@ -6,6 +6,7 @@ class HousesController < ApplicationController
   def index
     @q = House.ransack(params[:q])
     @houses= @q.result(distinct: true).page(params[:page]).per(PER_PAGE)
+    @result=@q.result(distinct: true)
     @areas=Area.all
     @comments=Comment.where(house_id: @house)
   
