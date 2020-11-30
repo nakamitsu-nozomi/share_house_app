@@ -16,88 +16,31 @@
 <div class="card text-center  p-3 facility-card my-5"style="max-width: 70%;" >
   <h3 class="m-3">共有設備</h3>
   <div class="row">
-    <div class="col-3" >
-      <% if  @house.kitchen == 0 %>
-        <p class="no-facility"><i class="fas fa-utensils fa-5x no-facility"></i></p>
-        <p class="no-facility">キッチン<%= @house.kitchen%>台</p>
-      <% else %>
-        <p><i class="fas fa-utensils facility fa-5x"></i></p>
-        <p class="facility">キッチン<%= @house.kitchen%>台</p>
-      <% end %>
-    </div>
-
-    <div class="col-3">
-      <% if  @house.refrigerator == 0 %>
-        <p><i class="fas fa-snowflake fa-5x no-facility"></i></p>
-        <p class="no-facility">冷蔵庫<%= @house.refrigerator%>台</p>
-      <% else %>
-        <p><i class="fas fa-snowflake facility fa-5x"></i></p>
-        <p class="facility">冷蔵庫<%= @house.refrigerator%>台</p>
-      <% end %>
-    </div>
-    <div class="col-3">
-      <% if  @house.laundry == 0 %>
-        <p><i class="fas fa-tshirt fa-5x no-facility"></i></p>
-        <p class="no-facility">洗濯機<%= @house.laundry%>台</p>
-      <% else %>
-        <p><i class="fas fa-tshirt facility fa-5x"></i></p>
-        <p class="facility">洗濯機<%= @house.laundry%>台</p>
-      <% end %>
-    </div>
-    <div class="col-3">
-      <% if  @house.dryer == 0 %>
-        <p><i class="fas fa-tshirt fa-5x no-facility"></i></p>
-        <p class="no-facility">乾燥機<%= @house.dryer%>台</p>
-      <% else %>
-        <p><i class="fas fa-tshirt facility fa-5x"></i></p>
-        <p class="facility">乾燥機<%= @house.dryer%>台</p>
-      <% end %>
-    </div>
+    <%= render partial: 'facility', locals: { facility: @house.kitchen,icon: "fas fa-utensils ",name:"キッチン"} %>
+    <%= render partial: 'facility', locals: { facility: @house.refrigerator,icon: "fas fa-snowflake ",name:"冷蔵庫"} %>
+    <%= render partial: 'facility', locals: { facility: @house.laundry,icon: "fas fa-tshirt ",name:"洗濯機"} %>
+    <%= render partial: 'facility', locals: { facility: @house.dryer,icon: "fas fa-tshirt ",name:"乾燥機"} %>
   </div>
   <div class="row">
-    <div class="col-3">
-      <% if  @house.toilet == 0 %>
-        <p><i class="fas fa-toilet fa-5x no-facility"></i></p>
-        <p class="no-facility">トイレ<%= @house.toilet%>台</p>
-      <% else %>
-        <p><i class="fas  fa-toilet facility fa-5x"></i></p>
-        <p class="facility">トイレ<%= @house.toilet%>台</p>
-      <% end %>
-      </div>
-    <div class="col-3">
-      <% if  @house.shower == 0 %>
-        <p><i class="fas fa-shower fa-5x no-facility"></i></p>
-        <p class="no-facility">シャワー<%= @house.shower%>台</p>
-      <% else %>
-        <p><i class="fas fa-shower facility fa-5x"></i></p>
-        <p class="facility">シャワー<%= @house.shower%>台</p>
-      <% end %>
-    </div>
-
-    <div class="col-3">
-      <% if  @house.bathroom == 0 %>
-        <p><i class="fas fa-bath fa-5x no-facility"></i></p>
-        <p class="no-facility">浴室<%= @house.bathroom%>台</p>
-      <% else %>
-        <p><i class="fas fa-bath facility fa-5x"></i></p>
-        <p class="facility">浴室<%= @house.bathroom%>台</p>
-      <% end %>
-    </div>
-
-
+    <%= render partial: 'facility', locals: { facility: @house.toilet,icon: "fas fa-toilet ",name:"トイレ"} %>
+    <%= render partial: 'facility', locals: { facility: @house.shower,icon: "fas fa-shower ",name:"シャワー"} %>
+    <%= render partial: 'facility', locals: { facility: @house.bathroom,icon: "fas fa-bath ",name:"浴室"} %>
+  </div>
+  <div class="row">
     <% @facilities.each do |facility| %>
       <div class="col-3">
         <% if @with_facility_ids.include?(facility.id)%>
-            <%= image_tag facility.color_icon,  size:'90x90' %> 
-            <p class="facility"><%=  facility.name %></p>
-          <% else %>
+          <%= image_tag facility.color_icon,  size:'90x90' %> 
+          <p class="facility"><%=  facility.name %></p>
+        <% else %>
           <%= image_tag facility.icon, size:'90x90' %> 
-            <p class="no-facility"><%=  facility.name %></p>
+          <p class="no-facility"><%=  facility.name %></p>
         <% end %>
       </div>
     <% end %>
   </div>
 </div>
+
 
 
 
