@@ -105,6 +105,7 @@ table {
   color: #FFF;
   background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
   transition: .4s;
+  font-size: small;
 }
 .facility{
   color: #0099ff;
@@ -537,8 +538,7 @@ margin-bottom: 50px;
 }
 
 // 地図ページ
-  #map {
-    height: 400px;
-    width: 50%;
-    margin: 5px, auto;
-  }
+  #map { height: 400px;
+         width: 50%;
+        margin:5px,auto;
+         }
