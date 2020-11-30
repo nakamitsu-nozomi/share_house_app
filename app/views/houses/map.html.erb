@@ -1,4 +1,17 @@
 <%= render 'house_info' %>
+<div class="mx-auto my-5" style="max-width: 70%;" >
+  <div class="row m-1">
+    <div id="map" class="col"></div>
+    <div class="col ml-5">
+      <h4>アクセス</h4>
+      <p><%= @house.station%>駅 徒歩<%= @house.access%>分</p>
+      <h4>住所</h4>
+      <p><%= @house.address%></p>
+      <h4>物件周辺情報</h4>
+      <p><%= @house.convenience%></p>
+   </div> 
+  </div>
+</div>
 <script type="text/javascript">
   function initMap() {
     var test ={lat: <%= @house.latitude %>, lng: <%= @house.longitude %>};
@@ -25,29 +38,7 @@
      });
   }
 </script>
-
-
-
 <script async defer
               src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
 </script>
-<style type="text/css">
-  #map { height: 400px;
-         width: 50%;
-        margin:5px,auto;
-         }
-</style>
 
-<div class="mx-auto my-5" style="max-width: 70%;" >
-  <div class="row m-1">
-    <div id="map" class="col"></div>
-    <div class="col ml-5">
-      <h4>アクセス</h4>
-      <p><%= @house.station%>駅 徒歩<%= @house.access%>分</p>
-      <h4>住所</h4>
-      <p><%= @house.address%></p>
-      <h4>物件周辺情報</h4>
-      <p><%= @house.convenience%></p>
-   </div> 
-  </div>
-</div>

@@ -380,16 +380,11 @@ margin-bottom: 50px;
   cursor: default;
 }
 
-/*
- * Card component
- */
-.login_card {
 
-  /* just in case there no content*/
+.login_card {
   padding: 20px 25px 30px;
   margin: 0 auto 25px;
   margin-top: 20px;
-  /* shadows and rounded borders */
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
@@ -463,9 +458,7 @@ margin-bottom: 50px;
 }
 
 .btn.btn-signin {
-  /*background-color: #4d90fe; */
   background-color: #7FCCFF;
-  /* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
   padding: 0px;
   font-weight: 700;
   font-size: 14px;
@@ -538,8 +531,14 @@ margin-bottom: 50px;
 }
 
 // ページネーション
-
 .pagination {
   justify-content: center;
   padding-bottom: 30px;
 }
+
+// 地図ページ
+  #map {
+    height: 400px;
+    width: 50%;
+    margin: 5px, auto;
+  }

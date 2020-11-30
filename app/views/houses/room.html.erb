@@ -26,7 +26,6 @@
         <p><%= link_to '編集',  edit_house_room_path(house_id: @house.id, id: room),class:" btn white_blue_btn " %></p>
         <p><%= link_to '削除',  house_room_path(house_id: @house.id, id: room),method: :delete, data: { confirm: "削除しますか?" },class:"btn white_blue_btn" %></p>
       <% end %>
-
       </td>
       <td>
         <% if room.vacancy? %>
