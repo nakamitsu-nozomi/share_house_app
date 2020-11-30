@@ -1,24 +1,68 @@
-# README
+# TOKYOシェア不動産
+都内のシェアハウス物件の情報を掲載し、口コミを誰でも簡単に投稿できるサイトです。
+下記ページで公開中です。
+<https://share-house-app.herokuapp.com/>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## アプリ概要
+都内のシェアハウス物件を簡単に、シェアハウスに対するリアルな評価を参考にしながら検索できるアプリです。
 
-Things you may want to cover:
+- 都内にあるシェアハウスを検索できる
+- 内覧に行ったことがある物件や以前住んでいた物件の口コミを点数付きで投稿する機能を実装
+- 気になる物件をマイページで管理できる機能を実装
+下記ページで公開中です！
+https://share-house-app.herokuapp.com/
+<簡単なアプリ説明><言語orフレームワーク>で制作しました。
 
-* Ruby version
+作成した背景や想いなど、より詳細な情報は下記をご覧ください。  
+[ポートフォリオ解説](https://qiita.com/nozomi_nozomi/items/b2597deae4b246131926)
 
-* System dependencies
+## 機能
+- 口コミ投稿・評価機能：　内覧・入居の両面、5段階で物件の評価を行えます。
+- マイページ機能：行った物件(口コミを投稿した店舗)、保存した物件を一覧で確認できます。
+- 物件検索機能(エリア)：物件があるエリアを軸に店舗を検索できます。また、入力したキーワードに合致する物件をあいまい検索できます。
+- 物件管理機能：物件の所在地を地図で確認できます。
+- 管理者権限機能：管理者のみ物件情報の登録・編集が許可されている仕様です。
 
-* Configuration
+## 使い方
+### 物件検索
+1.トップページの検索ボックスに任意のエリア名を入力 orエリアをボタンで選択。  
+2. 検索結果一覧画面にて、家賃順、駅からの距離順、保存済数順で並べ替え可能。
+### 口コミ投稿
+1. 画面右上の「ログイン」ボタンをクリック
+2. テストユーザーで簡単ログイン（※アカウント登録せずに機能を試したい方は こちらをクリック）
+3. 任意の　物件ページに移動→口コミページ→口コミを投稿するをクリック
+4. 評価等を入力して投稿→点数が反映される
 
-* Database creation
+## ローカル環境へのインストール方法
+※Railsの場合
+```
+$ git clone https://github.com/nakamitsu-nozomi/share_house_app.git
+$ cd  share_house_app
+$ bundle install
+$ rails db:create
+$ rails db:migrate
+$ rails db:seed
+```
 
-* Database initialization
+## ER図
+<ER図を貼る>
 
-* How to run the test suite
+## その他
+現在も開発を継続しており、順次実装予定です。 
+###追加予定機能
+- 検索機能の複雑化
+- 部屋の家具情報ページの追加
+- 物件画像を複数投稿、複数表示
+-  物件投稿者へのお問い合わせ機能
+- rspecを使ったテストコード
+-  レスポンシブ対応
+-  管理者画面で口コミ集計結果を表示
+- AWSにデプロイ
+ 
+実装予定の機能はtrelloよりご確認いただけます。  
+<https://trello.com/b/Cdp4Es2l/%E3%82%B7%E3%82%A7%E3%82%A2%E3%83%8F%E3%82%A6%E3%82%B9%E6%A4%9C%E7%B4%A2%E3%82%B5%E3%82%A4%E3%83%88>
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
+## 作者
+[：Twitter](https://twitter.com/engneer_louis)  
+mail to: [exnnss0131@gmail.com](exnnss0131@gmail.com)
