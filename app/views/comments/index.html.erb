@@ -37,9 +37,10 @@
           </div>
         </li>
         <li class="list-group-item">
-          <div id="star-rate<%= comment.id%>"></div>    
+          <div id="star-rate-<%= comment.id%>"></div>    
           <script>
-            $('#star-rate<%= comment.id%>').raty({
+            if(!$("#star-rate-<%= comment.id %> img").length) {
+            $('#star-rate-<%= comment.id%>').raty({
               size      : 36,
               starOff   : '<%= asset_path('star-off.png') %>',
               starHalf: '<%= asset_path('star-half.png') %>',
@@ -48,6 +49,7 @@
               readOnly: true,
               score: <%= comment.star %>,
             });
+            }
           </script>
         </li>
         <li class="list-group-item">
