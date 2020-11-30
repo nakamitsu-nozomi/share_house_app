@@ -46,11 +46,11 @@
       </td>
         <td><%= room.size%>m²</td>
         <td><%= room.rent%>円</td>
-          <% if room.image? %>
-            <td><%=  image_tag room.image.to_s,size:'100x100' %> </td>
-          <% elsif  %>
-            <td><img src="/assets/noimage.png" class="room_no_image" ></td>
-          <% end %>
+        <% if room.image? %>
+          <td><%=  image_tag room.image.to_s,size:'100x100' %> </td>
+        <% elsif  %>
+          <td><img src="/assets/noimage.png" class="room_no_image" ></td>
+        <% end %>
       </tr>
     </tbody>
     <% end %>
