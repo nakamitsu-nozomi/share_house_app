@@ -1,0 +1,18 @@
+<div class="review_content ">
+  <h5 class="review_item"><%= heading%> <%= column_average%></h5>
+  <div class="graph review_item  "> 
+      <% if column_average == 5 %>
+      <span class="bar" style="width: 100%;"></span>
+      <% elsif column_average > 4 %>
+        <span class="bar" style="width: 80%;"></span>
+      <% elsif column_average > 3 %>
+        <span class="bar" style="width: 60%;"></span>
+      <% elsif column_average > 2%>
+        <span class="bar" style="width: 40%;"></span>
+      <% elsif column_average > 1 %>
+        <span class="bar" style="width: 20%;"></span>
+      <% elsif column_average== 0 %>
+        <span class="bar" style="width: 0%;"></span>
+      <% end %>
+  </div>
+</div>

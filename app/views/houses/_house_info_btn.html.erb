@@ -1,0 +1,6 @@
+<% if current_page?(path) %>
+  <%= link_to heading,path,class:"btn btn-secondary col-3" %>
+<% else %>
+  <%= link_to heading,path,class:"btn btn-outline-secondary col-3" %>
+<% end %>
+

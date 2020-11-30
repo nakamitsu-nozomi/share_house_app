@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :authenticate_user! ,except: :index
   before_action :set_house
   def index
-    @comments=Comment.where(house_id:@house.id )
+    @comments=Comment.where(house_id:@house.id ).order(id: "DESC")
     @comment = Comment.new
   end
 
@@ -26,10 +26,12 @@ class CommentsController < ApplicationController
   end
 
   def edit
+    @comment =Comment.find( params[:id])
   end
 
 
   def update
+    @comment =Comment.find( params[:id])
     @comment.update(comment_params)
     if @comment.update(comment_params)
       redirect_to house_comments_path(house_id:@house.id),notice: "口コミを編集しました"
@@ -40,6 +42,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @comment = Comment.find(params[:id])
     @comment.destroy!
     redirect_to house_comments_path(house_id:@house.id),alert: "口コミを削除しました"
   end 
@@ -56,8 +59,5 @@ class CommentsController < ApplicationController
 
   def set_house
     @house = House.find(params[:house_id])
-    @comment =Comment.find_by(house_id: params[:house_id])
-    @comments=Comment.where(house_id:@house.id )
-
   end
 end

@@ -1,0 +1,10 @@
+<div class="col-3" >
+  <% if  facility == 0 %>
+    <p class="no-facility"><i class="<%= icon %> fa-5x no-facility"></i></p>
+    <p class="no-facility"><%= name%><%= facility%>台</p>
+  <% else %>
+    <p><i class=" <%= icon %> fa-5x facility"></i></p> 
+    <p class="facility"><%= name%><%= facility%>台</p>
+  <% end %>
+</div>
+

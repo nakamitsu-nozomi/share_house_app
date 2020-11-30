@@ -7,8 +7,7 @@
     <% end %>
   </h3>
   <h5 class="flex">
-      <span id="star-rate-<%= @house.id %>"></span>
-      <%= @house.comments&.average(:star)&.round(1) || 0 %>
+    <%= render partial: 'houses/star', locals: { house: @house} %>
       <i class="fas fa-comment-dots"></i>
       <%= @house.comments.count%>件
       <i class="fas fa-bookmark"></i>
@@ -50,41 +49,11 @@
 
   <div class="container-fluid">
     <div class="row">
-    <% if current_page?(house_path(@house)) %>
-      <%= link_to '物件情報',house_path(@house),class:"btn btn-secondary col-3" %>
-    <% else %>
-      <%= link_to '物件情報',house_path(@house),class:"btn btn-outline-secondary col-3" %>
-    <% end %>
-    <% if current_page?(room_house_path(@house)) %>
-      <%= link_to '部屋情報', room_house_path(@house),class:"btn btn-secondary col-3"  %>
-    <% else %>
-      <%= link_to '部屋情報', room_house_path(@house),class:"btn btn-outline-secondary col-3"  %>
-    <% end %>
-    <% if current_page?(house_comments_path(house_id:@house.id)) %>
-      <%= link_to '口コミ', house_comments_path(house_id:@house.id),class:"btn btn-secondary col-3"  %>
-    <% else %>
-      <%= link_to '口コミ', house_comments_path(house_id:@house.id),class:"btn btn-outline-secondary col-3"  %>
-    <% end %>
-    <% if  map_house_path(@house) %>
-      <%= link_to '周辺情報', map_house_path(@house),class:"btn btn-outline-secondary col-3"  %>
-    <% else %>
-      <%= link_to '周辺情報', map_house_path(@house),class:"btn btn-outline-secondary col-3"  %>
-    <% end %>
+      <%= render partial: 'houses/house_info_btn', locals: { heading: "物件情報",path: house_path(@house)} %>
+      <%= render partial: 'houses/house_info_btn', locals: { heading: "部屋情報",path: room_house_path(@house)} %>
+      <%= render partial: 'houses/house_info_btn', locals: { heading: "口コミ",path: house_comments_path(house_id:@house.id) } %>
+      <%= render partial: 'houses/house_info_btn', locals: { heading: "周辺情報",path: map_house_path(@house)} %>
     </div>
   </div>
 </div>
 
-<script>
-
-if(!$("#star-rate-<%= @house.id %> img").length) {
-  $("#star-rate-<%= @house.id %>").raty({
-    size : 36,
-    starOff : '<%= asset_path('star-off.png') %>',
-    starHalf : '<%= asset_path('star-half.png') %>',
-    starOn : '<%= asset_path('star-on.png') %>',
-    half : true,
-    readOnly: true,
-    score: <%= @house.comments&.average(:star)&.round(1) || 0 %>,
-  })
-}
-</script>

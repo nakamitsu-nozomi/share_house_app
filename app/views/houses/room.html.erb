@@ -26,7 +26,6 @@
         <p><%= link_to '編集',  edit_house_room_path(house_id: @house.id, id: room),class:" btn white_blue_btn " %></p>
         <p><%= link_to '削除',  house_room_path(house_id: @house.id, id: room),method: :delete, data: { confirm: "削除しますか?" },class:"btn white_blue_btn" %></p>
       <% end %>
-
       </td>
       <td>
         <% if room.vacancy? %>
@@ -47,11 +46,11 @@
       </td>
         <td><%= room.size%>m²</td>
         <td><%= room.rent%>円</td>
-          <% if room.image? %>
-            <td><%=  image_tag room.image.to_s,size:'100x100' %> </td>
-          <% elsif  %>
-            <td><img src="/assets/noimage.png" class="room_no_image" ></td>
-          <% end %>
+        <% if room.image? %>
+          <td><%=  image_tag room.image.to_s,size:'100x100' %> </td>
+        <% elsif  %>
+          <td><img src="/assets/noimage.png" class="room_no_image" ></td>
+        <% end %>
       </tr>
     </tbody>
     <% end %>

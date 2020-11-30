@@ -1,0 +1,15 @@
+<span id="star-rate-<%= house.id %>"></span>
+<%= house.comments&.average(:star)&.round(1) || 0 %>
+<script>
+  if(!$("#star-rate-<%= house.id %> img").length) {
+    $("#star-rate-<%= house.id %>").raty({
+        size : 36,
+        starOff : '<%= asset_path('star-off.png') %>',
+        starHalf : '<%= asset_path('star-half.png') %>',
+        starOn : '<%= asset_path('star-on.png') %>',
+        half : true,
+        readOnly: true,
+        score: <%= house.comments&.average(:star)&.round(1) || 0 %>,
+    })
+  }   
+</script>
