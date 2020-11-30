@@ -53,7 +53,7 @@
       <%= render partial: 'houses/house_info_btn', locals: { heading: "物件情報",path: house_path(@house)} %>
       <%= render partial: 'houses/house_info_btn', locals: { heading: "部屋情報",path: room_house_path(@house)} %>
       <%= render partial: 'houses/house_info_btn', locals: { heading: "口コミ",path: house_comments_path(house_id:@house.id) } %>
-      <%= render partial: 'houses/house_info_btn', locals: { heading: "物件情報",path: map_house_path(@house)} %>
+      <%= render partial: 'houses/house_info_btn', locals: { heading: "周辺情報",path: map_house_path(@house)} %>
     </div>
   </div>
 </div>
