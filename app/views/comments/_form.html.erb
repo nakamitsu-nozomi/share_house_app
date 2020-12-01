@@ -25,7 +25,7 @@
       <div class="card my-3" >
         <div class="card-body">
           <h4 class="card-title">清潔さ</h4>
-          <p class="card-text">共用部は綺麗でしたか？</p>
+          <p class="card-text">共用部は綺麗でしたか？<br>(例：清潔な物件→星５つ)</p>
           <div class="form-group row ml-1" id="clean_review" >
             <%= f.hidden_field :clean_review, id: :review_star %>
           </div>
@@ -34,7 +34,7 @@
       <div class="card my-3 " >
         <div class="card-body">
           <h4 class="card-title">騒音</h4>
-          <p class="card-text">周囲の生活音はどの程度聞こえますか？</p>
+          <p class="card-text">周囲の生活音はどの程度聞こえますか？<br>(例：周囲の音が全く気にならない→星５つ)</p>
           <div class="form-group row ml-1" id="houserule_review" >
             <%= f.hidden_field :houserule_review, id: :review_star %>
           </div>
@@ -43,7 +43,7 @@
       <div class="card my-3" >
         <div class="card-body">
           <h4 class="card-title">所在地</h4>
-          <p class="card-text">不便に感じることはありましたか？</p>
+          <p class="card-text">不便に感じることはありましたか？<br>(例：便利な所在地であった→星５つ)</p>
           <div class="form-group row ml-1" id="location_review" >
             <%= f.hidden_field :location_review, id: :review_star %>
           </div>
