@@ -44,9 +44,13 @@ $ rails db:create
 $ rails db:migrate
 $ rails db:seed
 ```
+## 設計資料
+### ワイヤーフレーム
+- [ワイヤーフレーム](https://docs.google.com/presentation/d/1XQpkAE1jQor8y4Mr4XF7OBVwdk2u5OOJ/edit#slide=id.p1)
+### DB設計
+- [テーブル設計](https://docs.google.com/spreadsheets/d/1HaHp0UCKprsUVwrimoGj29qiQQ6u35Cb/edit#gid=1202876390)
+- [ER図]()
 
-## ER図
-<ER図を貼る>
 
 ## その他
 現在も開発を継続しており、順次実装予定です。 
