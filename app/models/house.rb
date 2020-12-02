@@ -3,7 +3,6 @@ class House < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
   validates :name, presence: true, length: {maximum: 30}
-  validates :house_rent, presence: true
   validates :service_fee, presence: true
   validates :station, presence: true
   validates :access, presence: true,numericality: { less_than: 60 }

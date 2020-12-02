@@ -15,7 +15,6 @@ class HousesController < ApplicationController
   def show
     @facilities=Facility.all
     @with_facility_ids=HousesFacility.where(house_id:@house.id).pluck(:facility_id)
-    @rooms=Room.where(house_id: @house.id)
   end
 
   def new
@@ -58,7 +57,6 @@ class HousesController < ApplicationController
   end
   
   def room
-     @rooms=Room.where(house_id: @house.id)
   end
  
 
@@ -81,6 +79,7 @@ class HousesController < ApplicationController
 
   def house
    @house = House.find(params[:id])
+     @rooms=Room.where(house_id: @house.id)
   end
 
 

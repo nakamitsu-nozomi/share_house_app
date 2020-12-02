@@ -13,10 +13,6 @@
       <td><%= form.file_field :house_image,accept: "image/png,image/jpeg,image/gif" %></td>
     </tr>
     <tr>
-      <th scope="row"><%= form.label :house_rent, "家賃" %></th>
-      <td><%= form.text_field :house_rent, placeholder:"例：30000" %>円</td>
-    </tr>
-    <tr>
       <th scope="row"><%= form.label :service_fee, "共益費" %></th>
       <td><%= form.text_field :service_fee, placeholder:"例：10000" %>円</td>
     </tr>
@@ -117,7 +113,6 @@
     <tr>
       <th scope="row"><%= i.label :rent, "家賃" %></th>
       <td ><%= i.text_field :rent,style: "width:200px;" ,placeholder:"例：30000" %>円</td>
-
     </tr>
     <tr>
       <th scope="row">お部屋タイプ</th>

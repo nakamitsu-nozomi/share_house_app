@@ -23,7 +23,9 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-6 ">
-        <h5> <%= @house.house_rent %>円<small>/管理費・共益費：<%= @house.service_fee %>円</small></h5>
+        <h5><%= rent(@rooms)%>円
+          <small>/管理費・共益費：<%= @house.service_fee %>円</small>
+        </h5>
         <h6> <%= @house.station %>駅,徒歩<%= @house.access%>分</h6>
       </div>
       <div class="col-6 text-right">
