@@ -59,5 +59,6 @@ class CommentsController < ApplicationController
 
   def set_house
     @house = House.find(params[:house_id])
+    @rooms=Room.where(house_id: @house.id)
   end
 end
