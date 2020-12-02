@@ -2,7 +2,6 @@
   <h4 class="my-3 pl-3">検索結果 <%= @result.count%>件</h4>
 </div>
 <div class="row mt-5 mx-auto my-0" style="max-width:50%">
-  <p class=" mx-auto"><%= sort_link(@q, :house_rent, '家賃順', default_order: :asc ,class: "col-4 ") %></p>
   <p class="mx-auto"><%= sort_link(@q, :access, '駅からの距離順', default_order: :asc,class: "col-4") %></p>
   <p class="mx-auto"> <%= sort_link(@q, :clips_count, '保存済み順', default_order: :asc,class: "col-4")%></p>
 </div>
