@@ -1,5 +1,13 @@
 <div style="max-width:50% " class="mx-auto">
-  <h4 class="my-3 pl-3">検索結果 <%= @result.count%>件</h4>
+  <% if params[:q].present? && params[:q][:area_name_cont].present? %>
+    <h4 class="my-5 pl-3"><%= params[:q][:area_name_cont] %> の物件 <span class="small"><%= @result.count%>件</span> </h4>
+  <% end %>
+  <% if params[:q].present? && params[:q][:area_id_eq].present? %>
+    <h4 class="my-5 pl-3"><%= @area.name %> の物件 <span class="small"><%= @result.count%>件</span> </h4>
+  <% end %>
+  <% unless  params[:q][:area_name_cont].present? %>
+        <h4 class="my-5 pl-3">全ての物件 <span class="small"><%= @result.count%>件</span> </h4>
+  <% end %>
 </div>
 <div class="row mt-5 mx-auto my-0" style="max-width:50%">
   <p class="mx-auto"><%= sort_link(@q, :access, '駅からの距離順', default_order: :asc,class: "col-4") %></p>

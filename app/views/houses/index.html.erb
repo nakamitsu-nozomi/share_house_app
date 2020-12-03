@@ -1,6 +1,11 @@
-<% if @houses.count==0 %>
+<% if @houses.blank? %>
   <div style="height: 450px">
-    <p class="text-center my-5">検索に該当する物件は登録されていません。</p>
+    <% if params[:q].present? && params[:q][:area_name_cont].present? %>
+      <p class="text-center my-5"><%= params[:q][:area_name_cont] %>に該当する物件は登録されていません。</p>
+    <% end %>
+    <% if params[:q].present? && params[:q][:area_id_eq].present? %>
+      <p class="text-center my-5"><%= @area.name %>に該当する物件は登録されていません。</p>
+    <% end %>
   </div>
 <% elsif %>
   <%= render 'sort' %>
