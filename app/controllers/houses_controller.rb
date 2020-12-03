@@ -10,6 +10,9 @@ class HousesController < ApplicationController
     @houses= @q.result(distinct: true).page(params[:page]).per(PER_PAGE)
     @result=@q.result(distinct: true)
     @areas=Area.all
+    if params[:q][:area_id_eq]
+      @area=Area.find(params[:q][:area_id_eq])
+    end
   end
 
   def show
