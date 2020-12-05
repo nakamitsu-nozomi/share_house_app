@@ -10,14 +10,14 @@ class House < ApplicationRecord
   validates :convenience, presence: true
   validates :area_id,presence: true
   validates :address, presence: true
-  validates :kitchen, presence: true,numericality: { only_integer: true,greater_than: -1, less_than: 20 }
-  validates :kitchen, presence: true,numericality: { only_integer: true,greater_than: -1, less_than: 20 }  
-  validates :refrigerator, presence: true,numericality: { only_integer: true,greater_than: -1, less_than: 20 }
-  validates :laundry, presence: true,numericality: { only_integer: true,greater_than: -1, less_than: 20 }
-  validates :dryer, presence: true,numericality: { only_integer: true,greater_than: -1, less_than: 20 }
-  validates :toilet, presence: true,numericality: { only_integer: true,greater_than: -1, less_than: 20 }
-  validates :shower, presence: true,numericality: { only_integer: true,greater_than: -1, less_than: 20 }
-  validates :bathroom, presence: true,numericality: { only_integer: true,greater_than: -1, less_than: 20 }
+  validates :kitchen, presence: true,numericality: { only_integer: true,greater_than: -1, less_than: 50 }
+  validates :kitchen, presence: true,numericality: { only_integer: true,greater_than: -1, less_than: 50 }  
+  validates :refrigerator, presence: true,numericality: { only_integer: true,greater_than: -1, less_than: 50 }
+  validates :laundry, presence: true,numericality: { only_integer: true,greater_than: -1, less_than: 50 }
+  validates :dryer, presence: true,numericality: { only_integer: true,greater_than: -1, less_than: 50 }
+  validates :toilet, presence: true,numericality: { only_integer: true,greater_than: -1, less_than: 50 }
+  validates :shower, presence: true,numericality: { only_integer: true,greater_than: -1, less_than: 50 }
+  validates :bathroom, presence: true,numericality: { only_integer: true,greater_than: -1, less_than: 50 }
 
 
 
