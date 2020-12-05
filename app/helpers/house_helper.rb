@@ -1,10 +1,11 @@
 module HouseHelper
   def rent(rooms)
-    if rooms
+
       array=[]
       rooms.each do |room|
       array<< room.rent 
       end 
+      unless array.blank?
       min= array[0]
       array.length.times { |i|
       if min > array[i]
@@ -23,7 +24,7 @@ module HouseHelper
         "#{min} 〜#{max}"
       end
     else
-      "ー"
+      "--"
     end  
   end
 
