@@ -11,7 +11,7 @@
             <img src="/assets/noimage.png" class="col-6 img-responsive house_image"  >
           <% end %>
           <div class="col-6 ">
-            <p class="card-text my-1">賃料<%= rent(house.rooms)%> 円</p>
+            <p class="card-text my-1">賃料 <%= rent(house.rooms)%> 円</p>
             <p class="card-text my-1">アクセス <%= house.station %>駅 / 徒歩<%= house.access %>分</p>
             <%= render partial: 'houses/star', locals: { house: house} %>
             <p id="housecount-<%= house.id %>" >
