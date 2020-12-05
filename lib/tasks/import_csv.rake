@@ -8,7 +8,7 @@ namespace :import_csv do
   end
   desc "部屋のCSVデータをインポートするタスク"
   task room: :environment do
-    list=Import.csv_data(path: "db/csv_data/room_test.csv")
+    list=Import.csv_data(path: "db/csv_data/room_samples.csv")
     Room.create!(list)
     puts "部屋の初期データを投入しました。"
   end
