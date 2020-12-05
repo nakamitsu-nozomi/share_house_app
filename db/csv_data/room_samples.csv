@@ -56,10 +56,10 @@ rent,house_id,room_num,size,room_type,vacancy
 64000,72,200,11.59,private_room,vacancy
 50000,73,202B,12,room_share,vacancy
 68000,74,204,9.0,private_room,vacancy
-,75,301a,9.9,domitory,no_vacancy
-,75,301b,9.9,domitory,no_vacancy
-,75,301c,11.8,domitory,no_vacancy
-,75,301d,11.8,domitory,no_vacancy
+31800,75,301a,9.9,domitory,no_vacancy
+31800,75,301b,9.9,domitory,no_vacancy
+31800,75,301c,11.8,domitory,no_vacancy
+31800,75,301d,11.8,domitory,no_vacancy
 58000,82,102,10.8,private_room,vacancy
 45000,87,202,10.1,private_room,vacancy
 84000,71,301,8.88,private_room,vacancy
