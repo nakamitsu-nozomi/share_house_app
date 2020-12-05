@@ -45,31 +45,31 @@
       <td>
         <div>
           <%= form.label :kitchen, "キッチン" %>
-          <%= form.number_field :kitchen,:value => 0,min:"0",max:"20" %>
+          <%= form.number_field :kitchen,min:"0",max:"20" %>台
         </div>
         <div>
           <%= form.label :refrigerator, "冷蔵庫" %>
-          <%= form.number_field :refrigerator,:value => 0,min:"0",max:"20"  %>
+          <%= form.number_field :refrigerator,min:"0",max:"20"  %>台
         </div>
         <div>
           <%= form.label :laundry, "洗濯機" %>
-          <%= form.number_field :laundry,:value => 0,min:"0",max:"20"  %>
+          <%= form.number_field :laundry,min:"0",max:"20"  %>台
         </div>
         <div>
           <%= form.label :dryer, "乾燥機" %>
-          <%= form.number_field :dryer,:value => 0,min:"0",max:"20"  %>
+          <%= form.number_field :dryer,min:"0",max:"20"  %>台
         </div>
         <div>
           <%= form.label :toilet, "トイレ" %>
-          <%= form.number_field :toilet,:value => 0,min:"0",max:"20"  %>
+          <%= form.number_field :toilet,min:"0",max:"20"  %>台
         </div>
           <div>
           <%= form.label :shower, "シャワー" %>
-          <%= form.number_field :shower,:value => 0,min:"0",max:"20" %>
+          <%= form.number_field :shower,min:"0",max:"20" %>台
         </div>
         <div>
           <%= form.label :bathroom, "浴室" %>
-          <%= form.number_field :bathroom,:value => 0,min:"0",max:"20" %>
+          <%= form.number_field :bathroom,min:"0",max:"20" %>台
         </div>
         <div class="mt-3">
           <%= collection_check_boxes(:house, :facility_ids, Facility.all, :id, :name) do |b| %>
