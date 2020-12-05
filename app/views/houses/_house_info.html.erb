@@ -13,9 +13,9 @@
       <i class="fas fa-bookmark"></i>
       <span id="housecount-<%= @house.id %>">
         <% if @house.cliped_by(current_user) %>
-          <%= render 'houses/clips_count',house: @house %>件
+          <%= render 'houses/clips_count',house: @house %>
         <% else %>
-          <%= render 'houses/not_clip_count',house: @house %>件
+          <%= render 'houses/not_clip_count',house: @house %>
         <% end %>
       </span>
   </h5>
