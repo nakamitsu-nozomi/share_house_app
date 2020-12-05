@@ -16,7 +16,7 @@
             <%= render partial: 'houses/star', locals: { house: house} %>
             <p id="housecount-<%= house.id %>" >
               <i class="fas fa-bookmark"></i>
-              <%= render 'houses/clips_count',house: house %>件
+              <%= render 'houses/clips_count',house: house %>
               <i class="fas fa-comment-dots"></i>
               <%= house.comments.count%>件</p>
           </p>
