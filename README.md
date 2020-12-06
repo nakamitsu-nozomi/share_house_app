@@ -46,10 +46,10 @@ $ rails db:seed
 ```
 ## 設計資料
 ### ワイヤーフレーム
-- [ワイヤーフレーム](https://docs.google.com/presentation/d/1XQpkAE1jQor8y4Mr4XF7OBVwdk2u5OOJ/edit#slide=id.p1)
+- [ワイヤーフレーム](https://docs.google.com/presentation/d/e/2PACX-1vT_lBbLsrMqpv9SP1rTxUvZdFfE1SE6p9o9CukJoIlDqscCPQ-ujpDFPLk8e8eSBQ/pub?start=false&loop=false&delayms=3000)
 ### DB設計
-- [テーブル設計](https://docs.google.com/spreadsheets/d/1HaHp0UCKprsUVwrimoGj29qiQQ6u35Cb/edit#gid=1202876390)
-- [ER図](https://app.diagrams.net/#G1tUVdbjg_RfHk-7kIsfbCQhsMx-Ep4Cgl)
+- [テーブル設計](https://docs.google.com/spreadsheets/d/e/2PACX-1vTCacMTAT-RYPIAOvUf-YDRqKEMzctr6HnJMvad6qyuywFEgXoeTDE8gse32h7NBA/pubhtml)
+- [ER図](https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1#G1tUVdbjg_RfHk-7kIsfbCQhsMx-Ep4Cgl)
 
 
 ## その他
