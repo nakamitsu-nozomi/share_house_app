@@ -315,9 +315,7 @@ div.field_with_errors{
 
 
 }
-.bars{
-  display: flex;
-}
+
 
 .graph .bar span {
   position: absolute;
@@ -325,8 +323,9 @@ div.field_with_errors{
 }
 .review_item{
   display: inline-block;
-  width: 7em;
+  width: 6em;
   text-align: left;
+
 }
 .review-container{
 text-align: center;
