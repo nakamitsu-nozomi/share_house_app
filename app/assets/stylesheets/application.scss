@@ -271,7 +271,7 @@ div.field_with_errors{
 
 .nav-item li{
 
- display: inline-block;
+//  display: inline-block;
 }
 .navbar-nav{
   margin-left: auto;
@@ -306,14 +306,16 @@ div.field_with_errors{
 .graph .bar {
   display: block;
   position: relative;
-  background: black;
+  background: #FFA500;
   text-align: center;
   color: #f0ffff;
   height: 5px;
   line-height: 2em;
   border-radius: 10px;
 
+
 }
+
 
 .graph .bar span {
   position: absolute;
@@ -321,8 +323,9 @@ div.field_with_errors{
 }
 .review_item{
   display: inline-block;
-  width: 7em;
+  width: 6em;
   text-align: left;
+
 }
 .review-container{
 text-align: center;
@@ -549,13 +552,6 @@ margin-bottom: 50px;
   #map { height: 400px;
         margin:5px,auto;
          }
-
-
-
-
-
-
-
 @media screen and (max-width: 959px) {
   /* 959px以下に適用されるCSS（タブレット用） */
   .wrapper {

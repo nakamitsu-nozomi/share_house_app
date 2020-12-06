@@ -1,6 +1,6 @@
 <div class="review_content ">
-  <h5 class="review_item"><%= heading%> <%= column_average%></h5>
-  <div class="graph review_item  "> 
+  <h5 class="review_item ml-5"><%= heading%></h5>
+  <div class="graph review_item "> 
       <% if column_average == 5 %>
       <span class="bar" style="width: 100%;"></span>
       <% elsif column_average > 4 %>
@@ -15,4 +15,5 @@
         <span class="bar" style="width: 0%;"></span>
       <% end %>
   </div>
+  <span class="ml-3"><%= column_average%></span>
 </div>
