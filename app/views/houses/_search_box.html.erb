@@ -1,7 +1,7 @@
-<h3>エリアから探す</h3>
-<div class="card mb-5" style="width:80%;">
+<h3 class="ml-3 mb-4">エリアから探す</h3>
+<div class="card mb-5 ml-3" style="width:80%;">
   <div class="card-body">
-    <h3 class="card-title">東京 <span class="h5"><%=@houses.count %>件</span> </h3>
+    <h3 class="card-title ml-2">東京 <span class="h5"><%=@houses.count %>件</span> </h3>
     <p class="card-text">
       <% @areas.zip(@houses) do|area,house|%>
       <%= link_to "#{area.name}", houses_path(q: { area_id_eq: area.id}), class: 'btn  btn-outline-secondary m-1'%>
