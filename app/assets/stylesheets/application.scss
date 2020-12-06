@@ -25,9 +25,25 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 
 body{
   height: 100%;
-   margin: 0px;
+   margin: 0;
    padding: 0px;
    position: relative;
+}
+
+.wrapper {
+  min-height: 100vh;
+  position: relative;
+  /*←相対位置*/
+  padding-bottom: 120px;
+  /*←footerの高さ*/
+  box-sizing: border-box;
+  /*←全て含めてmin-height:100vhに*/
+       margin-left:auto;
+       /* 左側マージンを自動的に空ける */
+       margin-right:auto;
+       /* 右側マージンを自動的に空ける */
+       width:1024px;
+       /* 幅を決定する */
 }
 
 // リンク色消す
@@ -125,15 +141,7 @@ table {
 
 }
 
-.wrapper {
-  min-height: 100vh;
-  position: relative;
-  /*←相対位置*/
-  padding-bottom: 120px;
-  /*←footerの高さ*/
-  box-sizing: border-box;
-  /*←全て含めてmin-height:100vhに*/
-}
+
 
 footer {
   width: 100%;
@@ -539,6 +547,19 @@ margin-bottom: 50px;
 
 // 地図ページ
   #map { height: 400px;
-         width: 50%;
         margin:5px,auto;
          }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
