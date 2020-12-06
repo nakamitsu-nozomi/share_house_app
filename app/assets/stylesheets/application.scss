@@ -25,9 +25,25 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 
 body{
   height: 100%;
-   margin: 0px;
+   margin: 0;
    padding: 0px;
    position: relative;
+}
+
+.wrapper {
+  min-height: 100vh;
+  position: relative;
+  /*←相対位置*/
+  padding-bottom: 120px;
+  /*←footerの高さ*/
+  box-sizing: border-box;
+  /*←全て含めてmin-height:100vhに*/
+  margin-left:auto;
+  // /* 左側マージンを自動的に空ける */
+  margin-right:auto;
+  // /* 右側マージンを自動的に空ける */
+  // width:1024px;
+  // /* 幅を決定する */
 }
 
 // リンク色消す
@@ -125,15 +141,7 @@ table {
 
 }
 
-.wrapper {
-  min-height: 100vh;
-  position: relative;
-  /*←相対位置*/
-  padding-bottom: 120px;
-  /*←footerの高さ*/
-  box-sizing: border-box;
-  /*←全て含めてmin-height:100vhに*/
-}
+
 
 footer {
   width: 100%;
@@ -175,9 +183,9 @@ div.field_with_errors{
 
 // topページ
 .jumbotron-extend {
-  height: 80vh;
+  height: 60vh;
   min-height: 350px;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   background-image: image-url("top_image.jpg") ;
   background-repeat: no-repeat;
   background-position: center;
@@ -539,6 +547,71 @@ margin-bottom: 50px;
 
 // 地図ページ
   #map { height: 400px;
-         width: 50%;
         margin:5px,auto;
          }
+
+
+
+
+
+
+
+@media screen and (max-width: 959px) {
+  /* 959px以下に適用されるCSS（タブレット用） */
+  .wrapper {
+    min-height: 100vh;
+    position: relative;
+    /*←相対位置*/
+    padding-bottom: 120px;
+    /*←footerの高さ*/
+    box-sizing: border-box;
+    /*←全て含めてmin-height:100vhに*/
+    margin-left: auto;
+    // /* 左側マージンを自動的に空ける */
+    margin-right: auto;
+    // /* 右側マージンを自動的に空ける */
+    width:1024px;
+    // /* 幅を決定する */
+  }
+
+
+}
+@media screen and (max-width: 480px) {
+
+  /* 959px以下に適用されるCSS（タブレット用） */
+  .wrapper {
+    min-height: 100vh;
+    position: relative;
+    /*←相対位置*/
+    padding-bottom: 120px;
+    /*←footerの高さ*/
+    box-sizing: border-box;
+    /*←全て含めてmin-height:100vhに*/
+    margin-left: auto;
+    // /* 左側マージンを自動的に空ける */
+    margin-right: auto;
+    // /* 右側マージンを自動的に空ける */
+    width: 1024px;
+    // /* 幅を決定する */
+  }
+
+  // topページ
+  .jumbotron-extend {
+    height: 60vh;
+    max-height: 50px;
+    margin-bottom: 40px;
+    background-image: image-url("top_image.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .form {
+    height: 50px;
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #2c2c2f;
+    background: #ffffff;
+  }
+
+}

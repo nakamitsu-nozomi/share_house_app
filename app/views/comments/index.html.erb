@@ -14,7 +14,7 @@
   <%= render partial: 'review', locals: { heading: "人間関係",column_average: @comments.average(:com_review).round(1)}%>
 </div>
   <% @comments.each do |comment|%>
-    <div class="card mx-auto card-columns card-dec m-3" style="max-width: 50%;" >
+    <div class="card mx-auto card-columns card-dec m-3" style="max-width: 70%;" >
       <ul class="list-group list-group-flush pl-5 pr-5">
         <li class=" list-group-item">
           <div class="row" >
