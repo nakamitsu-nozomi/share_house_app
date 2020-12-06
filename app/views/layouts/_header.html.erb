@@ -7,7 +7,7 @@
       <li class="nav-item text-center">
         <%= search_form_for(@q,url: houses_path) do |f|%>
           <div class="input-group my-3 d-flex align-items-center mr-6"  >
-            <%= f.label "エリアで検索",class:"d-flex align-items-center mr-2" %> 
+            <%= f.label "エリアで検索",class:"d-flex align-items-center mr-2 my-2" %> 
             <%= f.search_field :area_name_cont, class:"form-control col-12 ",placeholder:"エリア[例：渋谷]" %>
             <button type="submit" class="btn search_btn " >
               <i class="fas fa-search"></i> 
@@ -40,7 +40,7 @@
       <li class="nav-item text-center">
         <%= search_form_for(@q,url: houses_path) do |f|%>
           <div class="input-group my-3 d-flex align-items-center mr-6"  >
-            <%= f.label "エリアで検索",class:"d-flex align-items-center mr-2" %> 
+            <%= f.label "エリアで検索",class:"d-flex align-items-center mr-2 my-2" %> 
             <%= f.search_field :area_name_cont, class:"form-control col-12 ",placeholder:"エリア[例：渋谷]" %>
             <button type="submit" class="btn search_btn " >
               <i class="fas fa-search"></i> 
