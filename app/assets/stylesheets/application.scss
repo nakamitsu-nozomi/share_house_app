@@ -306,13 +306,17 @@ div.field_with_errors{
 .graph .bar {
   display: block;
   position: relative;
-  background: black;
+  background: #FFA500;
   text-align: center;
   color: #f0ffff;
   height: 5px;
   line-height: 2em;
   border-radius: 10px;
 
+
+}
+.bars{
+  display: flex;
 }
 
 .graph .bar span {
