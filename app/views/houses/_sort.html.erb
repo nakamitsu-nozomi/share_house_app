@@ -9,9 +9,9 @@
     <h4 class="my-5 pl-3">駅近 の物件 <span class="small"><%= @result.count%>件</span> </h4>
   <% elsif params[:q].present? && params[:q][:rooms_size_gteq].present? %>
     <h4 class="my-5 pl-3">８畳以上のお部屋 の物件 <span class="small"><%= @result.count%>件</span> </h4>
-  <% elsif params[:q].present? && params[:q][:rooms_size_gteq].present? %>
+  <% elsif params[:q].present? && params[:q][:rooms_type_eq].present? %>
     <h4 class="my-5 pl-3">個室 の物件 <span class="small"><%= @result.count%>件</span> </h4>
-  <% elsif params[:q].present? && params[:q][:rooms_size_gteq].present? %>
+  <% elsif params[:q].present? && params[:q][:rooms_rent_lteq].present? %>
     <h4 class="my-5 pl-3">家賃５万円以下 の物件 <span class="small"><%= @result.count%>件</span> </h4>
   <% elsif params[:q].present?&& params[:q][:content_cont_any].present?  && params[:q][:content_cont_any].include?('オートロック')%>
     <h4 class="my-5 pl-3">プライバシー充実 の物件 <span class="small"><%= @result.count%>件</span> </h4>
@@ -23,5 +23,5 @@
 </div>
 <div class="row mt-5 mx-auto my-0" style="max-width:50%">
   <p class="mx-auto"><%= sort_link(@q, :access, '駅からの距離順', default_order: :asc,class: "col-4") %></p>
-  <p class="mx-auto"> <%= sort_link(@q, :clips_count, '保存済み順', default_order: :asc,class: "col-4")%></p>
+  <p class="mx-auto"> <%= sort_link(@q, :clips_count, '保存された数順', default_order: :asc,class: "col-4")%></p>
 </div>
