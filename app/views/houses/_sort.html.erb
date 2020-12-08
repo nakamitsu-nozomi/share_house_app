@@ -3,6 +3,20 @@
     <h4 class="my-5 pl-3"><%= params[:q][:area_name_cont] %> の物件 <span class="small"><%= @result.count%>件</span> </h4>
   <% elsif params[:q].present? && params[:q][:area_id_eq].present? %>
     <h4 class="my-5 pl-3"><%= @area.name %> の物件 <span class="small"><%= @result.count%>件</span> </h4>
+  <% elsif params[:q].present? && params[:q][:house_size_gteq].present? %>
+    <h4 class="my-5 pl-3">大人数 の物件 <span class="small"><%= @result.count%>件</span> </h4>
+  <% elsif params[:q].present? && params[:q][:access_lteq].present? %>
+    <h4 class="my-5 pl-3">駅近 の物件 <span class="small"><%= @result.count%>件</span> </h4>
+  <% elsif params[:q].present? && params[:q][:rooms_size_gteq].present? %>
+    <h4 class="my-5 pl-3">８畳以上のお部屋 の物件 <span class="small"><%= @result.count%>件</span> </h4>
+  <% elsif params[:q].present? && params[:q][:rooms_size_gteq].present? %>
+    <h4 class="my-5 pl-3">個室 の物件 <span class="small"><%= @result.count%>件</span> </h4>
+  <% elsif params[:q].present? && params[:q][:rooms_size_gteq].present? %>
+    <h4 class="my-5 pl-3">家賃５万円以下 の物件 <span class="small"><%= @result.count%>件</span> </h4>
+  <% elsif params[:q].present?&& params[:q][:content_cont_any].present?  && params[:q][:content_cont_any].include?('オートロック')%>
+    <h4 class="my-5 pl-3">プライバシー充実 の物件 <span class="small"><%= @result.count%>件</span> </h4>
+  <% elsif params[:q].present? && params[:q][:content_cont_any].present?&& params[:q][:content_cont_any].include?('イベント') %>
+    <h4 class="my-5 pl-3">コミュニティ重視 の物件 <span class="small"><%= @result.count%>件</span> </h4>
   <% else %>
   <h4 class="my-5 pl-3">全ての物件 <span class="small"><%= @result.count%>件</span> </h4>
   <% end %>
