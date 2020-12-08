@@ -9,7 +9,7 @@
     <h4 class="my-5 pl-3">駅近 の物件 <span class="small"><%= @result.count%>件</span> </h4>
   <% elsif params[:q].present? && params[:q][:rooms_size_gteq].present? %>
     <h4 class="my-5 pl-3">８畳以上のお部屋 の物件 <span class="small"><%= @result.count%>件</span> </h4>
-  <% elsif params[:q].present? && params[:q][:rooms_type_eq].present? %>
+  <% elsif params[:q].present? && params[:q][:rooms_room_type_eq].present? %>
     <h4 class="my-5 pl-3">個室 の物件 <span class="small"><%= @result.count%>件</span> </h4>
   <% elsif params[:q].present? && params[:q][:rooms_rent_lteq].present? %>
     <h4 class="my-5 pl-3">家賃５万円以下 の物件 <span class="small"><%= @result.count%>件</span> </h4>
