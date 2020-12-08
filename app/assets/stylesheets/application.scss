@@ -552,6 +552,43 @@ margin-bottom: 50px;
   #map { height: 400px;
         margin:5px,auto;
          }
+// 検索画像
+.commitment_search {
+    position: relative;
+      p {
+        position: absolute;
+        color:#FFF;
+        font-weight: bold;
+        font-size: 18px;
+        top: 75%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        margin:0;
+        padding:0;
+        width:100%;
+        text-align: center;
+      }
+      img {
+        width: 180px;
+        height: 180px;
+        text-align: center;
+      }
+      &:hover {
+        opacity: 0.6;
+        p{
+          color:black;
+          opacity: 1;
+        }
+      }
+  }
+  .search_item{
+    margin-bottom: 60px;
+
+  }
+
+
 @media screen and (max-width: 959px) {
   /* 959px以下に適用されるCSS（タブレット用） */
   .wrapper {
@@ -569,7 +606,6 @@ margin-bottom: 50px;
     width:1024px;
     // /* 幅を決定する */
   }
-
 
 }
 @media screen and (max-width: 480px) {
