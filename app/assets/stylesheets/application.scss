@@ -85,6 +85,14 @@ body{
 table {
   margin: 2px auto;
 }
+.show-table{
+  td{
+width:300px;
+  }
+  th{
+width:60px;
+  }
+}
 .not_clip_btn{
  border-color:#0099ff;
  color:#0099ff;
@@ -113,6 +121,7 @@ table {
   }
 }
 
+
 .btn-experience {
   display: inline-block;
   padding: 7px 20px;
@@ -133,6 +142,7 @@ table {
 }
 .facility-card{
    margin: 2px auto;
+   
 }
 
 
@@ -140,6 +150,7 @@ table {
    height: 300px;
 
 }
+
 
 
 
@@ -216,6 +227,9 @@ div.field_with_errors{
   color: #2c2c2f;
   background: #ffffff;
   opacity: 0.7;
+  p{
+    margin-left: 40px;
+  }
 }
 
 

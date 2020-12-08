@@ -1,4 +1,4 @@
-<h3 class="ml-3 mb-4">エリアから探す</h3>
+<h3 class="ml-3 mb-4" id="area_search">エリアから探す</h3>
 <div class="card  ml-3 search_item" style="width:80%;">
   <div class="card-body">
     <h3 class="card-title ml-2">東京 <span class="h5"><%=@houses.count %>件</span> </h3>
@@ -10,7 +10,7 @@
   </div>
 </div>
 
-<h3 class="ml-3 mb-0 mt-5 ">こだわり条件から探す</h3>
+<h3 class="ml-3 mb-0 mt-5 " id="commitment_search">こだわり条件から探す</h3>
 <div class="search_item" style="width:80%; ">
   <div class="card-body ml-2  ">
     <%= search_form_for @q do |f|%>

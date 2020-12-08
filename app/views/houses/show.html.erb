@@ -5,11 +5,11 @@
   <p class="text-center my-5"><img src="/assets/noimage.png" class=" no-image",style="max-width: 80%; height:300px;"  ></p>
 <% end %>
 
-<table class="table my-5" style="max-width: 70%;">
-  <tr><th class="bg-light text-center " >エリア</th><td><%= @house.area.name%></td></tr>
-  <tr><th class="bg-light text-center">世帯数</th><td><%= @house.house_size %>世帯</td></tr>
-  <tr><th class="bg-light text-center">物件投稿者</th><td><%= @house.user.name%></td></tr>
-  <tr><th class="bg-light text-center">その他情報</th><td><%= @house.content%></td></tr>
+<table class="table my-5 show-table" style="max-width: 70%;">
+  <tr><th class="bg-light pl-3" >エリア</th><td><%= @house.area.name%></td></tr>
+  <tr><th class="bg-light pl-3">世帯数</th><td><%= @house.house_size %>世帯</td></tr>
+  <tr><th class="bg-light pl-3">物件投稿者</th><td><%= @house.user.name%></td></tr>
+  <tr><th class="bg-light pl-3">その他情報</th><td><%= @house.content%></td></tr>
 </table>
 <%# 共用設備の表示 %>
 
