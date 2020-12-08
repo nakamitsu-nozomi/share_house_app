@@ -1,5 +1,5 @@
 <h3 class="ml-3 mb-4">エリアから探す</h3>
-<div class="card mb-5 ml-3" style="width:80%;">
+<div class="card  ml-3 search_item" style="width:80%;">
   <div class="card-body">
     <h3 class="card-title ml-2">東京 <span class="h5"><%=@houses.count %>件</span> </h3>
     <p class="card-text">
@@ -10,25 +10,19 @@
   </div>
 </div>
 
-<h3 class="ml-3 mb-4">こだわり条件から探す</h3>
-<div class="card mb-5 ml-3" style="width:80%;">
-  <div class="card-body">
- 
-<%= search_form_for @q do |f|%>
-  <%= link_to "大人数", houses_path(q: { house_size_gteq: 20}), class: 'btn  btn-outline-secondary m-1'%>
-  <%= link_to "駅近", houses_path(q: { access_lteq: 5}), class: 'btn  btn-outline-secondary m-1'%>
-  <%= link_to "８畳以上のお部屋", houses_path(q: { rooms_size_gteq: 12.96}), class: 'btn  btn-outline-secondary m-1'%>
-  <%= link_to "個室", houses_path(q: {rooms_room_type_eq: 1}), class: 'btn  btn-outline-secondary m-1'%>
-  <%= link_to "家賃５万円以下", houses_path(q: { rooms_rent_lteq: 50000}), class: 'btn  btn-outline-secondary m-1'%>
-  <%= link_to "プライバシー充実", houses_path(q: { content_cont_any: ["オートロック", "鍵","ホームセキュリティ"]}), class: 'btn  btn-outline-secondary m-1'%>
-  <%= link_to "コミュニティ重視", houses_path(q: { content_cont_any: ["イベント", "パーティー"]}), class: 'btn  btn-outline-secondary m-1'%>
-<% end %>
-  
-
-
-
-
-
-
+<h3 class="ml-3 mb-0 mt-5 ">こだわり条件から探す</h3>
+<div class="search_item" style="width:80%; ">
+  <div class="card-body ml-2  ">
+    <%= search_form_for @q do |f|%>
+    <div class="row " >
+      <%= render partial: "houses/commitment_search", locals: { heading: "大人数",path: houses_path(q: { house_size_gteq: 20}),image:"/assets/house_size.jpg"},class:"col-2 "%>
+      <%= render partial: "houses/commitment_search", locals: { heading: "駅近",path:  houses_path(q: { access_lteq: 5}),image:"/assets/station.jpg"},class:"col-2"%>
+      <%= render partial: "houses/commitment_search", locals: { heading: "８畳以上のお部屋",path: houses_path(q: { rooms_size_gteq: 12.96}),image:"/assets/room.jpg"},class:"col-2"%>
+      <%= render partial: "houses/commitment_search", locals: { heading: "個室",path: houses_path(q: {rooms_room_type_eq: 1}),image:"/assets/private.jpg"},class:"col-2"%>
+      <%= render partial: "houses/commitment_search", locals: { heading: "家賃５万円以下",path:houses_path(q: { rooms_rent_lteq: 50000}),image:"/assets/money.jpg"},class:"col-2"%>
+      <%= render partial: "houses/commitment_search", locals: { heading: "プライバシー充実",path: houses_path(q: { content_cont_any: ["オートロック", "鍵","ホームセキュリティ"]}),image:"/assets/key.jpg"},class:"col-2"%>
+      <%= render partial: "houses/commitment_search", locals: { heading: "コミュニティ重視",path:houses_path(q: { content_cont_any: ["イベント", "パーティー"]}),image:"/assets/comunity.jpg"},class:"col-2"%>
+    </div>
+    <% end %>
   </div>
 </div>
