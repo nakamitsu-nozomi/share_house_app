@@ -2,6 +2,7 @@
 <br>
 都内のシェアハウス物件の情報を掲載し、口コミを誰でも簡単に投稿できるサイトです。
 <br>
+<br>
 <img width="1439" alt="スクリーンショット 2020-12-11 22 48 45" src="https://user-images.githubusercontent.com/67478234/102290079-9a7bc380-3f83-11eb-84f5-a83540c1fdd6.png">
 
 <img width="1440" alt="スクリーンショット 2020-12-16 9 52 55" src="https://user-images.githubusercontent.com/67478234/102290670-d5322b80-3f84-11eb-880a-03da564d3ec6.png">
