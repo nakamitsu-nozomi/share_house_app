@@ -21,7 +21,7 @@
 Ruby on Railsで制作しました。
 
 作成した背景や想いなど、より詳細な情報は下記をご覧ください。  
-[ポートフォリオ解説](https://qiita.com/nozomi_nozomi/items/b2597deae4b246131926)
+[ポートフォリオ解説](https://qiita.com/nozomi_nozomi/items/2135dfb9c61ef2aa8ab8)
 
 ## 機能
 - 口コミ投稿・評価機能：　内覧・入居の両面、5段階で物件の評価を行えます。
