@@ -10,4 +10,7 @@ class Comment < ApplicationRecord
   validates :houserule_review, presence: true,numericality: { only_integer: true,greater_than: 0, less_than: 6 }
   validates :location_review, presence: true,numericality: { only_integer: true,greater_than: 0, less_than: 6 }
   validates :com_review, presence: true,numericality: { only_integer: true,greater_than: 0, less_than: 6 }
+
+  scope :comment, -> (house){ where(house_id:house.id).order(id: "DESC") }
+
 end

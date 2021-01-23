@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :authenticate_user! ,except: :index
   before_action :set_house
   def index
-    @comments=Comment.where(house_id:@house.id ).order(id: "DESC")
+    @comments=Comment.comment(@house)
     @comment = Comment.new
   end
 
