@@ -1,3 +1,4 @@
 class AreasController < ApplicationController
   
+  
 end
